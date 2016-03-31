@@ -52,15 +52,6 @@
         </table>
         
         <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" />
-        <% 
-                for(int j = 0; j < c.customers.size(); j++)
-                {
-                if(request.getParameter("Search").equals(c.customers.get(j)))
-                        { %>
-                            
-                        
-                       <% }
-                }
-        %> 
+               
     </body>
 </html>
