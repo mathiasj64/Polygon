@@ -14,7 +14,7 @@
     <body>
         <h1>Click a button!</h1>
         
-        <form>
+        <form action="buildingspage.jsp">
         <input type="submit" value="Buildings" name="building" />
         </form>
         
