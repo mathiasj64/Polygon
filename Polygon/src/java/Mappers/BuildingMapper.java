@@ -9,6 +9,7 @@ import Model.Connector;
 import Objects.Building;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,8 +17,9 @@ import java.sql.SQLException;
  */
 public class BuildingMapper
 {
+    public ArrayList<Building> building = new ArrayList<>();
 
-    public Building getBuildings()
+    public ArrayList<Building> getBuildings()
     {
         int BuildingID;
         int CustomerID;
@@ -44,7 +46,7 @@ public class BuildingMapper
                 SizeOfBuilding = Integer.parseInt(res.getString(5));
                 AdditionalInformation = res.getString(6);
 
-                return new Building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation);
+                building.add(new Building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation));
             }
 
         } catch (SQLException ex)
@@ -52,8 +54,6 @@ public class BuildingMapper
             ex.printStackTrace();
         }
 
-        return null;
+        return building;
     }
 }
-
-
