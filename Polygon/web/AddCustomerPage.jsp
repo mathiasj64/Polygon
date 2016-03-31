@@ -15,21 +15,24 @@
         <h1>Insert Customer Information:</h1>
 
         <table style="width: 50%">
-        <tr>
-            <td> <input type="text" name="Name" value="Insert Name" /> </td>
-        </tr>
+            <tr>
+                <td> <input type="text" name="Name" value="Insert Name" /> </td>
+            </tr>
 
-        <tr>
-            <td> <input type="text" name="Email" value="Insert Email" /> </td> 
+            <tr>
+                <td> <input type="text" name="Email" value="Insert Email" /> </td> 
+            </tr>
+
+            <tr>
+                <td> <input type="text" name="Phone Number" value="Insert PhoneNumber" /> </td>
+            </tr>
+
+            <tr>
+                <td> <input type="submit" name="addCustomer" value="Add Customer" /> </td>
+            <form action="CustomerPage.jsp">
+                <td> <input type="submit" value="Go back to customer page" />
+            </form> 
         </tr>
-        
-        <tr>
-            <td> <input type="text" name="Phone Number" value="Insert PhoneNumber" /> </td>
-        </tr>
-        
-        <tr>
-            <td> <input type="submit" name="addCustomer" value="Add Customer" /> </td>
-        </tr>
-</table>
+    </table>
 </body>
 </html>

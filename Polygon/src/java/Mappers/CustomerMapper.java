@@ -51,4 +51,20 @@ public class CustomerMapper
 
         return customers;
     }
+    
+    public void addCustomer(int cID, String cName, String cEmail, int pNum)
+    {
+        try
+        {
+        Connector c = new Connector(); 
+        
+        String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerID`, `CustomerName`, `Email`, `PhoneNumber`) VALUES ('" + cID + "', '" + cName + "', '" + cEmail + "', '" + pNum + "');";
+        c.stmt.executeUpdate(query);
+        
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace(); 
+        }
+    }
 }
