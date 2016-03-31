@@ -16,42 +16,41 @@
     <body>
 
         <table border="1" style="width: 100%">
-            
+
             <tr >
-                <td colspan ="4" style="font-family: Arial"> <center> <b> Customers </b> </center> </td>
-            </tr>
-            
-            <tr>
-                <td> Customer ID</td>
-                <td> Name </td>
-                <td> Email </td>
-                <td> Phone Number </td>
-            </tr>
-            
-            <%
-                CustomerMapper c = new CustomerMapper();
-                c.getCustomers();
-                
-                if (c.customers.size() != 0)
-                {
-                    for (int i = 0; i < c.customers.size(); i++)
-                    {
-            %>
-            
-            <tr> 
-                <td> <%= c.customers.get(i).getCustomerID()%> </td>
-                <td> <%= c.customers.get(i).getCustomerName()%> </td>
-                <td> <%= c.customers.get(i).getCustomerEmail()%> </td>
-                <td> <%= c.customers.get(i).getPhoneNumber()%> </td>
-            </tr>  
-            
-            <%
-                    }
-                }
-            %> 
-        </table>
-        
-        <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" />
-               
-    </body>
+                <td colspan ="3" style="font-family: Arial"> <center> <b> Customers </b> </center> </td>
+        <td align="right" > <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" /> </td> 
+    </tr>
+
+    <tr>
+        <td> Customer ID</td>
+        <td> Name </td>
+        <td> Email </td>
+        <td> Phone Number </td>
+    </tr>
+
+    <%
+        CustomerMapper c = new CustomerMapper();
+        c.getCustomers();
+
+        if (c.customers.size() != 0)
+        {
+            for (int i = 0; i < c.customers.size(); i++)
+            {
+    %>
+
+    <tr> 
+        <td> <%= c.customers.get(i).getCustomerID()%> </td>
+        <td> <%= c.customers.get(i).getCustomerName()%> </td>
+        <td> <%= c.customers.get(i).getCustomerEmail()%> </td>
+        <td> <%= c.customers.get(i).getPhoneNumber()%> </td>
+    </tr>  
+
+    
+    <%
+            }
+        }
+     %> 
+</table>
+</body>
 </html>
