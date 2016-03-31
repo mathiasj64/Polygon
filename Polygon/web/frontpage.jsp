@@ -18,7 +18,7 @@
         <input type="submit" value="Buildings" name="building" />
         </form>
         
-        <form>
+        <form action="CustomerPage.jsp">
         <input type="submit" value="Customers" name="customer" />
         </form> 
         
