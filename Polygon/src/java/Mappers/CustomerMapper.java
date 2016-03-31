@@ -36,8 +36,6 @@ public class CustomerMapper
 
             while (res.next())
             {
-                
-
                 customerID = Integer.parseInt(res.getString(1));
                 customerName = res.getString(2);
                 customerEmail = res.getString(3);
