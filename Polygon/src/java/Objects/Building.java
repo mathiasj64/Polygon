@@ -16,6 +16,8 @@ public class Building
     private int CustomerID;
     private String Address;
     private int ParcelNo;
+    private int SizeOfBuilding;
+    private String AdditionalInformation;
 
     public Building(int BuildingID, int CustomerID, String Address, int ParcelNo, int SizeOfBuilding, String AdditionalInformation)
     {
@@ -86,6 +88,5 @@ public class Building
     {
         this.AdditionalInformation = AdditionalInformation;
     }
-    private int SizeOfBuilding;
-    private String AdditionalInformation;
+    
 }
