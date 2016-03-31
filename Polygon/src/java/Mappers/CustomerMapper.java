@@ -9,15 +9,17 @@ import Model.Connector;
 import Objects.Customer;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
- * @author Mathias
+ * @author Mads
  */
 public class CustomerMapper
 {
-
-    public Customer getCustomers()
+    public ArrayList<Customer> customers = new ArrayList<>(); 
+    
+    public ArrayList<Customer> getCustomers()
     {
         int customerID;
         String customerName;
@@ -34,13 +36,12 @@ public class CustomerMapper
 
             while (res.next())
             {
-
                 customerID = Integer.parseInt(res.getString(1));
                 customerName = res.getString(2);
                 customerEmail = res.getString(3);
                 phoneNum = Integer.parseInt(res.getString(4));
 
-                return new Customer(customerID, customerName, customerEmail, phoneNum);
+                customers.add(new Customer(customerID, customerName, customerEmail, phoneNum));
             }
 
         } catch (SQLException ex)
@@ -48,6 +49,6 @@ public class CustomerMapper
             ex.printStackTrace();
         }
 
-        return null;
+        return customers;
     }
 }
