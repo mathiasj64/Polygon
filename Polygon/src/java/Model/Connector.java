@@ -22,7 +22,7 @@ public class Connector
 {
   private final String HOST = "localhost";
   private int PORT = 3306;
-  private final String DATABASE = "football";
+  private final String DATABASE = "polygondatabase";
   private final String USERNAME = "root";
   private final String PASSWORD = "1234";
   private final String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
