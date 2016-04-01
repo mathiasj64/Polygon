@@ -4,6 +4,7 @@
     Author     : Mathias
 --%>
 
+<%@page import="Mappers.ReportMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,42 @@
         <title>Reports</title>
     </head>
     <body>
-        <h1>This is reports page</h1>
+        
+        <table border="1" style="width: 100%">
+            
+            <tr >
+                <td colspan ="4" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
+            </tr>
+            
+            <tr>
+                <td> Building ID</td>
+                <td> Condition Level </td>
+                <td> Building Description </td>
+                <td> Building Function </td>
+            </tr>
+            
+            <%
+                ReportMapper r = new ReportMapper();
+                r.getReports();
+                
+                if (r.reports.size() != 0)
+                {
+                    for (int i = 0; i < r.reports.size(); i++)
+                    {
+            %>
+            
+            <tr> 
+                <td> <%= r.reports.get(i).getBuildingID()%> </td>
+                <td> <%= r.reports.get(i).getConditionLevel()%> </td>
+                <td> <%= r.reports.get(i).getDescriptionOfBuilding()%> </td>
+                <td> <%= r.reports.get(i).getFunctionOfBuilding()%> </td>
+            </tr>  
+            
+            <%
+                    }
+                }
+            %> 
+        </table>
+        
     </body>
 </html>
