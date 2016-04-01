@@ -12,6 +12,6 @@
         <title>Reports</title>
     </head>
     <body>
-        <h1>Reports</h1>
+        <h1>This is reports page</h1>
     </body>
 </html>
