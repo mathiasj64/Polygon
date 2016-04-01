@@ -21,7 +21,7 @@ public class ReportMapper
   
   public ArrayList<Report> reports = new ArrayList<>(); 
   
-  public ArrayList<Report> getReport()
+  public ArrayList<Report> getReports()
   {
     int buildingID;
     int conditionLevel;
