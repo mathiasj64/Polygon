@@ -56,4 +56,19 @@ public class BuildingMapper
 
         return building;
     }
+    
+    public void addBuilding(int BID, int CID, String Address, int PC, int SOB, String AI)
+    {
+        try
+        {
+            Connector c = new Connector();
+            
+            String query = "INSERT INTO polygondatabase.building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('"+BID+"', '"+CID+"', '"+Address+"', '"+PC+"', '"+SOB+"', '"+AI+"')";
+            c.stmt.executeQuery(query);
+        } 
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }
