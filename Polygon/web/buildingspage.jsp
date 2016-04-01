@@ -38,6 +38,7 @@
                     for (int i = 0; i < b.building.size(); i++)
                     {
             %>
+            test123lolkappa
             
             <tr> 
                 <td> <%= b.building.get(i).getBuildingID()%> </td>

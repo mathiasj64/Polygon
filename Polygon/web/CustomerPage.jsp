@@ -51,6 +51,10 @@
             }
         }
      %> 
+
 </table>
+     <form action="AddCustomerPage.jsp">
+     <input type="submit" name ="addcustomer" value="Add Customer" />
+     </form>
 </body>
 </html>
