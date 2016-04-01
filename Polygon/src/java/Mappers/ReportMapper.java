@@ -54,4 +54,24 @@ public class ReportMapper
     }
     return reports;
   }
+  
+  public void addReport(int buildingID, int conditionLevel, String conditionOfBuilding, String functionOfBuilding)
+  {
+    try
+    {
+      Connector c = new Connector();
+
+      String query = "INSERT INTO polygondatabase.checkupreport(BuildingID, ConditionLevel, DescriptionOfBuilding, FunctionOfBuilding) VALUES ('" + buildingID + "', '" + conditionLevel + "', '" + conditionOfBuilding + "', '" + functionOfBuilding + "');";
+
+      Statement s = c.stmt;
+
+      s.executeUpdate(query);
+
+    } catch (SQLException | NullPointerException ex)
+    {
+      ex.printStackTrace();
+      System.out.println(ex);
+    }    
+  }
+  
 }
