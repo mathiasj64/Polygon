@@ -14,10 +14,38 @@
     </head>
     <body>
 
+        <!MENU>
+                <table>
+
+            <tr>
+
+                <td>
+                    <form action="buildingspage.jsp">
+                        <input type="submit" value="Buildings" name="building" />
+                    </form>
+                </td>
+
+                <td>
+                    <form action="CustomerPage.jsp">
+                        <input type="submit" value="Customers" name="customer" />
+                    </form>        
+                </td>
+
+                <td>
+                    <form action="reportspage.jsp">
+                        <input type="submit" value="Reports" name="report" />
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    <br>
+        <!MENU END>
+        
         <table border="1" style="width: 100%">
             
             <tr >
-                <td colspan ="4" style="font-family: Arial"> <center> <b> Buildings </b> </center> </td>
+                <td colspan ="6" style="font-family: Arial"> <center> <b> Buildings </b> </center> </td>
             </tr>
             
             <tr>
@@ -54,7 +82,6 @@
             %> 
         </table>
         
-        <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" />
-               
+            
     </body>
 </html>

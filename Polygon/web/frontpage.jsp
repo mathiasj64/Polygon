@@ -12,19 +12,38 @@
         <title>Front page</title>
     </head>
     <body>
-        <h1>Click a button!</h1>
-        
-        <form action="buildingspage.jsp">
-        <input type="submit" value="Buildings" name="building" />
-        </form>
-        
-        <form action="CustomerPage.jsp">
-        <input type="submit" value="Customers" name="customer" />
-        </form> 
-        
-        <form>
-        <input type="submit" value="reports" name="report" />
-        </form>
-        
-    </body> 
+
+    <!MENU>
+    
+    <table>
+
+        <tr>
+
+            <td>
+                <form action="buildingspage.jsp">
+                    <input type="submit" value="Buildings" name="building" />
+                </form>
+            </td>
+
+            <td>
+                <form action="CustomerPage.jsp">
+                    <input type="submit" value="Customers" name="customer" />
+                </form>        
+            </td>
+
+            <td>
+                <form action="reportspage.jsp">
+                    <input type="submit" value="Reports" name="report" />
+                </form>
+            </td>
+
+        </tr>
+    </table>
+
+    <br>
+    <!MENU END>
+
+    <h1>Click a button!</h1>
+
+</body> 
 </html>

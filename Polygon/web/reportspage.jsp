@@ -14,6 +14,34 @@
     </head>
     <body>
         
+        <!MENU>
+                <table>
+
+            <tr>
+
+                <td>
+                    <form action="buildingspage.jsp">
+                        <input type="submit" value="Buildings" name="building" />
+                    </form>
+                </td>
+
+                <td>
+                    <form action="CustomerPage.jsp">
+                        <input type="submit" value="Customers" name="customer" />
+                    </form>        
+                </td>
+
+                <td>
+                    <form action="reportspage.jsp">
+                        <input type="submit" value="Reports" name="report" />
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    <br>
+        <!MENU END>
+        
         <table border="1" style="width: 100%">
             
             <tr >
