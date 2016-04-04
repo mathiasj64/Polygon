@@ -44,7 +44,7 @@
         <!MENU END>
        
         <center>
-        <h1>Add a building!</h1>
+        <h1>Add a motherfuck building!</h1>
         <table border="2" cellpadding="5">
             <tr>
                 <td> Building ID </td><td> <input type="text" name="BID" value="" /> </td>
