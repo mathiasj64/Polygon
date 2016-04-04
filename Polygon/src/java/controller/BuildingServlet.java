@@ -5,6 +5,7 @@
  */
 package controller;
 
+import Mappers.BuildingMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,23 +20,19 @@ import javax.servlet.http.HttpServletResponse;
 public class BuildingServlet extends HttpServlet
 {
 
-  /**
-   * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-   * methods.
-   *
-   * @param request servlet request
-   * @param response servlet response
-   * @throws ServletException if a servlet-specific error occurs
-   * @throws IOException if an I/O error occurs
-   */
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException
   {
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
-      /* TODO output your page here. You may use following sample code. */
-     
+      BuildingMapper bm = new BuildingMapper();
+      int getbuildingid = Integer.parseInt(request.getParameter("BID"));
+      int getcustomerid = Integer.parseInt(request.getParameter("CID"));
+      String getaddress = request.getParameter("Address");
+      int getparcelno = Integer.parseInt(request.getParameter("PC"));
+      int getbuildingsize = Integer.parseInt(request.getParameter("SOB"));
+      String additonalinfo = request.getParameter("AI");
     }
   }
 
