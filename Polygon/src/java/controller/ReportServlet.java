@@ -5,6 +5,7 @@
  */
 package controller;
 
+import Mappers.ReportMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -34,8 +35,13 @@ public class ReportServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
-      /* TODO output your page here. You may use following sample code. */
-      
+           ReportMapper rm = new ReportMapper();
+           int BID = Integer.parseInt(request.getParameter("BID"));
+           int CL = Integer.parseInt(request.getParameter("CL"));
+           String DOB = request.getParameter("DOB");
+           String FOB = request.getParameter("FOB");
+           
+           
     }
   }
 
