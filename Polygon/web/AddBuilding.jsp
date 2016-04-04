@@ -73,6 +73,7 @@
         
         <br>
         
+        
         <table>
                 <td>
         <input type="submit" value="Add building" name="AB" />
