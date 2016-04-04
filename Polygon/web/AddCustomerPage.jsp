@@ -12,6 +12,39 @@
         <title>Add Customer</title>
     </head>
     <body>
+        
+         <!MENU>
+    <center>
+        
+                <table>
+
+            <tr>
+
+                <td>
+                    <form action="buildingspage.jsp">
+                        <input type="submit" value="Buildings" name="building" />
+                    </form>
+                </td>
+
+                <td>
+                    <form action="CustomerPage.jsp">
+                        <input type="submit" value="Customers" name="customer" />
+                    </form>        
+                </td>
+
+                <td>
+                    <form action="reportspage.jsp">
+                        <input type="submit" value="Reports" name="report" />
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    <br>
+    </center>
+    
+        <!MENU END>
+        
         <h1>Insert Customer Information:</h1>
 
         <table style="width: 50%">

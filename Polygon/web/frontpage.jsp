@@ -14,6 +14,8 @@
     <body>
 
     <!MENU>
+    <center>
+        
     
     <table>
 
@@ -41,6 +43,7 @@
     </table>
 
     <br>
+    </center>
     <!MENU END>
 
     <h1>Click a button!</h1>

@@ -15,6 +15,8 @@
     <body>
 
         <!MENU>
+    <center>
+        
                 <table>
 
             <tr>
@@ -40,6 +42,7 @@
             </tr>
         </table>
     <br>
+    </center>
         <!MENU END>
         
         <table border="1" style="width: 100%">
