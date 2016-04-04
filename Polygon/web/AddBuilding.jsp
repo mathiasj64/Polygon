@@ -66,14 +66,14 @@
                 </tr>
 
                 <tr>
-                    <td> Bygnings Størrelse </td><td> <input type="text" name="BS" value="123" /> </td>
+                    <td> Bygnings Size </td><td> <input type="text" name="SOB" value="123" /> </td>
                 </tr>
 
                 <tr> 
                     <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf"</td>
                 </tr>
             </table>
-            <input type="submit" value="Add building" name="AB" />
+            <input type="submit" value="Add building" name="add building" />
         </form>
 
     </center></body>

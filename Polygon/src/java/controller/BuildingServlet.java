@@ -28,16 +28,15 @@ public class BuildingServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
-      out.println("swag");
       BuildingMapper bm = new BuildingMapper();
-      int getbuildingid = Integer.parseInt(request.getParameter("BID"));
-      int getcustomerid = Integer.parseInt(request.getParameter("CID"));
-      String getaddress = request.getParameter("Address");
-      int getparcelno = Integer.parseInt(request.getParameter("PC"));
-      int getbuildingsize = Integer.parseInt(request.getParameter("BS"));
-      String additionalinfo = request.getParameter("AI");
+      int BID = Integer.parseInt(request.getParameter("BID"));
+      int CID = Integer.parseInt(request.getParameter("CID"));
+      String Address = request.getParameter("Address");
+      int PC = Integer.parseInt(request.getParameter("PC"));
+      int SOB = Integer.parseInt(request.getParameter("SOB"));
+      String AI = request.getParameter("AI");
       
-      bm.addBuilding(getbuildingid, getcustomerid, getaddress, getparcelno, getbuildingsize, additionalinfo);
+      bm.addBuilding(BID, CID, Address, PC, SOB, AI);
       
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/buildingspage.jsp");
