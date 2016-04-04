@@ -8,6 +8,8 @@ package controller;
 import Mappers.BuildingMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +33,14 @@ public class BuildingServlet extends HttpServlet
       int getcustomerid = Integer.parseInt(request.getParameter("CID"));
       String getaddress = request.getParameter("Address");
       int getparcelno = Integer.parseInt(request.getParameter("PC"));
-      int getbuildingsize = Integer.parseInt(request.getParameter("SOB"));
-      String additonalinfo = request.getParameter("AI");
+      int getbuildingsize = Integer.parseInt(request.getParameter("BS"));
+      String additionalinfo = request.getParameter("AI");
+      
+      bm.addBuilding(getbuildingid, getcustomerid, getaddress, getparcelno, getbuildingsize, additionalinfo);
+      
+      ServletContext sc = getServletContext();
+      RequestDispatcher rd = sc.getRequestDispatcher("/buildingspage.jsp");
+      rd.forward(request, response);
     }
   }
 

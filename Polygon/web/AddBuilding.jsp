@@ -45,45 +45,38 @@
        
         <center>
         <h1>Add a motherfuck building!</h1>
+        <form method="POST" action="BuildingServlet">
         <table border="2" cellpadding="5">
             <tr>
-                <td> Building ID </td><td> <input type="text" name="BID" value="" /> </td>
+                <td> Building ID </td><td> <input type="text" name="BID" value="1" /> </td>
             </tr>
             
             <tr> 
-                <td> Customer ID </td><td> <input type="text" name="CID" value=""</td>
+                <td> Customer ID </td><td> <input type="text" name="CID" value="2"</td>
             </tr>
             
             <tr>
-                <td> Address </td><td> <input type="text" name="Address" value="" /> </td>
+                <td> Address </td><td> <input type="text" name="Address" value="lol" /> </td>
             </tr>
             
             <tr> 
-                <td> ParcelNo </td><td> <input type="text" name="PC" value=""</td>
+                <td> ParcelNo </td><td> <input type="text" name="PC" value="3"</td>
             </tr>
             
             <tr>
-                <td> Bygnings Størrelse </td><td> <input type="text" name="BS" value="" /> </td>
+                <td> Bygnings Størrelse </td><td> <input type="text" name="BS" value="123" /> </td>
             </tr>
             
             <tr> 
-                <td> Ekstra Information </td><td> <input type="text" name="AI" value=""</td>
+                <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf"</td>
             </tr>
         </table>
-        
-        <br>
-        
-        
-        <table>
-                <td>
         <input type="submit" value="Add building" name="AB" />
-        </td>
-        <td>
+        </form>
+      
         <form action="buildingspage.jsp">
      <input type="submit" name ="goback" value="Go back" />
      </form>
-            </td>
-        </table>
         
     </center></body>
 </html>

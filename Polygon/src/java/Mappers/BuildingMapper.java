@@ -63,8 +63,10 @@ public class BuildingMapper
         {
             Connector c = new Connector();
             
-            String query = "INSERT INTO polygondatabase.building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('"+BID+"', '"+CID+"', '"+Address+"', '"+PC+"', '"+SOB+"', '"+AI+"')";
-            c.stmt.executeQuery(query);
+            String query = "INSERT INTO polygondatabase.building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + BID + "', '" + CID + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "')";
+            
+            c.stmt.executeUpdate(query);
+            
         } 
         catch (SQLException ex)
         {
