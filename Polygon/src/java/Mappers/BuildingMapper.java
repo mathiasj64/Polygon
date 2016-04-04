@@ -9,6 +9,7 @@ import Model.Connector;
 import Objects.Building;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,7 @@ import java.util.ArrayList;
  */
 public class BuildingMapper
 {
+
     public ArrayList<Building> building = new ArrayList<>();
 
     public ArrayList<Building> getBuildings()
@@ -56,19 +58,20 @@ public class BuildingMapper
 
         return building;
     }
-    
+
     public void addBuilding(int BID, int CID, String Address, int PC, int SOB, String AI)
     {
         try
         {
             Connector c = new Connector();
-            
-            String query = "INSERT INTO polygondatabase.building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + BID + "', '" + CID + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "')";
-            
-            c.stmt.executeUpdate(query);
-            
-        } 
-        catch (SQLException ex)
+
+            String query = "INSERT INTO polygondatabase.building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + BID + "', '" + CID + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "');";
+
+            Statement s = c.stmt;
+
+            s.executeUpdate(query);
+
+        } catch (SQLException ex)
         {
             ex.printStackTrace();
         }

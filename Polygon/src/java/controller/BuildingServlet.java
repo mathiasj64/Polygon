@@ -28,6 +28,7 @@ public class BuildingServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
+      out.println("swag");
       BuildingMapper bm = new BuildingMapper();
       int getbuildingid = Integer.parseInt(request.getParameter("BID"));
       int getcustomerid = Integer.parseInt(request.getParameter("CID"));
