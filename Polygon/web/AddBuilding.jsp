@@ -11,7 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add building</title>
     </head>
-    <body>        <!MENU>
+    <body>
+                <!MENU>
+    <center>
+        
                 <table>
 
             <tr>
@@ -37,7 +40,9 @@
             </tr>
         </table>
     <br>
+    </center>
         <!MENU END>
+       
         <center>
         <h1>Add a building!</h1>
         <table border="2" cellpadding="5">
