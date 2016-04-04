@@ -8,6 +8,8 @@ package controller;
 import Mappers.ReportMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +42,12 @@ public class ReportServlet extends HttpServlet
            int CL = Integer.parseInt(request.getParameter("CL"));
            String DOB = request.getParameter("DOB");
            String FOB = request.getParameter("FOB");
+
+           rm.addReport(BID, CL, DOB, FOB);
            
-           
+          ServletContext sc = getServletContext();
+          RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");
+          rd.forward(request, response);
     }
   }
 
