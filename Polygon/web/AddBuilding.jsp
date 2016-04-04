@@ -11,7 +11,34 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add building</title>
     </head>
-    <center><body>
+    <body>        <!MENU>
+                <table>
+
+            <tr>
+
+                <td>
+                    <form action="buildingspage.jsp">
+                        <input type="submit" value="Buildings" name="building" />
+                    </form>
+                </td>
+
+                <td>
+                    <form action="CustomerPage.jsp">
+                        <input type="submit" value="Customers" name="customer" />
+                    </form>        
+                </td>
+
+                <td>
+                    <form action="reportspage.jsp">
+                        <input type="submit" value="Reports" name="report" />
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    <br>
+        <!MENU END>
+        <center>
         <h1>Add a building!</h1>
         <table border="2" cellpadding="5">
             <tr>
@@ -38,8 +65,19 @@
                 <td> Ekstra Information </td><td> <input type="text" name="AI" value=""</td>
             </tr>
         </table>
+        
         <br>
+        
+        <table>
+                <td>
         <input type="submit" value="Add building" name="AB" />
-        <input type="submit" value="Go back" />
-    </body></center>
+        </td>
+        <td>
+        <form action="buildingspage.jsp">
+     <input type="submit" name ="goback" value="Go back" />
+     </form>
+            </td>
+        </table>
+        
+    </center></body>
 </html>
