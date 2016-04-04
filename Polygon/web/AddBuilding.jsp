@@ -23,20 +23,23 @@
             </tr>
             
             <tr>
-                <td> Address </td><td> <input type="text" name="BID" value="" /> </td>
+                <td> Address </td><td> <input type="text" name="Address" value="" /> </td>
             </tr>
             
             <tr> 
-                <td> ParcelNo </td><td> <input type="text" name="CID" value=""</td>
+                <td> ParcelNo </td><td> <input type="text" name="PC" value=""</td>
             </tr>
             
             <tr>
-                <td> Bygnings Størrelse </td><td> <input type="text" name="BID" value="" /> </td>
+                <td> Bygnings Størrelse </td><td> <input type="text" name="BS" value="" /> </td>
             </tr>
             
             <tr> 
-                <td> Ekstra Information </td><td> <input type="text" name="CID" value=""</td>
+                <td> Ekstra Information </td><td> <input type="text" name="AI" value=""</td>
             </tr>
         </table>
+        <br>
+        <input type="submit" value="Add building" name="AB" />
+        <input type="submit" value="Go back" />
     </body></center>
 </html>
