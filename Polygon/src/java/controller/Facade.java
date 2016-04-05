@@ -23,7 +23,18 @@ public class Facade
     public CustomerMapper cm = new CustomerMapper(); 
     public ReportMapper rm = new ReportMapper();
     
-    
+    private static Facade instance = null;
+   
+    protected Facade() {
+      // Exists only to defeat instantiation.
+   }
+
+    public static Facade getInstance() {
+      if(instance == null) {
+         instance = new Facade();
+      }
+      return instance;
+   }
     
     public void addBuilding( int CID, String Address,int PC, int SOB, String AI)
     {

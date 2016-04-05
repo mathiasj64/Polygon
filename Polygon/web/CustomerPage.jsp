@@ -63,20 +63,20 @@
     </tr>
 
     <%
-        Facade f = new Facade(); 
-        f.getCustomers();
+         
+        Facade.getInstance().getCustomers();
 
-        if (f.cm.customers.size() != 0)
+        if (Facade.getInstance().cm.customers.size() != 0)
         {
-            for (int i = 0; i < f.cm.customers.size(); i++)
+            for (int i = 0; i < Facade.getInstance().cm.customers.size(); i++)
             {
     %>
 
     <tr> 
-        <td> <%= f.cm.customers.get(i).getCustomerID()%> </td>
-        <td> <%= f.cm.customers.get(i).getCustomerName()%> </td>
-        <td> <%= f.cm.customers.get(i).getCustomerEmail()%> </td>
-        <td> <%= f.cm.customers.get(i).getPhoneNumber()%> </td>
+        <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerID()%> </td>
+        <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerName()%> </td>
+        <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerEmail()%> </td>
+        <td> <%= Facade.getInstance().cm.customers.get(i).getPhoneNumber()%> </td>
     </tr>  
 
     

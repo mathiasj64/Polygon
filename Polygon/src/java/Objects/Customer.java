@@ -10,9 +10,9 @@ public class Customer
     private int customerID; 
     private String customerName;
     private String customerEmail; 
-    private int phoneNumber; 
+    private String phoneNumber; 
     
-    public Customer(int cID, String cName, String cEmail, int pNumber)
+    public Customer(int cID, String cName, String cEmail, String pNumber)
     {
         customerID = cID; 
         customerName = cName; 
@@ -51,12 +51,12 @@ public class Customer
         this.customerEmail = customerEmail;
     }
 
-    public int getPhoneNumber()
+    public String getPhoneNumber()
     {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber)
+    public void setPhoneNumber(String phoneNumber)
     {
         this.phoneNumber = phoneNumber;
     }
