@@ -49,10 +49,6 @@
         <form method="POST" action="BuildingServlet">
 
             <table border="2" cellpadding="5">
-                <tr>
-                    <td> Building ID </td><td> <input type="text" name="BID" value="1" /> </td>
-                </tr>
-
                 <tr> 
                     <td> Customer ID </td><td> <input type="text" name="CID" value="2"</td>
                 </tr>
