@@ -74,6 +74,7 @@ public class BuildingMapper
         } catch (SQLException ex)
         {
             ex.printStackTrace();
+            System.out.println(ex);
         }
     }
 }
