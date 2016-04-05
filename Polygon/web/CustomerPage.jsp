@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="controller.Facade"%>
 <%@page import="Mappers.CustomerMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,20 +63,20 @@
     </tr>
 
     <%
-        CustomerMapper c = new CustomerMapper();
-        c.getCustomers();
+        Facade f = new Facade(); 
+        f.getCustomers();
 
-        if (c.customers.size() != 0)
+        if (f.cm.customers.size() != 0)
         {
-            for (int i = 0; i < c.customers.size(); i++)
+            for (int i = 0; i < f.cm.customers.size(); i++)
             {
     %>
 
     <tr> 
-        <td> <%= c.customers.get(i).getCustomerID()%> </td>
-        <td> <%= c.customers.get(i).getCustomerName()%> </td>
-        <td> <%= c.customers.get(i).getCustomerEmail()%> </td>
-        <td> <%= c.customers.get(i).getPhoneNumber()%> </td>
+        <td> <%= f.cm.customers.get(i).getCustomerID()%> </td>
+        <td> <%= f.cm.customers.get(i).getCustomerName()%> </td>
+        <td> <%= f.cm.customers.get(i).getCustomerEmail()%> </td>
+        <td> <%= f.cm.customers.get(i).getPhoneNumber()%> </td>
     </tr>  
 
     
