@@ -12,7 +12,24 @@
         <title>Report View</title>
     </head>
     <body>
-        <h1>Bygingsgennemgang</h1>
+        <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+        <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+        <br>
+        <br>
+        <p align="left"> Rapport nr.:</p>
+        <br>
         
-    </body>
+
+    <center>
+        <h1>Bygingsgennemgang</h1>
+    </center>
+       
+    <table align="center">
+        <tr>
+            <td><p align="center">Navn på bygning</p></td>
+            <td><p align="center">Dato</p></td>
+        </tr>
+    </table>
+    
+</body>
 </html>
