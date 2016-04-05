@@ -5,11 +5,54 @@
  */
 package controller;
 
+import Mappers.BuildingMapper;
+import Mappers.CustomerMapper;
+import Mappers.ReportMapper;
+import Objects.Building;
+import Objects.Customer;
+import Objects.Report;
+import java.util.ArrayList;
+
 /**
  *
  * @author madsr
  */
 public class Facade
 {
+    public BuildingMapper bm = new BuildingMapper(); 
+    public CustomerMapper cm = new CustomerMapper(); 
+    public ReportMapper rm = new ReportMapper();
+    
+    
+    
+    public void addBuilding( int CID, String Address,int PC, int SOB, String AI)
+    {
+        bm.addBuilding(CID, Address, PC, SOB, AI);
+    }
+    
+    public void addCustomer(String name, String email, String phonenumber)
+    {
+        cm.addCustomer(name, email, phonenumber);
+    }
+    
+    public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding )
+    {
+         rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
+    }
+    
+    public ArrayList<Report> getReports()
+    {
+        return rm.getReports(); 
+    }
+    public ArrayList<Customer> getCustomers()
+    {
+        return cm.getCustomers(); 
+    }
+    
+    public ArrayList<Building> getBuildings()
+    {
+        return bm.getBuildings(); 
+    }
+    
     
 }
