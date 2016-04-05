@@ -24,7 +24,7 @@ public class CustomerMapper
         int customerID;
         String customerName;
         String customerEmail;
-        int phoneNum;
+        String phoneNum;
 
         try
         {
@@ -39,7 +39,7 @@ public class CustomerMapper
                 customerID = Integer.parseInt(res.getString(1));
                 customerName = res.getString(2);
                 customerEmail = res.getString(3);
-                phoneNum = Integer.parseInt(res.getString(4));
+                phoneNum = res.getString(4);
 
                 customers.add(new Customer(customerID, customerName, customerEmail, phoneNum));
             }
@@ -52,13 +52,13 @@ public class CustomerMapper
         return customers;
     }
     
-    public void addCustomer(int cID, String cName, String cEmail, int pNum)
+    public void addCustomer(String cName, String cEmail, String pNum)
     {
         try
         {
         Connector c = new Connector(); 
         
-        String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerID`, `CustomerName`, `Email`, `PhoneNumber`) VALUES ('" + cID + "', '" + cName + "', '" + cEmail + "', '" + pNum + "');";
+        String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerName`, `Email`, `PhoneNumber`) VALUES ('" + cName + "', '" + cEmail + "', '" + pNum + "');";
         c.stmt.executeUpdate(query);
         
         }
