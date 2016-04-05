@@ -48,14 +48,16 @@
         <table border="1" style="width: 100%">
             
             <tr >
-                <td colspan ="4" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
+                <td colspan ="6" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
             </tr>
             
             <tr>
-                <td> Building ID</td>
-                <td> Condition Level </td>
-                <td> Building Description </td>
-                <td> Building Function </td>
+                <td> <b>Report ID</b> </td>
+                <td> <b>Building ID</b></td>
+                <td> <b>Condition Level</b> </td>
+                <td> <b>Building Description</b> </td>
+                <td> <b>Building Function</b> </td>
+                <td> <b>View Report</b></td>
             </tr>
             
             <%
@@ -69,10 +71,12 @@
             %>
             
             <tr> 
+                <td> Report ID</td>
                 <td> <%= r.reports.get(i).getBuildingID()%> </td>
                 <td> <%= r.reports.get(i).getConditionLevel()%> </td>
                 <td> <%= r.reports.get(i).getDescriptionOfBuilding()%> </td>
                 <td> <%= r.reports.get(i).getFunctionOfBuilding()%> </td>
+                <td> <input type="submit" value="View report"></td>
             </tr>  
             
             <%
@@ -80,6 +84,7 @@
                 }
             %> 
         </table>
+        <br>
         <form action="AddRepport.jsp">
             <input type="submit" value="Add a report"/>       
         </form>
