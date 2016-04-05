@@ -19,40 +19,55 @@ import java.util.ArrayList;
  */
 public class Facade
 {
-    public BuildingMapper bm = new BuildingMapper(); 
-    public CustomerMapper cm = new CustomerMapper(); 
+
+    public BuildingMapper bm = new BuildingMapper();
+    public CustomerMapper cm = new CustomerMapper();
     public ReportMapper rm = new ReportMapper();
-    
-    
-    
-    public void addBuilding( int CID, String Address,int PC, int SOB, String AI)
+
+    private static Facade instance = null;
+
+    protected Facade()
+    {
+        // Exists only to defeat instantiation.
+    }
+
+    public static Facade getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Facade();
+        }
+        return instance;
+    }
+
+    public void addBuilding(int CID, String Address, int PC, int SOB, String AI)
     {
         bm.addBuilding(CID, Address, PC, SOB, AI);
     }
-    
+
     public void addCustomer(String name, String email, String phonenumber)
     {
         cm.addCustomer(name, email, phonenumber);
     }
-    
-    public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding )
+
+    public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding)
     {
-         rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
+        rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
     }
-    
+
     public ArrayList<Report> getReports()
     {
-        return rm.getReports(); 
+        return rm.getReports();
     }
+
     public ArrayList<Customer> getCustomers()
     {
-        return cm.getCustomers(); 
+        return cm.getCustomers();
     }
-    
+
     public ArrayList<Building> getBuildings()
     {
-        return bm.getBuildings(); 
+        return bm.getBuildings();
     }
-    
-    
+
 }
