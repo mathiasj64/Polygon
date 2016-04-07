@@ -44,7 +44,7 @@
     <!MENU END>
 
     <center>
-        <h1>Add a motherfuck building!</h1>
+        <h1>Add a building!</h1>
 
         <form method="POST" action="BuildingServlet">
 

@@ -46,7 +46,9 @@
     </center>
     <!MENU END>
 
-    <h1>Click a button!</h1>
+    <center>
+    <h1>Welcome to the Polygon System</h1>
+    </center>
 
 </body> 
 </html>
