@@ -36,11 +36,11 @@ public class CustomerServlet extends HttpServlet
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
         {
-            Facade f = new Facade();
+            
             String Name = request.getParameter("Name");
             String Email = request.getParameter("Email");
             String PhoneNumber = request.getParameter("PN");
-            f.cm.addCustomer(Name, Email, PhoneNumber);
+            Facade.getInstance().addCustomer(Name, Email, PhoneNumber);
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher("/CustomerPage.jsp");
             rd.forward(request, response);

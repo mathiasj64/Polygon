@@ -5,7 +5,7 @@
  */
 package controller;
 
-import Mappers.BuildingMapper;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -28,14 +28,14 @@ public class BuildingServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
-      BuildingMapper bm = new BuildingMapper();
+      
       int CID = Integer.parseInt(request.getParameter("CID"));
       String Address = request.getParameter("Address");
       int PC = Integer.parseInt(request.getParameter("PC"));
       int SOB = Integer.parseInt(request.getParameter("SOB"));
       String AI = request.getParameter("AI");
       
-      bm.addBuilding(CID, Address, PC, SOB, AI);
+      Facade.getInstance().addBuilding(CID, Address, PC, SOB, AI);
       
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/buildingspage.jsp");
