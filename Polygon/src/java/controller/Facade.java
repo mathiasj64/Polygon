@@ -8,9 +8,11 @@ package controller;
 import Mappers.BuildingMapper;
 import Mappers.CustomerMapper;
 import Mappers.ReportMapper;
+import Mappers.UserMapper;
 import Objects.Building;
 import Objects.Customer;
 import Objects.Report;
+import Objects.User;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +25,8 @@ public class Facade
     public BuildingMapper bm = new BuildingMapper();
     public CustomerMapper cm = new CustomerMapper();
     public ReportMapper rm = new ReportMapper();
-
+    public UserMapper um = new UserMapper(); 
+    
     private static Facade instance = null;
 
     protected Facade()
@@ -68,6 +71,11 @@ public class Facade
     public ArrayList<Building> getBuildings()
     {
         return bm.getBuildings();
+    }
+    
+    public User getUser(String uname)
+    {
+        return um.ReturnUser(uname); 
     }
 
 }
