@@ -12,12 +12,14 @@ package Objects;
 public class User
 {
     String username;
-    String password; 
+    String password;
+    int accessLevel; 
     
-    public User(String uName, String Pword)
+    public User(String uName, String Pword, int aLevel)
     {
         username = uName; 
         password = Pword; 
+        accessLevel = aLevel; 
     }
     
     
@@ -38,5 +40,10 @@ public class User
 
     public void setPassword(String password)
     {
+    }
+    
+    public int getAccesLevel()
+    {
+        return accessLevel; 
     }
 }

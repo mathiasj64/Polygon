@@ -30,6 +30,9 @@ public class LoginServlet extends HttpServlet
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    RequestDispatcher rd;
+    ServletContext sc;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
@@ -42,17 +45,39 @@ public class LoginServlet extends HttpServlet
             String foundUsername = Facade.getInstance().getUser(givenUsername).getUsername();
             String foundPassword = Facade.getInstance().getUser(foundUsername).getPassword();
 
-            if (givenUsername.equals(foundUsername) && givenPassword.equals(foundPassword))
+            int accessLevel = Facade.getInstance().getUser(foundUsername).getAccesLevel();
+
+            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword))
             {
-                ServletContext sc = getServletContext();
-                RequestDispatcher rd = sc.getRequestDispatcher("/frontpage");
-                rd.forward(request, response);
+                switch (accessLevel)
+                {
+                    case 1:
+                        sc = getServletContext();
+                        rd = sc.getRequestDispatcher("/ReportView.jsp");
+                        rd.forward(request, response);
+                        break;
+
+                    case 2:
+                        sc = getServletContext();
+                        rd = sc.getRequestDispatcher("/buildingspage.jsp");
+                        rd.forward(request, response);
+                        break;
+
+                    case 3:
+                        sc = getServletContext();
+                        rd = sc.getRequestDispatcher("/CustomerPage.jsp");
+                        rd.forward(request, response);
+                        break;
+                }
             } else
             {
-                ServletContext sc = getServletContext();
-                RequestDispatcher rd = sc.getRequestDispatcher("/LoginScreen");
+                sc = getServletContext();
+                rd = sc.getRequestDispatcher("/LoginScreen.jsp");
                 rd.forward(request, response);
             }
+
+           
+
         }
     }
 

@@ -17,7 +17,7 @@
 
 <br>
 <br>
-
+ <form action="LoginServlet" method="post">
 <table style="width:50" align="center"  FRAME=BOX>
     <thead>
         <tr>
@@ -38,10 +38,12 @@
     </tbody>
     <tfoot>
         <tr>
+   
             <td colspan="2" align="right"> <input type="submit" name="login" value="Login" </td>
         </tr>
     </tfoot>
-
 </table>
+    </form>
+
 </body>
 </html>

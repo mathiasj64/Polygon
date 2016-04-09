@@ -16,15 +16,17 @@ import java.sql.SQLException;
  */
 public class UserMapper
 {
+
+    
+
     public User ReturnUser(String uName)
     {
-
         try
         {
 
             Connector.getInstance().connect();
 
-            String query = "SELECT * FROM user WHERE username = '" + uName + "';";
+            String query = "SELECT * FROM Users WHERE username = '" + uName + "';";
             System.out.println(query);
 
             ResultSet res = Connector.getInstance().stmt.executeQuery(query);
@@ -33,8 +35,8 @@ public class UserMapper
             {
                 String loginU = res.getString(1);
                 String pWord = res.getString(2);
-
-                return new User(loginU, pWord);
+                int aLevel = Integer.parseInt(res.getString(3));
+                return new User(loginU, pWord, aLevel);
             }
 
         } catch (SQLException ex)
