@@ -28,12 +28,13 @@ public class CustomerMapper
 
         try
         {
-            Connector c = new Connector();
-
+            Connector.getInstance().connect();
+            
             String query = "SELECT * FROM customer";
 
-            ResultSet res = c.stmt.executeQuery(query);
-
+            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+            customers.clear(); 
+            
             while (res.next())
             {
                 customerID = Integer.parseInt(res.getString(1));
@@ -56,10 +57,10 @@ public class CustomerMapper
     {
         try
         {
-        Connector c = new Connector(); 
+        Connector.getInstance().connect(); 
         
         String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerName`, `Email`, `PhoneNumber`) VALUES ('" + cName + "', '" + cEmail + "', '" + pNum + "');";
-        c.stmt.executeUpdate(query);
+        Connector.getInstance().stmt.executeUpdate(query); 
         
         }
         catch(SQLException ex)

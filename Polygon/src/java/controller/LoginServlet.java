@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author madsr
  */
-public class CustomerServlet extends HttpServlet
+public class LoginServlet extends HttpServlet
 {
 
     /**
@@ -30,20 +30,54 @@ public class CustomerServlet extends HttpServlet
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    RequestDispatcher rd;
+    ServletContext sc;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
         {
-            
-            String Name = request.getParameter("Name");
-            String Email = request.getParameter("Email");
-            String PhoneNumber = request.getParameter("PN");
-            Facade.getInstance().addCustomer(Name, Email, PhoneNumber);
-            ServletContext sc = getServletContext();
-            RequestDispatcher rd = sc.getRequestDispatcher("/CustomerPage.jsp");
-            rd.forward(request, response);
+
+            String givenUsername = request.getParameter("username");
+            String givenPassword = request.getParameter("password");
+            String foundUsername = Facade.getInstance().getUser(givenUsername).getUsername();
+            String foundPassword = Facade.getInstance().getUser(foundUsername).getPassword();
+
+            int accessLevel = Facade.getInstance().getUser(foundUsername).getAccesLevel();
+
+            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword))
+            {
+                switch (accessLevel)
+                {
+                    case 1:
+                        sc = getServletContext();
+                        rd = sc.getRequestDispatcher("/ReportView.jsp");
+                        rd.forward(request, response);
+                        break;
+
+                    case 2:
+                        sc = getServletContext();
+                        rd = sc.getRequestDispatcher("/buildingspage.jsp");
+                        rd.forward(request, response);
+                        break;
+
+                    case 3:
+                        sc = getServletContext();
+                        rd = sc.getRequestDispatcher("/CustomerPage.jsp");
+                        rd.forward(request, response);
+                        break;
+                }
+            } else
+            {
+                sc = getServletContext();
+                rd = sc.getRequestDispatcher("/LoginScreen.jsp");
+                rd.forward(request, response);
+            }
+
+           
+
         }
     }
 

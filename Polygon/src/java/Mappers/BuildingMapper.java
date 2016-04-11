@@ -32,11 +32,11 @@ public class BuildingMapper
 
         try
         {
-            Connector c = new Connector();
+            Connector.getInstance().connect();
 
             String query = "SELECT * FROM Building";
-
-            ResultSet res = c.stmt.executeQuery(query);
+            building.clear();
+            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
 
             while (res.next())
             {
@@ -63,13 +63,11 @@ public class BuildingMapper
     {
         try
         {
-            Connector c = new Connector();
+            Connector.getInstance().connect();
 
             String query = "INSERT INTO polygondatabase.building(CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + CID + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "');";
 
-            Statement s = c.stmt;
-
-            s.executeUpdate(query);
+            Connector.getInstance().stmt.executeUpdate(query);
 
         } catch (SQLException ex)
         {

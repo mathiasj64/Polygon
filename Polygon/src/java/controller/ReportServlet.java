@@ -37,13 +37,13 @@ public class ReportServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
-      ReportMapper rm = new ReportMapper();
+      
       int BID = Integer.parseInt(request.getParameter("BID"));
       int CL = Integer.parseInt(request.getParameter("CL"));
       String DOB = request.getParameter("DOB");
       String FOB = request.getParameter("FOB");
 
-      rm.addReport(BID, CL, DOB, FOB);
+      Facade.getInstance().addReport(BID, CL, DOB, FOB);
 
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");

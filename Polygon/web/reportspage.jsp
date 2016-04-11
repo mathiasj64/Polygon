@@ -4,6 +4,7 @@
     Author     : Mathias
 --%>
 
+<%@page import="controller.Facade"%>
 <%@page import="Mappers.ReportMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -61,21 +62,21 @@
             </tr>
             
             <%
-                ReportMapper r = new ReportMapper();
-                r.getReports();
+                Facade.getInstance().getReports();
                 
-                if (r.reports.size() != 0)
+                
+                if (Facade.getInstance().rm.reports.size() != 0)
                 {
-                    for (int i = 0; i < r.reports.size(); i++)
+                    for (int i = 0; i < Facade.getInstance().rm.reports.size(); i++)
                     {
             %>
             
             <tr> 
                 <td> Report ID</td>
-                <td> <%= r.reports.get(i).getBuildingID()%> </td>
-                <td> <%= r.reports.get(i).getConditionLevel()%> </td>
-                <td> <%= r.reports.get(i).getDescriptionOfBuilding()%> </td>
-                <td> <%= r.reports.get(i).getFunctionOfBuilding()%> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingID()%> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getDescriptionOfBuilding()%> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getFunctionOfBuilding()%> </td>
                 <td> <input type="submit" value="View report"></td>
             </tr>  
             

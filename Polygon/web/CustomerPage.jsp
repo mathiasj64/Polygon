@@ -65,7 +65,6 @@
     <%
        
         Facade.getInstance().getCustomers();
-
         if (Facade.getInstance().cm.customers.size() != 0)
         {
             for (int i = 0; i < Facade.getInstance().cm.customers.size(); i++)

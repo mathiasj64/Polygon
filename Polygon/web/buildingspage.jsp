@@ -4,6 +4,7 @@
     Author     : Thygesen
 --%>
 
+<%@page import="controller.Facade"%>
 <%@page import="Mappers.BuildingMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -61,22 +62,22 @@
             </tr>
             
             <%
-                BuildingMapper b = new BuildingMapper();
-                b.getBuildings();
                 
-                if (b.building.size() != 0)
+                Facade.getInstance().getBuildings();
+                
+                if (Facade.getInstance().bm.building.size() != 0)
                 {
-                    for (int i = 0; i < b.building.size(); i++)
+                    for (int i = 0; i < Facade.getInstance().bm.building.size(); i++)
                     {
             %>
             
             <tr> 
-                <td> <%= b.building.get(i).getBuildingID()%> </td>
-                <td> <%= b.building.get(i).getCustomerID()%> </td>
-                <td> <%= b.building.get(i).getAddress()%> </td>
-                <td> <%= b.building.get(i).getParcelNo()%> </td>
-                <td> <%= b.building.get(i).getSizeOfBuilding()%> </td>
-                <td> <%= b.building.get(i).getAdditionalInformation()%> </td>
+                <td> <%= Facade.getInstance().bm.building.get(i).getBuildingID()%> </td>
+                <td> <%= Facade.getInstance().bm.building.get(i).getCustomerID()%> </td>
+                <td> <%= Facade.getInstance().bm.building.get(i).getAddress()%> </td>
+                <td> <%= Facade.getInstance().bm.building.get(i).getParcelNo()%> </td>
+                <td> <%= Facade.getInstance().bm.building.get(i).getSizeOfBuilding()%> </td>
+                <td> <%= Facade.getInstance().bm.building.get(i).getAdditionalInformation()%> </td>
             </tr>  
             
             <%

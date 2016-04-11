@@ -9,7 +9,6 @@ import Model.Connector;
 import Objects.Report;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -30,14 +29,13 @@ public class ReportMapper
     
     try
     {
-      Connector c = new Connector();
-
+      Connector.getInstance().connect();
+      
       String query = "SELECT * FROM CheckupReport";
 
-      Statement s = c.stmt;
-
-      ResultSet res = s.executeQuery(query);
-
+      ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+      reports.clear();
+      
       while (res.next())
       {
         buildingID = Integer.parseInt(res.getString(1));
@@ -59,13 +57,11 @@ public class ReportMapper
   {
     try
     {
-      Connector c = new Connector();
+      Connector.getInstance().connect();
 
       String query = "INSERT INTO polygondatabase.checkupreport(BuildingID, ConditionLevel, DescriptionOfBuilding, FunctionOfBuilding) VALUES ('" + buildingID + "', '" + conditionLevel + "', '" + conditionOfBuilding + "', '" + functionOfBuilding + "');";
 
-      Statement s = c.stmt;
-
-      s.executeUpdate(query);
+      Connector.getInstance().stmt.executeUpdate(query);
 
     } catch (SQLException | NullPointerException ex)
     {
