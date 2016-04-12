@@ -49,15 +49,17 @@
         <table border="1" style="width: 100%">
             
             <tr >
-                <td colspan ="6" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
+                <td colspan ="8" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
             </tr>
             
             <tr>
                 <td> <b>Report ID</b> </td>
                 <td> <b>Building ID</b></td>
+                <td> <b>Building Name</b></td>
+                <td> <b>Size of Building</b></td>
+                <td> <b>Date</b></td>
+                <td> <b>Technician Name</b></td>
                 <td> <b>Condition Level</b> </td>
-                <td> <b>Building Description</b> </td>
-                <td> <b>Building Function</b> </td>
                 <td> <b>View Report</b></td>
             </tr>
             
@@ -74,10 +76,12 @@
             <tr> 
                 <td> <%= Facade.getInstance().rm.reports.get(i).getReportID() %> </td>
                 <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingID() %> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingName() %> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getSizeOfBuilding() %> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getDate() %> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getTechnicianName() %> </td>
                 <td> <%= Facade.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
-                <td> <%= Facade.getInstance().rm.reports.get(i).getDescriptionOfBuilding()%> </td>
-                <td> <%= Facade.getInstance().rm.reports.get(i).getFunctionOfBuilding()%> </td>
-                <td> <input type="submit" value="View report"></td>
+                <td> <input type="submit" name="viewReport<%= Facade.getInstance().rm.reports.get(i).getReportID() %>" value="View report <%= Facade.getInstance().rm.reports.get(i).getReportID() %>"></td>
             </tr>  
             
             <%
