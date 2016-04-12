@@ -22,6 +22,7 @@ public class ReportMapper
   
   public ArrayList<Report> getReports()
   {
+    int reportID;
     int buildingID;
     int conditionLevel;
     String descriptionOfBuilding;
@@ -38,11 +39,12 @@ public class ReportMapper
       
       while (res.next())
       {
-        buildingID = Integer.parseInt(res.getString(1));
-        conditionLevel = Integer.parseInt(res.getString(2));
-        descriptionOfBuilding = res.getString(3);
-        functionOfBuilding = res.getString(4);
-        reports.add(new Report(buildingID, conditionLevel, descriptionOfBuilding, functionOfBuilding));
+        reportID = Integer.parseInt(res.getString(1));
+        buildingID = Integer.parseInt(res.getString(2));
+        conditionLevel = Integer.parseInt(res.getString(3));
+        descriptionOfBuilding = res.getString(4);
+        functionOfBuilding = res.getString(5);
+        reports.add(new Report(reportID, buildingID, conditionLevel, descriptionOfBuilding, functionOfBuilding));
       }
                   
     } catch (SQLException | NullPointerException ex)
