@@ -43,7 +43,6 @@
     </center>
 
     <!MENU END>
-    <form>
 
         <body>
             <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
@@ -62,7 +61,8 @@
             <p>Antal lokaler med skader:</p><input type="number" name="roomAmount">
             <input type="submit" value="Opret lokaler">
         </form>
-
+        
+    <form action="CompleteReportServlet">
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
