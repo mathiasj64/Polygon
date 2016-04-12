@@ -53,11 +53,11 @@
 
             <table border="2" cellpadding="5">
                 <tr>
-                    <td> Building ID </td><td> <input type="text" name="BID" value="3" /> </td>
+                    <td> Building ID </td><td> <input type="number" name="BID" value="3" /> </td>
                 </tr>
 
                 <tr> 
-                    <td> Condition Level </td><td> <input type="text" name="CL" value="2"</td>
+                    <td> Condition Level </td><td> <input type="number" name="CL" value="2"</td>
                 </tr>
 
                 <tr>

@@ -50,7 +50,7 @@
 
             <table border="2" cellpadding="5">
                 <tr> 
-                    <td> Customer ID </td><td> <input type="text" name="CID" value="2"</td>
+                    <td> Customer ID </td><td> <input type="number" name="CID" value=""</td>
                 </tr>
 
                 <tr>
@@ -58,11 +58,11 @@
                 </tr>
 
                 <tr> 
-                    <td> ParcelNo </td><td> <input type="text" name="PC" value="3"</td>
+                    <td> ParcelNo </td><td> <input type="number" name="PC" value=""</td>
                 </tr>
 
                 <tr>
-                    <td> Bygnings Size </td><td> <input type="text" name="SOB" value="123" /> </td>
+                    <td> Bygnings Size </td><td> <input type="number" name="SOB" value="" /> </td>
                 </tr>
 
                 <tr> 

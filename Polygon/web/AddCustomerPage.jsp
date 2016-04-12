@@ -57,7 +57,7 @@
             </tr>
 
             <tr>
-                <td> <input type="text" name="PN" value="Insert Phonenumber" /> </td>
+                <td> <input type="number" name="PN" value="Insert Phonenumber" /> </td>
             </tr>
         </table>
 
