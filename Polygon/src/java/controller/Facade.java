@@ -10,6 +10,7 @@ import Mappers.CustomerMapper;
 import Mappers.ReportMapper;
 import Mappers.UserMapper;
 import Objects.Building;
+import Objects.CompleteReport;
 import Objects.Customer;
 import Objects.Report;
 import Objects.User;
@@ -58,7 +59,7 @@ public class Facade
         rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
     }
 
-    public ArrayList<Report> getReports()
+    public ArrayList<CompleteReport> getReports()
     {
         return rm.getReports();
     }
