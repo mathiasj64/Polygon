@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet
             String foundPassword = Facade.getInstance().getUser(foundUsername).getPassword();
 
             int accessLevel = Facade.getInstance().getUser(foundUsername).getAccesLevel();
-
+            
             if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword))
             {
                 switch (accessLevel)

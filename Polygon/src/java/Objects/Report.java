@@ -12,13 +12,15 @@ package Objects;
 public class Report
 {
   
+  int reportID;
   int conditionLevel;
   int buildingID;
   String descriptionOfBuilding;
   String functionOfBuilding;
-  
-  public Report(int condition_Level, int building_ID, String description_Of_Building, String function_Of_Building)
+    
+  public Report(int report_ID, int condition_Level, int building_ID, String description_Of_Building, String function_Of_Building)
   {
+    reportID = report_ID;
     conditionLevel = condition_Level;
     buildingID = building_ID;
     descriptionOfBuilding = description_Of_Building;
@@ -63,6 +65,16 @@ public class Report
   public String getFunctionOfBuilding()
   {
     return functionOfBuilding;
+  }
+
+  public int getReportID()
+  {
+    return reportID;
+  }
+
+  public void setReportID(int reportID)
+  {
+    this.reportID = reportID;
   }
   
   
