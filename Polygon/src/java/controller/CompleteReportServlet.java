@@ -36,17 +36,22 @@ public class CompleteReportServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
+      int conditionLevel = Integer.parseInt(request.getParameter("conditionLevel"));
+      int buildingID = Integer.parseInt(request.getParameter("buildingID"));
       String buildingName = request.getParameter("buildingName");
-      String date = request.getParameter("date");
+      int zipcode = Integer.parseInt(request.getParameter("zipcode"));
+      int yearBuilt = Integer.parseInt(request.getParameter("year"));
       String address = request.getParameter("address");
-      String zipcode = request.getParameter("zipcode");
-      String year = request.getParameter("year");
-      String size = request.getParameter("size");
-      String buildingUse = request.getParameter("buildingUse");
-      String roof = request.getParameter("roof");
-      String outerWalls = request.getParameter("outerWalls");
+      int sizeOfBuilding = Integer.parseInt(request.getParameter("size"));
+      String purposeOfBuilding = request.getParameter("buildingUse");
+      String date = request.getParameter("date");
+      String technicianName = request.getParameter("technicianName");
+      String customerName = request.getParameter("buildingOwner");
+      String roofDesc = request.getParameter("roof");
+      String outerWallsDesc = request.getParameter("outerWalls");
       
-      //Facade.getInstance().rm.addReport(blablabla);
+      
+      Facade.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
       
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");

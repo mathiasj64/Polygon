@@ -44,25 +44,22 @@
 
     <!MENU END>
 
-        <body>
-            <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
-            <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
-            <br>
-            <br>
-            <p align="left"> Rapport nr.:</p>
-            <br>
+    <body>
+        <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+        <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
 
 
-        <center>
-            <h1 style="font-size:300%">Bygingsgennemgang</h1>
-        </center>
 
-        <form action="newReportAdd.jsp">
-            <p>Antal lokaler med skader:</p><input type="number" name="roomAmount">
-            <input type="submit" value="Opret lokaler">
-        </form>
-        
-    <form action="CompleteReportServlet">
+    <center>
+        <h1 style="font-size:300%">Bygingsgennemgang</h1>
+    </center>
+
+    <form action="newReportAdd.jsp">
+        <p>Antal lokaler med skader:</p><input type="number" name="roomAmount">
+        <input type="submit" value="Opret lokaler">
+    </form>
+
+    <form method="POST" action="CompleteReportServlet">
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
@@ -86,7 +83,8 @@
             <tr>
                 <td><p align="left" style="font-size:150%"><b>Postnummer</b></p>
                     <input style="width:90%" type="text" name="zipcode" value=""></td>
-
+                <td align="right"><p style="font-size:150%"><b>BygningsID</b></p>
+                    <input style="width:90%" type="text" name="buildingid" value=""></td>
             </tr>
         </table>
 
@@ -114,12 +112,12 @@
         <!ROOM START>
 
         <%
-          if(request.getParameter("roomAmount")!= null)
-          {
-            int amount = 0;
-            amount += Integer.parseInt(request.getParameter("roomAmount"));
-          for (int i = 1; i <= amount; i++)
-          {
+            if (request.getParameter("roomAmount") != null)
+            {
+                int amount = 0;
+                amount += Integer.parseInt(request.getParameter("roomAmount"));
+                for (int i = 1; i <= amount; i++)
+                {
         %>
 
         <p style="font-size:150%"><b>Lokale <%=i%></b></p>
@@ -202,8 +200,8 @@
         </table>
 
         <%
-          }
-          }
+                }
+            }
         %>
 
         <p style="font-size:150%"><b>Konklusion</b></p>

@@ -14,8 +14,8 @@ public class Room
     int RoomID;
     int ReportID;
     int RoomNo;
-    String When;
-    String Where;
+    String Whens;
+    String Wheres;
     String What;
     String Repairs;
     String Moist;
@@ -36,8 +36,8 @@ public class Room
         this.RoomID = RoomID;
         this.ReportID = ReportID;
         this.RoomNo = RoomNo;
-        this.When = When;
-        this.Where = Where;
+        this.Whens = When;
+        this.Wheres = Where;
         this.What = What;
         this.Repairs = Repairs;
         this.Moist = Moist;
@@ -86,22 +86,22 @@ public class Room
 
     public String getWhen()
     {
-        return When;
+        return Whens;
     }
 
     public void setWhen(String When)
     {
-        this.When = When;
+        this.Whens = When;
     }
 
     public String getWhere()
     {
-        return Where;
+        return Wheres;
     }
 
     public void setWhere(String Where)
     {
-        this.Where = Where;
+        this.Wheres = Where;
     }
 
     public String getWhat()

@@ -58,6 +58,11 @@ public class Facade
     {
         rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
     }
+    
+    public void addCompleteReport(int conditionLevel, int buildingID, String buildingName, int zipcode, String address, int yearBuilt, int sizeOfBuilding, String purposeOfBuilding, String date, String technicianName, String customerName, String roofDesc, String outerWallsDesc)
+    {
+        rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+    }
 
     public ArrayList<CompleteReport> getReports()
     {

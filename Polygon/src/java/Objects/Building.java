@@ -14,15 +14,19 @@ public class Building
 
     private int BuildingID;
     private int CustomerID;
+    private int Zipcodes;
     private String Address;
     private int ParcelNo;
     private int SizeOfBuilding;
     private String AdditionalInformation;
 
-    public Building(int BuildingID, int CustomerID, String Address, int ParcelNo, int SizeOfBuilding, String AdditionalInformation)
+    
+
+    public Building(int BuildingID, int CustomerID, int Zipcodes, String Address, int ParcelNo, int SizeOfBuilding, String AdditionalInformation)
     {
         this.BuildingID = BuildingID;
         this.CustomerID = CustomerID;
+        this.Zipcodes = Zipcodes;
         this.Address = Address;
         this.ParcelNo = ParcelNo;
         this.SizeOfBuilding = SizeOfBuilding;
@@ -49,6 +53,16 @@ public class Building
         this.CustomerID = CustomerID;
     }
 
+    public int getZipcodes()
+    {
+        return Zipcodes;
+    }
+
+    public void setZipcodes(int Zipcodes)
+    {
+        this.Zipcodes = Zipcodes;
+    }
+    
     public String getAddress()
     {
         return Address;
