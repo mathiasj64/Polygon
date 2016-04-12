@@ -72,8 +72,8 @@
             %>
             
             <tr> 
-                <td> Report ID</td>
-                <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingID()%> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getReportID() %> </td>
+                <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingID() %> </td>
                 <td> <%= Facade.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
                 <td> <%= Facade.getInstance().rm.reports.get(i).getDescriptionOfBuilding()%> </td>
                 <td> <%= Facade.getInstance().rm.reports.get(i).getFunctionOfBuilding()%> </td>

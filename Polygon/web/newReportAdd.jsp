@@ -58,6 +58,11 @@
             <h1 style="font-size:300%">Bygingsgennemgang</h1>
         </center>
 
+        <form action="newReportAdd.jsp">
+            <p>Antal lokaler med skader:</p><input type="number" name="roomAmount">
+            <input type="submit" value="Opret lokaler">
+        </form>
+
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
@@ -70,7 +75,7 @@
                 <td align="left"><p style="font-size:150%"><b>Adresse</b></p>
                     <input style="width:90%" type="text" name="address" value=""></td>
                 <td align="right"><p style="font-size:80%">Polygon</p>
-                    <p style="font-size:80%">Rypevang5</p>
+                    <p style="font-size:80%">Rypevang 5</p>
                     <p style="font-size:80%">3450 Allerød</p>
                     <p style="font-size:80%">Tlf. 4814 0555</p>
                     <p style="font-size:80%">sundebygninger@polygon.dk</p>
@@ -106,8 +111,19 @@
         <p>Ydervægge</p>
         <input style="width:90%"  type="text" name="outerWalls" value="">
 
-        <p style="font-size:150%"><b>Lokale</b></p>
-        <input style="width:90%" type="text" name="room" value="">
+        <!ROOM START>
+
+        <%
+          if(request.getParameter("roomAmount")!= null)
+          {
+            int amount = 0;
+            amount += Integer.parseInt(request.getParameter("roomAmount"));
+          for (int i = 1; i <= amount; i++)
+          {
+        %>
+
+        <p style="font-size:150%"><b>Lokale <%=i%></b></p>
+
 
         <p style="font-size:150%"><b>Skade og reperation</b></p>
 
@@ -184,6 +200,11 @@
                     <input style="width:90%" type="text" name="measurePoint" value=""></td>
             </tr>
         </table>
+
+        <%
+          }
+          }
+        %>
 
         <p style="font-size:150%"><b>Konklusion</b></p>
 
