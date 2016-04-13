@@ -12,6 +12,7 @@
         <title>Add report</title>
     </head>
 
+    <body>
     <!MENU>
     <center>
 
@@ -44,7 +45,6 @@
 
     <!MENU END>
 
-    <body>
         <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
         <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
 
@@ -124,8 +124,6 @@
 
 
         <p style="font-size:150%"><b>Skade og reperation</b></p>
-
-        <p><b>Har der været skade i lokalet? Ja/Nej</b></p>
 
         <table align="center" style="width:100%">
             <tr>
