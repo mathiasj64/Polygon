@@ -36,19 +36,19 @@ public class CompleteReportServlet extends HttpServlet
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter())
     {
-      int conditionLevel = Integer.parseInt(request.getParameter("conditionLevel"));
-      int buildingID = Integer.parseInt(request.getParameter("buildingID"));
-      String buildingName = request.getParameter("buildingName");
-      int zipcode = Integer.parseInt(request.getParameter("zipcode"));
-      int yearBuilt = Integer.parseInt(request.getParameter("year"));
-      String address = request.getParameter("address");
-      int sizeOfBuilding = Integer.parseInt(request.getParameter("size"));
-      String purposeOfBuilding = request.getParameter("buildingUse");
-      String date = request.getParameter("date");
-      String technicianName = request.getParameter("technicianName");
-      String customerName = request.getParameter("buildingOwner");
-      String roofDesc = request.getParameter("roof");
-      String outerWallsDesc = request.getParameter("outerWalls");
+      int conditionLevel = Integer.parseInt(request.getParameter("CL"));
+      int buildingID = Integer.parseInt(request.getParameter("BI"));
+      String buildingName = request.getParameter("BN");
+      int zipcode = Integer.parseInt(request.getParameter("Z"));
+      int yearBuilt = Integer.parseInt(request.getParameter("Y"));
+      String address = request.getParameter("A");
+      int sizeOfBuilding = Integer.parseInt(request.getParameter("S"));
+      String purposeOfBuilding = request.getParameter("BU");
+      String date = request.getParameter("D");
+      String technicianName = request.getParameter("TN");
+      String customerName = request.getParameter("BO");
+      String roofDesc = request.getParameter("R");
+      String outerWallsDesc = request.getParameter("OW");
       
       
       Facade.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);

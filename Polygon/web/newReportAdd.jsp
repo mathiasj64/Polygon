@@ -63,14 +63,14 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
-                    <input style="width:90%" type="text" name="buildingName" value=""></td>
+                    <input style="width:90%" type="text" name="BN" value="lollebygge"></td>
                 <td align="right"><p style="font-size:150%"><b>Dato</b></p>
-                    <input style="width:90%" type="text" name="date" value=""></td>
+                    <input style="width:90%" type="text" name="D" value="12-13"></td>
             </tr>
 
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Adresse</b></p>
-                    <input style="width:90%" type="text" name="address" value=""></td>
+                    <input style="width:90%" type="text" name="A" value="lollevej"></td>
                 <td align="right"><p style="font-size:80%">Polygon</p>
                     <p style="font-size:80%">Rypevang 5</p>
                     <p style="font-size:80%">3450 Allerød</p>
@@ -82,9 +82,9 @@
 
             <tr>
                 <td><p align="left" style="font-size:150%"><b>Postnummer</b></p>
-                    <input style="width:90%" type="text" name="zipcode" value=""></td>
+                    <input style="width:90%" type="text" name="Z" value="1234"></td>
                 <td align="right"><p style="font-size:150%"><b>BygningsID</b></p>
-                    <input style="width:90%" type="text" name="buildingid" value=""></td>
+                    <input style="width:90%" type="text" name="BI" value="1"></td>
             </tr>
         </table>
 
@@ -93,21 +93,21 @@
         <p style="font-size:150%"><b>General information om bygningen</b></p>
 
         <p>Byggeår</p>
-        <input style="width:90%" type="text" name="year" value="">
+        <input style="width:90%" type="text" name="Y" value="975">
 
         <p>Bygningsareal i m2</p>
-        <input style="width:90%"  type="text" name="size" value="">
+        <input style="width:90%"  type="text" name="S" value="234">
 
         <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til?</p>
-        <input style="width:90%" type="text" name="buildingUse" value="">
+        <input style="width:90%" type="text" name="BU" value="ingenting">
 
         <p style="font-size:150%"><b>Gennemgang af bygningen udvendig</b></p>
 
         <p>Tag</p>
-        <input style="width:90%" type="text" name="roof" value="">
+        <input style="width:90%" type="text" name="R" value="hejsa">
 
         <p>Ydervægge</p>
-        <input style="width:90%"  type="text" name="outerWalls" value="">
+        <input style="width:90%"  type="text" name="OW" value="hejsa">
 
         <!ROOM START>
 
@@ -220,8 +220,8 @@
         <br>
 
 
-        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="technicianName" value=""> , Polygon</p>
-        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="buildingOwner" value=""> (bygningsansvarlig)</p>
+        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="TN" value="ole"> , Polygon</p>
+        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="BO" value="hans"> (bygningsansvarlig)</p>
 
         <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
 
@@ -266,7 +266,7 @@
 
         <p>Bygningens tilstandsgrad</p>
 
-        <input style="width:10%" type="text" name="conditionLevel" value="">
+        <input style="width:10%" type="text" name="CL" value="2">
 
         <br>
         <br>
