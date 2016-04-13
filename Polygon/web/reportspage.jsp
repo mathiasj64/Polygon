@@ -90,7 +90,7 @@
             %> 
         </table>
         <br>
-        <form action="AddRepport.jsp">
+        <form action="newReportAdd.jsp">
             <input type="submit" value="Add a report"/>       
         </form>
     </body>
