@@ -25,6 +25,7 @@ public class BuildingMapper
     {
         int BuildingID;
         int CustomerID;
+        int Zipcodes;
         String Address;
         int ParcelNo;
         int SizeOfBuilding;
@@ -43,12 +44,13 @@ public class BuildingMapper
 
                 BuildingID = Integer.parseInt(res.getString(1));
                 CustomerID = Integer.parseInt(res.getString(2));
-                Address = res.getString(3);
-                ParcelNo = Integer.parseInt(res.getString(4));
-                SizeOfBuilding = Integer.parseInt(res.getString(5));
-                AdditionalInformation = res.getString(6);
+                Zipcodes = Integer.parseInt(res.getString(3));
+                Address = res.getString(4);
+                ParcelNo = Integer.parseInt(res.getString(5));
+                SizeOfBuilding = Integer.parseInt(res.getString(6));
+                AdditionalInformation = res.getString(7);
 
-                building.add(new Building(BuildingID, CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation));
+                building.add(new Building(BuildingID, CustomerID, Zipcodes, Address, ParcelNo, SizeOfBuilding, AdditionalInformation));
             }
 
         } catch (SQLException ex)

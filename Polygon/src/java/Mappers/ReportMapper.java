@@ -74,14 +74,14 @@ public class ReportMapper
     return reports;
   }
 
-  public void addCompleteReport(int reportID, int conditionLevel, int buildingID, String buildingName, int zipcode, String address, int yearBuilt, int sizeOfBuilding, String purposeOfBuilding, String date, String technicianName, String customerName, String roofDesc, String outerWallsDesc)
+  public void addCompleteReport(int conditionLevel, int buildingID, String buildingName, int zipcode, String address, int yearBuilt, int sizeOfBuilding, String purposeOfBuilding, String date, String technicianName, String customerName, String roofDesc, String outerWallsDesc)
   {
     try
     {
       Connector.getInstance().connect();
 
-      String query = "INSERT INTO polygondatabase.checkupreport((reportID, conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding,\n"
-              + "purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc)) VALUES ('" + reportID + "', '" + conditionLevel +
+      String query = "INSERT INTO polygondatabase.checkupreport((conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding,\n"
+              + "purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc)) VALUES ('" + conditionLevel +
               "', '" + buildingID + "', '" + buildingName + "', '" + zipcode + "', '" + address + "', '" + yearBuilt + "', '" + sizeOfBuilding +
               "', '" + purposeOfBuilding + "', '" + date + "', '" + technicianName + "', '" + customerName + "', '" + roofDesc + "', '" + outerWallsDesc + "');";
 
