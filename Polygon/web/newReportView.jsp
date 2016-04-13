@@ -4,6 +4,7 @@
     Author     : Mathias
 --%>
 
+<%@page import="Objects.CompleteReport"%>
 <%@page import="controller.Facade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -44,14 +45,18 @@
     </center>
 
     <!MENU END>
-    <form>
+    
+    <%
+      CompleteReport report = Facade.getInstance().rm.getReport(Integer.parseInt(request.getParameter("hiddenID")));
+    %>
+    
         
         <body>
             <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
             <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
             <br>
             <br>
-            <p align="left"> Rapport nr.:</p> 
+            <p align="left"> Rapport nr.:<%= report.getReportID() %></p> 
             <br>
 
 
@@ -61,15 +66,12 @@
 
         <table align="center" style="width:100%">
             <tr>
-                <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
-                    <input style="width:90%" type="text" name="buildingName" value=""></td>
-                <td align="right"><p style="font-size:150%"><b>Dato</b></p>
-                    <input style="width:90%" type="text" name="date" value=""></td>
+                <td align="left"><p style="font-size:150%"><b>Navn på bygning</b> <%= report.getBuildingName()%></p></td>
+                <td align="right"><p style="font-size:150%"><b>Dato</b> <%= report.getDate() %></p>
             </tr>
 
             <tr>
-                <td align="left"><p style="font-size:150%"><b>Adresse</b></p>
-                    <input style="width:90%" type="text" name="address" value=""></td>
+                <td align="left"><p style="font-size:150%"><b>Adresse</b> <%= report.getAddress() %></p>
                 <td align="right"><p style="font-size:80%">Polygon</p>
                     <p style="font-size:80%">Rypevang5</p>
                     <p style="font-size:80%">3450 Allerød</p>
@@ -80,8 +82,7 @@
             </tr>
 
             <tr>
-                <td><p align="left" style="font-size:150%"><b>Postnummer</b></p>
-                    <input style="width:90%" type="text" name="zipcode" value=""></td>
+                <td><p align="left" style="font-size:150%"><b>Postnummer</b> <%= report.getZipcode() %></p>
 
             </tr>
         </table>
@@ -90,23 +91,17 @@
 
         <p style="font-size:150%"><b>General information om bygningen</b></p>
 
-        <p>Byggeår</p>
-        <input style="width:90%" type="text" name="year" value="">
+        <p>Byggeår: <%= report.getYearBuilt() %></p>
 
-        <p>Bygningsareal i m2</p>
-        <input style="width:90%"  type="text" name="size" value="">
+        <p>Bygningsareal i m2: <%= report.getSizeOfBuilding() %></p>
 
-        <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til?</p>
-        <input style="width:90%" type="text" name="buildingUse" value="">
+        <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til? <%= report.getPurposeOfBuilding() %></p>
 
         <p style="font-size:150%"><b>Gennemgang af bygningen udvendig</b></p>
 
-        <p>Tag</p>
-        <input style="width:90%" type="text" name="roof" value="">
+        <p>Tag <%= report.getRoofDesc() %></p>
 
-        <p>Ydervægge</p>
-        <input style="width:90%"  type="text" name="outerWalls" value="">
-
+        <p>Ydervægge <%= report.getOuterWallsDesc() %></p>
         <p style="font-size:150%"><b>Lokale</b></p>
         <input style="width:90%" type="text" name="room" value="">
 
@@ -202,8 +197,8 @@
         <br>
 
 
-        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="technicianName" value=""> , Polygon</p>
-        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="buildingOwner" value=""> (bygningsansvarlig)</p>
+        <p align="center">Bygningsgennemgang foretaget af <%= report.getTechnicianName() %> , Polygon</p>
+        <p align="center">i samarbejde med <%= report.getCustomerName() %> (bygningsansvarlig)</p>
 
         <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
 
@@ -246,15 +241,9 @@
 
         </table>
 
-        <p>Bygningens tilstandsgrad</p>
-
-        <input style="width:10%" type="text" name="conditionLevel" value="">
-
+        <p>Bygningens tilstandsgrad</p> <%= report.getConditionLevel() %>
         <br>
         <br>
-
-        <input align="center" type="submit" name="uploadReport" value="Upload report">
-    </form>
 
     <p>Denne rapport og bygningsgennemgang er lavet for at klarlægge umiddelbare visuelle problemstillinger. Vores formål er at sikre, at
         bygningens anvendelse kan opretholdes. Vi udbedrer ikke skader som en del af bygningsgennemgangen/rapporten. Gennemgangen
