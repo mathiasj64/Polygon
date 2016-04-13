@@ -25,8 +25,8 @@ public class RoomMapper
         int RoomID;
         int ReportID;
         int RoomNo;
-        String When;
-        String Where;
+        String Whens;
+        String Wheres;
         String What;
         String Repairs;
         String Moist;
@@ -55,8 +55,8 @@ public class RoomMapper
                 RoomID = Integer.parseInt(res.getString(1));
                 ReportID = Integer.parseInt(res.getString(2));
                 RoomNo = Integer.parseInt(res.getString(3));
-                When = res.getString(4);
-                Where = res.getString(5);
+                Whens = res.getString(4);
+                Wheres = res.getString(5);
                 What = res.getString(6);
                 Repairs = res.getString(7);
                 Moist = res.getString(8);
@@ -71,7 +71,7 @@ public class RoomMapper
                 ScanningMade = res.getString(17);
                 MoistureScanning = res.getString(18);
                 MeasuringPoint = res.getString(19);
-                rooms.add(new Room(RoomID, ReportID, RoomNo, When, Where, What, Repairs, Moist, Rot, Mold, Fire,
+                rooms.add(new Room(RoomID, ReportID, RoomNo, Whens, Wheres, What, Repairs, Moist, Rot, Mold, Fire,
                         Other, Walls, Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint));
             }
         } catch (SQLException ex)
