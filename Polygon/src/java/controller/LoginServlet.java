@@ -46,14 +46,17 @@ public class LoginServlet extends HttpServlet
             String foundPassword = Facade.getInstance().getUser(foundUsername).getPassword();
 
             int accessLevel = Facade.getInstance().getUser(foundUsername).getAccesLevel();
-            
+            int customerID = Facade.getInstance().getUser(foundUsername).getCustomerID();
+
+            request.getSession().setAttribute("customerid", customerID);
+
             if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword))
             {
                 switch (accessLevel)
                 {
                     case 1:
                         sc = getServletContext();
-                        rd = sc.getRequestDispatcher("/ReportView.jsp");
+                        rd = sc.getRequestDispatcher("/UserBuildings.jsp");
                         rd.forward(request, response);
                         break;
 
@@ -75,8 +78,6 @@ public class LoginServlet extends HttpServlet
                 rd = sc.getRequestDispatcher("/LoginScreen.jsp");
                 rd.forward(request, response);
             }
-
-           
 
         }
     }
