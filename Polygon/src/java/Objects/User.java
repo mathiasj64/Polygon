@@ -11,12 +11,17 @@ package Objects;
  */
 public class User
 {
+    
+    int customerID; 
+
+    
     String username;
     String password;
     int accessLevel; 
     
-    public User(String uName, String Pword, int aLevel)
+    public User(int CID, String uName, String Pword, int aLevel)
     {
+        customerID = CID; 
         username = uName; 
         password = Pword; 
         accessLevel = aLevel; 
@@ -45,5 +50,21 @@ public class User
     public int getAccesLevel()
     {
         return accessLevel; 
+    }
+    
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public int getAccessLevel() {
+        return accessLevel;
+    }
+
+    public void setAccessLevel(int accessLevel) {
+        this.accessLevel = accessLevel;
     }
 }
