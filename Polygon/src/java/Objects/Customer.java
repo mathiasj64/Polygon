@@ -11,14 +11,17 @@ public class Customer
     private String customerName;
     private String customerEmail; 
     private String phoneNumber; 
-    
-    public Customer(int cID, String cName, String cEmail, String pNumber)
+    private String username;
+    private String password;
+
+    public Customer(int customerID, String customerName, String customerEmail, String phoneNumber, String username, String password)
     {
-        customerID = cID; 
-        customerName = cName; 
-        customerEmail = cEmail; 
-        phoneNumber = pNumber; 
-        
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.phoneNumber = phoneNumber;
+        this.username = username;
+        this.password = password;
     }
 
     public int getCustomerID()
@@ -60,6 +63,27 @@ public class Customer
     {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
+    
     
     
 }
