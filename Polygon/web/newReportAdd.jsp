@@ -57,7 +57,7 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
-                    <input style="width:90%" type="text" name="BN" value=""></td>
+                    <input style="width:90%" type="text" name="BN" value=""</td>
                 <td align="right"><p style="font-size:150%"><b>Dato</b></p>
                     <input style="width:90%" type="text" name="D" value=""></td>
             </tr>
