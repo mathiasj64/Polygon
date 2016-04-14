@@ -13,7 +13,7 @@
     </head>
 
     <body>
-    <!MENU>
+        <!MENU>
     <center>
 
         <table>
@@ -45,32 +45,25 @@
 
     <!MENU END>
 
-        <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
-        <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
-
-
-
+    <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+    
+    
     <center>
         <h1 style="font-size:300%">Bygingsgennemgang</h1>
     </center>
 
-    <form action="newReportAdd.jsp">
-        <p>Antal lokaler med skader:</p><input type="number" name="roomAmount">
-        <input type="submit" value="Opret lokaler">
-    </form>
-
-    <form method="POST" action="CompleteReportServlet">
+    <form method="POST" action="newReportAdd.jsp">
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
-                    <input style="width:90%" type="text" name="BN" value="lollebygge"></td>
+                    <input style="width:90%" type="text" name="BN" value=""></td>
                 <td align="right"><p style="font-size:150%"><b>Dato</b></p>
-                    <input style="width:90%" type="text" name="D" value="12-13"></td>
+                    <input style="width:90%" type="text" name="D" value=""></td>
             </tr>
-
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Adresse</b></p>
-                    <input style="width:90%" type="text" name="A" value="lollevej"></td>
+                    <input style="width:90%" type="text" name="A" value=""></td>
                 <td align="right"><p style="font-size:80%">Polygon</p>
                     <p style="font-size:80%">Rypevang 5</p>
                     <p style="font-size:80%">3450 Allerød</p>
@@ -82,9 +75,9 @@
 
             <tr>
                 <td><p align="left" style="font-size:150%"><b>Postnummer</b></p>
-                    <input style="width:90%" type="text" name="Z" value="1234"></td>
+                    <input style="width:90%" type="text" name="Z" value=""></td>
                 <td align="right"><p style="font-size:150%"><b>BygningsID</b></p>
-                    <input style="width:90%" type="text" name="BI" value="1"></td>
+                    <input style="width:90%" type="text" name="BI" value=""></td>
             </tr>
         </table>
 
@@ -93,34 +86,39 @@
         <p style="font-size:150%"><b>General information om bygningen</b></p>
 
         <p>Byggeår</p>
-        <input style="width:90%" type="text" name="Y" value="975">
+        <input style="width:90%" type="text" name="Y" value="">
 
         <p>Bygningsareal i m2</p>
-        <input style="width:90%"  type="text" name="S" value="234">
+        <input style="width:90%"  type="text" name="S" value="">
 
         <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til?</p>
-        <input style="width:90%" type="text" name="BU" value="ingenting">
+        <input style="width:90%" type="text" name="BU" value="">
 
         <p style="font-size:150%"><b>Gennemgang af bygningen udvendig</b></p>
 
         <p>Tag</p>
-        <input style="width:90%" type="text" name="R" value="hejsa">
+        <input style="width:90%" type="text" name="R" value="">
 
         <p>Ydervægge</p>
-        <input style="width:90%"  type="text" name="OW" value="hejsa">
+        <input style="width:90%"  type="text" name="OW" value="">
 
         <!ROOM START>
 
-        <%
-            if (request.getParameter("roomAmount") != null)
-            {
-                int amount = 0;
-                amount += Integer.parseInt(request.getParameter("roomAmount"));
-                for (int i = 1; i <= amount; i++)
-                {
-        %>
+    <%
+      if (request.getParameter("do_this") != null && request.getParameter("do_this").equals("Upload_report"))
+      {
+        getServletContext().getRequestDispatcher("/CompleteReportServlet").forward(request, response);
+      }
+    %>
 
-        <p style="font-size:150%"><b>Lokale <%=i%></b></p>
+    <%
+      int pages = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
+
+      for (int i = 1; i <= pages; i++)
+      {
+    %>
+    
+        <p align="center" style="font-size:150% "><b>Lokale <%=i %> </b></p>
 
 
         <p style="font-size:150%"><b>Skade og reperation</b></p>
@@ -153,15 +151,11 @@
 
         <p style="font-size:120%"><b>Vægge</b></p>
 
-        <p>Bemærkninger</p>
-
         <input align="right" style="width:90%" type="text" name="commentsWalls" value="">
 
         <p>Billede</p>
 
         <p style="font-size:120%"><b>Loft</b></p>
-
-        <p>Bemærkninger</p>
 
         <input style="width:90%" type="text" name="commentsCeiling" value="">
 
@@ -169,15 +163,11 @@
 
         <p style="font-size:120%"><b>Gulv</b></p>
 
-        <p>Bemærkninger</p>
-
         <input style="width:90%" type="text" name="commentsFloor" value="">
 
         <p>Billede</p>
 
         <p style="font-size:120%"><b>Vindue/døre</b></p>
-
-        <p>Bemærkninger</p>
 
         <input style="width:90%" type="text" name="commentsWindowDoor" value="">
 
@@ -185,7 +175,7 @@
 
         <p style="font-size:150%"><b>Fugtscanning</b></p>
 
-        <p>Foretaget fugtscanning? Ja/nej</p>
+        <p>Foretaget fugtscanning i lokalet? Ja/nej</p>
 
         <table align="center" style="width:100%">
             <tr>
@@ -198,9 +188,12 @@
         </table>
 
         <%
-                }
-            }
+          }
         %>
+
+        <br>
+        <input name="addRoom" type="hidden" value="<%= pages + 1%>">
+        <input name="addRoom2" type="submit" value="Tilføj ekstra lokale">
 
         <p style="font-size:150%"><b>Konklusion</b></p>
 
@@ -223,7 +216,7 @@
 
         <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
 
-        <table border="2" cellpadding="5">
+        <table align="center" border="2" cellpadding="5">
             <tr>
                 <td><b>Tilstand</b></td>
                 <td><b>Beskrivelse af bygningen</b></td>
@@ -269,7 +262,7 @@
         <br>
         <br>
 
-        <input align="center" type="submit" name="uploadReport" value="Upload report">
+        <input align="center" type="submit" name="do_this" value="Upload_report">
     </form>
 
     <p>Denne rapport og bygningsgennemgang er lavet for at klarlægge umiddelbare visuelle problemstillinger. Vores formål er at sikre, at
