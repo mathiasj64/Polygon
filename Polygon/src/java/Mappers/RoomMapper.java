@@ -46,7 +46,7 @@ public class RoomMapper
         {
             Connector.getInstance().connect();
 
-            String query = "SELECT * FROM Building";
+            String query = "SELECT * FROM RoomDamage";
             rooms.clear();
             ResultSet res = Connector.getInstance().stmt.executeQuery(query);
 
@@ -82,4 +82,56 @@ public class RoomMapper
         return rooms;
     }
     
+    
+    public Room getRoom(int roomID)
+  {
+    Room room = null;
+    int conditionLevel;
+    int buildingID;
+    String buildingName;
+    int zipcode;
+    String address;
+    int yearBuilt;
+    int sizeOfBuilding;
+    String purposeOfBuilding;
+    String date;
+    String technicianName;
+    String customerName;
+    String roofDesc;
+    String outerWallsDesc;
+
+    try
+    {
+      Connector.getInstance().connect();
+
+      String query = "SELECT * FROM RoomDamage WHERE roomID = '" + roomID + "';";
+
+      ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+
+      if (res.next())
+      {
+        report_ID = Integer.parseInt(res.getString(1));
+        conditionLevel = Integer.parseInt(res.getString(2));
+        buildingID = Integer.parseInt(res.getString(3));
+        buildingName = res.getString(4);
+        zipcode = Integer.parseInt(res.getString(5));
+        address = res.getString(6);
+        yearBuilt = Integer.parseInt(res.getString(7));
+        sizeOfBuilding = Integer.parseInt(res.getString(8));
+        purposeOfBuilding = res.getString(9);
+        date = res.getString(10);
+        technicianName = res.getString(11);
+        customerName = res.getString(12);
+        roofDesc = res.getString(13);
+        outerWallsDesc = res.getString(14);
+        report = new CompleteReport(reportID, conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding,
+        purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+      }
+    } catch (SQLException | NullPointerException ex)
+    {
+      ex.printStackTrace();
+      System.out.println(ex);
+    }
+    return report;
+  }
 }

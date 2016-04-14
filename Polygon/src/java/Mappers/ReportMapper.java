@@ -114,8 +114,6 @@ public class ReportMapper
   public CompleteReport getReport(int reportID)
   {
     CompleteReport report = null;
-    System.out.println("test2");
-    int report_ID;
     int conditionLevel;
     int buildingID;
     String buildingName;
@@ -140,8 +138,6 @@ public class ReportMapper
 
       if (res.next())
       {
-        System.out.println("test1");
-        report_ID = Integer.parseInt(res.getString(1));
         conditionLevel = Integer.parseInt(res.getString(2));
         buildingID = Integer.parseInt(res.getString(3));
         buildingName = res.getString(4);
