@@ -45,7 +45,7 @@
     <br>
     </center>
         <!MENU END>
-        
+
         <table border="1" style="width: 100%">
             
             <tr >
@@ -61,17 +61,49 @@
                 <td> Additional Information </td>
             </tr>
             
-            <%
+        <%
+        Integer accessLevel = (Integer) session.getAttribute("accessLevel"); 
+        Integer customerid = (Integer) session.getAttribute("customerid"); 
+        
+        switch(accessLevel)
+        {
+            case 1: 
+            //Usercase, vil vise userens egne bygninger.
+            Facade.getInstance().getUserBuildings(customerid); 
                 
+                if (Facade.getInstance().um.userBuildings.size() != 0)
+                {
+                    for (int i = 0; i < Facade.getInstance().bm.building.size(); i++)
+                    {
+
+                %>
+                
+                    <tr> 
+                <td> <%= Facade.getInstance().um.userBuildings.get(i).getBuildingID()%> </td>
+                <td> <%= Facade.getInstance().um.userBuildings.get(i).getCustomerID()%> </td>
+                <td> <%= Facade.getInstance().um.userBuildings.get(i).getAddress()%> </td>
+                <td> <%= Facade.getInstance().um.userBuildings.get(i).getParcelNo()%> </td>
+                <td> <%= Facade.getInstance().um.userBuildings.get(i).getSizeOfBuilding()%> </td>
+                <td> <%= Facade.getInstance().um.userBuildings.get(i).getAdditionalInformation()%> </td>
+            </tr>  
+        
+        
+        <% 
+                   }
+                }
+                break; 
+                
+            case 2: 
+               //adminlogin
                 Facade.getInstance().getBuildings();
                 
                 if (Facade.getInstance().bm.building.size() != 0)
                 {
                     for (int i = 0; i < Facade.getInstance().bm.building.size(); i++)
                     {
-            %>
-            
-            <tr> 
+               %> 
+               
+               <tr> 
                 <td> <%= Facade.getInstance().bm.building.get(i).getBuildingID()%> </td>
                 <td> <%= Facade.getInstance().bm.building.get(i).getCustomerID()%> </td>
                 <td> <%= Facade.getInstance().bm.building.get(i).getAddress()%> </td>
@@ -79,11 +111,22 @@
                 <td> <%= Facade.getInstance().bm.building.get(i).getSizeOfBuilding()%> </td>
                 <td> <%= Facade.getInstance().bm.building.get(i).getAdditionalInformation()%> </td>
             </tr>  
-            
-            <%
-                    }
+               
+               
+               <%
+                   
+                   }
                 }
-            %> 
+                break; 
+                
+            case 3: 
+                //til eventuelt tekniker login.
+                break; 
+        }
+        
+               
+               %> 
+  
         </table>
         <br>
         <form action="AddBuilding.jsp">

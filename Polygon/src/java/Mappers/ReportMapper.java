@@ -80,8 +80,7 @@ public class ReportMapper
     {
       Connector.getInstance().connect();
 
-      String query = "INSERT INTO polygondatabase.checkupreport((conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding,\n"
-              + "purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc)) VALUES ('" + conditionLevel +
+      String query = "INSERT INTO polygondatabase.report(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, DateWritten, technicianName, customerName, roofDesc, outerWallsDesc) VALUES ('" + conditionLevel +
               "', '" + buildingID + "', '" + buildingName + "', '" + zipcode + "', '" + address + "', '" + yearBuilt + "', '" + sizeOfBuilding +
               "', '" + purposeOfBuilding + "', '" + date + "', '" + technicianName + "', '" + customerName + "', '" + roofDesc + "', '" + outerWallsDesc + "');";
 

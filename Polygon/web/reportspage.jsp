@@ -44,6 +44,12 @@
             </tr>
         </table>
         <br>
+<<<<<<< HEAD
+        <form action="newReportAdd.jsp">
+            <input type="submit" value="Add a report"/>       
+        </form>
+    </body>
+=======
     </center>
     <!MENU END>
 
@@ -64,7 +70,6 @@
     <td> <b>View Report</b></td>
 </tr>
 
-
 <%
   Facade.getInstance().getReports();
 
@@ -73,8 +78,6 @@
     for (int i = 0; i < Facade.getInstance().rm.reports.size(); i++)
     {
 %>
-
-
 
 <tr>
     <td> <%= Facade.getInstance().rm.reports.get(i).getReportID()%> </td>

@@ -64,6 +64,10 @@ public class Facade
         rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
     }
 
+    public ArrayList<Building> getUserBuildings(int CID)
+    {
+        return um.getUserBuildings(CID);
+    }
     public ArrayList<CompleteReport> getReports()
     {
         return rm.getReports();
