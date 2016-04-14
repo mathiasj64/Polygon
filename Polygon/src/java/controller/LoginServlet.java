@@ -18,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author madsr
  */
-public class LoginServlet extends HttpServlet
-{
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +33,9 @@ public class LoginServlet extends HttpServlet
     ServletContext sc;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter())
-        {
+        try (PrintWriter out = response.getWriter()) {
 
             String givenUsername = request.getParameter("username");
             String givenPassword = request.getParameter("password");
@@ -46,37 +43,22 @@ public class LoginServlet extends HttpServlet
             String foundPassword = Facade.getInstance().getUser(foundUsername).getPassword();
 
             int accessLevel = Facade.getInstance().getUser(foundUsername).getAccesLevel();
+            int customerID = Facade.getInstance().getUser(foundUsername).getCustomerID(); 
             
-            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword))
-            {
-                switch (accessLevel)
-                {
-                    case 1:
-                        sc = getServletContext();
-                        rd = sc.getRequestDispatcher("/ReportView.jsp");
-                        rd.forward(request, response);
-                        break;
+            request.getSession().setAttribute("accessLevel", accessLevel);
+            request.getSession().setAttribute("customerid", customerID);
+            
+            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword)) {
 
-                    case 2:
-                        sc = getServletContext();
-                        rd = sc.getRequestDispatcher("/buildingspage.jsp");
-                        rd.forward(request, response);
-                        break;
+                sc = getServletContext();
+                rd = sc.getRequestDispatcher("/frontPage.jsp");
+                rd.forward(request, response);
 
-                    case 3:
-                        sc = getServletContext();
-                        rd = sc.getRequestDispatcher("/CustomerPage.jsp");
-                        rd.forward(request, response);
-                        break;
-                }
-            } else
-            {
+            } else {
                 sc = getServletContext();
                 rd = sc.getRequestDispatcher("/LoginScreen.jsp");
                 rd.forward(request, response);
             }
-
-           
 
         }
     }
@@ -92,8 +74,7 @@ public class LoginServlet extends HttpServlet
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -107,8 +88,7 @@ public class LoginServlet extends HttpServlet
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -118,8 +98,7 @@ public class LoginServlet extends HttpServlet
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo()
-    {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
