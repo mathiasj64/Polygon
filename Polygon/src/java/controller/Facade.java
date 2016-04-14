@@ -49,9 +49,9 @@ public class Facade
         bm.addBuilding(CID, Address, PC, SOB, AI);
     }
 
-    public void addCustomer(String name, String email, String phonenumber)
+    public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
     {
-        cm.addCustomer(name, email, phonenumber);
+        cm.addCustomer(cName, cEmail, pNum, username, password);
     }
 
     public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding)
