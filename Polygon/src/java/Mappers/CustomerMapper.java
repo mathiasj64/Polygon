@@ -63,7 +63,7 @@ public class CustomerMapper
         {
         Connector.getInstance().connect(); 
         
-        String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerName`, `Email`, `PhoneNumber`, `username`, `password`, `accesslevel`) VALUES ('" + cName + "', '" + cEmail + "', '" + pNum + "', '" + username +  "', '" + password + "', 1');";
+        String query = "INSERT INTO `polygondatabase`.`customer` ( `CustomerName`, `Email`, `PhoneNumber`,`username`,`password`,`accesslevel`) VALUES ('" + cName + "', '" + cEmail + "', '" + pNum + "', '" + username +  "', '" + password + "', '1');";
         Connector.getInstance().stmt.executeUpdate(query); 
         
         }
