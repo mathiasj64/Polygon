@@ -93,7 +93,7 @@
 
         <p>Byggeår: <%= report.getYearBuilt() %></p>
 
-        <p>Bygningsareal i m2: <%= report.getSizeOfBuilding() %></p>
+        <p>Bygningsareal i m²: <%= report.getSizeOfBuilding() %></p>
 
         <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til? <%= report.getPurposeOfBuilding() %></p>
 

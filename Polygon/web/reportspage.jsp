@@ -44,12 +44,10 @@
             </tr>
         </table>
         <br>
-<<<<<<< HEAD
         <form action="newReportAdd.jsp">
             <input type="submit" value="Add a report"/>       
         </form>
     </body>
-=======
     </center>
     <!MENU END>
 

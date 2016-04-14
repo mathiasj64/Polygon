@@ -57,13 +57,13 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
-                    <input style="width:90%" type="text" name="BN" value=""</td>
+                    <input style="width:90%" type="text" name="BN" value="<%=request.getParameter("BN") == null ? "" : request.getParameter("BN")%>" </td>
                 <td align="right"><p style="font-size:150%"><b>Dato</b></p>
-                    <input style="width:90%" type="text" name="D" value=""></td>
+                    <input style="width:90%" type="text" name="D" value="<%=request.getParameter("D") == null ? "" : request.getParameter("D")%>"></td>
             </tr>
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Adresse</b></p>
-                    <input style="width:90%" type="text" name="A" value=""></td>
+                    <input style="width:90%" type="text" name="A" value="<%=request.getParameter("A") == null ? "" : request.getParameter("A")%>"></td>
                 <td align="right"><p style="font-size:80%">Polygon</p>
                     <p style="font-size:80%">Rypevang 5</p>
                     <p style="font-size:80%">3450 Allerød</p>
@@ -75,9 +75,9 @@
 
             <tr>
                 <td><p align="left" style="font-size:150%"><b>Postnummer</b></p>
-                    <input style="width:90%" type="text" name="Z" value=""></td>
+                    <input style="width:90%" type="text" name="Z" value="<%=request.getParameter("Z") == null ? "" : request.getParameter("Z")%>"></td>
                 <td align="right"><p style="font-size:150%"><b>BygningsID</b></p>
-                    <input style="width:90%" type="text" name="BI" value=""></td>
+                    <input style="width:90%" type="text" name="BI" value="<%=request.getParameter("BI") == null ? "" : request.getParameter("BI")%>"></td>
             </tr>
         </table>
 
@@ -86,21 +86,21 @@
         <p style="font-size:150%"><b>General information om bygningen</b></p>
 
         <p>Byggeår</p>
-        <input style="width:90%" type="text" name="Y" value="">
+        <input style="width:90%" type="text" name="Y" value="<%=request.getParameter("Y") == null ? "" : request.getParameter("Y")%>">
 
-        <p>Bygningsareal i m2</p>
-        <input style="width:90%"  type="text" name="S" value="">
+        <p>Bygningsareal i m²</p>
+        <input style="width:90%"  type="text" name="S" value="<%=request.getParameter("S") == null ? "" : request.getParameter("S")%>">
 
         <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til?</p>
-        <input style="width:90%" type="text" name="BU" value="">
+        <input style="width:90%" type="text" name="BU" value="<%=request.getParameter("BU") == null ? "" : request.getParameter("BU")%>">
 
         <p style="font-size:150%"><b>Gennemgang af bygningen udvendig</b></p>
 
         <p>Tag</p>
-        <input style="width:90%" type="text" name="R" value="">
+        <input style="width:90%" type="text" name="R" value="<%=request.getParameter("R") == null ? "" : request.getParameter("R")%>">
 
         <p>Ydervægge</p>
-        <input style="width:90%"  type="text" name="OW" value="">
+        <input style="width:90%"  type="text" name="OW" value="<%=request.getParameter("OW") == null ? "" : request.getParameter("OW")%>">
 
         <!ROOM START>
 
@@ -126,19 +126,19 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p>Hvornår</p>
-                    <input style="width:90%" type="text" name="dmgWhen" value=""></td>
+                    <input style="width:90%" type="text" name="dmgWhen<%=i%>" value="<%=request.getParameter("dmgWhen" + i) == null ? "" : request.getParameter("dmgWhen" + i)%>"></td>
 
                 <td align="right"><p>Hvor</p>
-                    <input style="width:90%" type="text" name="dmgWhere" value=""></td>
+                    <input style="width:90%" type="text" name="dmgWhere<%=i%>" value="<%=request.getParameter("dmgWhere" + i) == null ? "" : request.getParameter("dmgWhere" + i)%>"></td>
             </tr>
 
             <tr>
                 <td align="left"><p>Hvad er der sket</p>
-                    <input style="width:90%" type="text" name="dmgWhatHappened" value=""></td>
+                    <input style="width:90%" type="text" name="dmgWhatHappened<%=i%>" value="<%=request.getParameter("dmgWhatHappened" + i) == null ? "" : request.getParameter("dmgWhatHappened" + i)%>"></td>
 
 
                 <td align="right"><p>Hvad er repareret</p>
-                    <input style="width:90%" type="text" name="dmgWhatRepaired" value=""></td>
+                    <input style="width:90%" type="text" name="dmgWhatRepaired<%=i%>" value="<%=request.getParameter("dmgWhatRepaired" + i) == null ? "" : request.getParameter("dmgWhatRepaired" + i)%>"></td>
             </tr>
 
         </table>
@@ -151,25 +151,25 @@
 
         <p style="font-size:120%"><b>Vægge</b></p>
 
-        <input align="right" style="width:90%" type="text" name="commentsWalls" value="">
+        <input align="right" style="width:90%" type="text" name="commentsWalls<%=i%>" value="<%=request.getParameter("commentsWalls" + i) == null ? "" : request.getParameter("commentsWalls" + i)%>">
 
         <p>Billede</p>
 
         <p style="font-size:120%"><b>Loft</b></p>
 
-        <input style="width:90%" type="text" name="commentsCeiling" value="">
+        <input style="width:90%" type="text" name="commentsCeiling<%=i%>" value="<%=request.getParameter("commentsCeiling" + i) == null ? "" : request.getParameter("commentsCeiling" + i)%>">
 
         <p>Billede</p>
 
         <p style="font-size:120%"><b>Gulv</b></p>
 
-        <input style="width:90%" type="text" name="commentsFloor" value="">
+        <input style="width:90%" type="text" name="commentsFloor<%=i%>" value="<%=request.getParameter("commentsFloor" + i) == null ? "" : request.getParameter("commentsFloor" + i)%>">
 
         <p>Billede</p>
 
         <p style="font-size:120%"><b>Vindue/døre</b></p>
 
-        <input style="width:90%" type="text" name="commentsWindowDoor" value="">
+        <input style="width:90%" type="text" name="commentsWindowDoor<%=i%>" value="<%=request.getParameter("commentsWindowDoor" + i) == null ? "" : request.getParameter("commentsWindowDoor" + i)%>">
 
         <p>Billede</p>
 
@@ -180,10 +180,10 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="center"><p>Fugtscanning</p>
-                    <input style="width:90%" type="text" name="moistScanning" value=""></td>
+                    <input style="width:90%" type="text" name="moistScanning<%=i%>" value="<%=request.getParameter("mostScanning" + i) == null ? "" : request.getParameter("moistScanning" + i)%>"></td>
 
                 <td align="center"><p>Målepunkt</p>
-                    <input style="width:90%" type="text" name="measurePoint" value=""></td>
+                    <input style="width:90%" type="text" name="measurePoint<%=i%>" value="<%=request.getParameter("measurePoint" + i) == null ? "" : request.getParameter("measurePoint" + i)%>"></td>
             </tr>
         </table>
 
@@ -211,8 +211,8 @@
         <br>
 
 
-        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="TN" value="ole"> , Polygon</p>
-        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="BO" value="hans"> (bygningsansvarlig)</p>
+        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="TN" value="<%=request.getParameter("TN") == null ? "" : request.getParameter("TN")%>"> , Polygon</p>
+        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="BO" value="<%=request.getParameter("BO") == null ? "" : request.getParameter("BO")%>"> (bygningsansvarlig)</p>
 
         <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
 
@@ -257,7 +257,7 @@
 
         <p>Bygningens tilstandsgrad</p>
 
-        <input style="width:10%" type="text" name="CL" value="2">
+        <input style="width:10%" type="text" name="CL" value="<%=request.getParameter("CL") == null ? "" : request.getParameter("CL")%>">
 
         <br>
         <br>
