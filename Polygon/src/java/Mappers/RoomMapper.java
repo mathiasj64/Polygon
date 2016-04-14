@@ -81,6 +81,27 @@ public class RoomMapper
 
         return rooms;
     }
+
+    public void addRooms(int RoomID, int ReportID, int RoomNo, String Whens, String Wheres, String What, String Repairs, int Moist,
+            int Rot, int Mold, int Fire, int Other, String Walls, String Ceiling, String Floor, String Windows, String ScanningMade,
+            String MoistureScanning, String MeasuringPoint)
+    {
+        try
+        {
+            Connector.getInstance().connect();
+
+            String query = "INSERT INTO polygondatabase.roomdamage(RoomID, ReportID, RoomNo, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, Scanningmade, MoistureScanning, MoisturingPoint, Moist, Rot, Mold, Fire, Other) VALUES ('" + RoomID + "', '"
+                    + ReportID + "', '" + RoomNo + "', '" + Whens + "', '" + Wheres + "', '" + What + "', '" + Repairs + "', '" + Moist + "', '"
+                    + Rot + "', '" + Mold + "', '" + Fire + "', '" + Other + "', '" + Walls + "', '" + Ceiling + "', '" + Floor + "', '"
+                    + Windows + "', '" + ScanningMade + "', '" + MoistureScanning + "', '" + MeasuringPoint + "');";
+
+            Connector.getInstance().stmt.executeUpdate(query);
+        } catch (SQLException | NullPointerException ex)
+        {
+            ex.printStackTrace();
+            System.out.println(ex);
+        }
+    }
     
     
     public Room getRoom(int roomID)
@@ -135,3 +156,4 @@ public class RoomMapper
     return report;
   }
 }
+
