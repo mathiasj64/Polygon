@@ -25,6 +25,8 @@ public class CustomerMapper
         String customerName;
         String customerEmail;
         String phoneNum;
+        String username;
+        String password;
 
         try
         {
@@ -41,8 +43,10 @@ public class CustomerMapper
                 customerName = res.getString(2);
                 customerEmail = res.getString(3);
                 phoneNum = res.getString(4);
+                username = res.getString(5);
+                password = res.getString(6);
 
-                customers.add(new Customer(customerID, customerName, customerEmail, phoneNum));
+                customers.add(new Customer(customerID, customerName, customerEmail, phoneNum, username, password));
             }
 
         } catch (SQLException ex)
@@ -53,13 +57,13 @@ public class CustomerMapper
         return customers;
     }
     
-    public void addCustomer(String cName, String cEmail, String pNum)
+    public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
     {
         try
         {
         Connector.getInstance().connect(); 
         
-        String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerName`, `Email`, `PhoneNumber`) VALUES ('" + cName + "', '" + cEmail + "', '" + pNum + "');";
+        String query =  "INSERT INTO `polygondatabase`.`customer` (`CustomerName`, `Email`, `PhoneNumber`, `username`, `password`, `accesslevel`) VALUES ('" + cName + "', '" + cEmail + "', '" + pNum + "', '" + username +  "', '" + password + "', 1');";
         Connector.getInstance().stmt.executeUpdate(query); 
         
         }
