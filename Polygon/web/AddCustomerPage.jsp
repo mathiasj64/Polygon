@@ -59,6 +59,14 @@
             <tr>
                 <td> <input type="number" name="PN" value="Insert Phonenumber" /> </td>
             </tr>
+            
+            <tr>
+                <td> <input type="text" name="UN" value="Insert Desired Username" /> </td>
+            </tr>
+            
+            <tr>
+                <td> <input type="text" name="PW" value="Insert Desired Password" /> </td>
+            </tr>
         </table>
 
         <td> <input type="submit" name="addCustomer" value="Add Customer" /> </td>
