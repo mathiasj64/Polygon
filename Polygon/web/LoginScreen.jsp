@@ -39,7 +39,7 @@
     <tfoot>
         <tr>
    
-            <td colspan="2" align="right"> <input type="submit" name="login" value="Login" </td>
+            <td colspan="2" align="right"> <input type="submit" name="login" value="Login"> </td>
         </tr>
     </tfoot>
 </table>
