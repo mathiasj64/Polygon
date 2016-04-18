@@ -90,6 +90,11 @@ public class Facade
   {
     return um.ReturnUser(uname);
   }
+  
+  public ArrayList<CompleteReport> getUserReports(int cID)
+  {
+      return um.getUserReports(cID); 
+  }
 
   public void addRooms(int ReportID, int RoomNo, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, String ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
   {

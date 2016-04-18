@@ -11,7 +11,7 @@
 <html>
     <%
          Integer accessLevel = (Integer) session.getAttribute("accessLevel"); 
-         Integer customerid = (Integer) session.getAttribute("customerid"); 
+         Integer customerid = (Integer) session.getAttribute("customerid");
     %> 
     
     <head>
@@ -80,7 +80,7 @@
         {
             case 1: 
             //Usercase, vil vise userens egne bygninger.
-            Facade.getInstance().um.userBuildings.clear();
+       
             Facade.getInstance().getUserBuildings(customerid); 
                 if (Facade.getInstance().um.userBuildings.size() != 0)
                 {
