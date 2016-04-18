@@ -88,5 +88,9 @@
      <form action="AddCustomerPage.jsp">
      <input type="submit" name ="addcustomer" value="Add Customer" />
      </form>
+     
+     <form action="EditCustomer.jsp">
+     <input type="submit" name ="addcustomer" value="Edit Customer" />
+     </form>
 </body>
 </html>
