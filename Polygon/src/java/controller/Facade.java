@@ -65,6 +65,11 @@ public class Facade
   {
     rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
   }
+  
+  public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
+  {
+    cm.editCustomer(cName, cEmail, pNum, username, password, CID);
+  }
 
   public ArrayList<Building> getUserBuildings(int CID)
   {
