@@ -9,6 +9,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%
+         Integer accessLevel = (Integer) session.getAttribute("accessLevel"); 
+         Integer customerid = (Integer) session.getAttribute("customerid"); 
+    %> 
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BuildingPage</title>
@@ -28,11 +33,18 @@
                     </form>
                 </td>
 
+                <%
+                    if(accessLevel > 1)
+                    {
+                    %>
                 <td>
                     <form action="CustomerPage.jsp">
                         <input type="submit" value="Customers" name="customer" />
                     </form>        
                 </td>
+                <%
+                    }
+                    %> 
 
                 <td>
                     <form action="reportspage.jsp">
@@ -62,18 +74,17 @@
             </tr>
             
         <%
-        Integer accessLevel = (Integer) session.getAttribute("accessLevel"); 
-        Integer customerid = (Integer) session.getAttribute("customerid"); 
+       
         
         switch(accessLevel)
         {
             case 1: 
             //Usercase, vil vise userens egne bygninger.
+            Facade.getInstance().um.userBuildings.clear();
             Facade.getInstance().getUserBuildings(customerid); 
-                
                 if (Facade.getInstance().um.userBuildings.size() != 0)
                 {
-                    for (int i = 0; i < Facade.getInstance().bm.building.size(); i++)
+                    for (int i = 0; i < Facade.getInstance().um.userBuildings.size(); i++)
                     {
 
                 %>
