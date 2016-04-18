@@ -47,8 +47,8 @@
 
     <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
     <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
-    
-    
+
+
     <center>
         <h1 style="font-size:300%">Bygingsgennemgang</h1>
     </center>
@@ -104,21 +104,21 @@
 
         <!ROOM START>
 
-    <%
-      if (request.getParameter("do_this") != null && request.getParameter("do_this").equals("Upload_report"))
-      {
-        getServletContext().getRequestDispatcher("/CompleteReportServlet").forward(request, response);
-      }
-    %>
+        <%
+          if (request.getParameter("do_this") != null && request.getParameter("do_this").equals("Upload_report"))
+          {
+            getServletContext().getRequestDispatcher("/CompleteReportServlet").forward(request, response);
+          }
+        %>
 
-    <%
-      int pages = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
+        <%
+          int pages = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
 
-      for (int i = 1; i <= pages; i++)
-      {
-    %>
-    
-        <p align="center" style="font-size:150% "><b>Lokale <%=i %> </b></p>
+          for (int i = 1; i <= pages; i++)
+          {
+        %>
+
+        <p align="center" style="font-size:150% "><b>Lokale <%=i%> </b></p>
 
 
         <p style="font-size:150%"><b>Skade og reperation</b></p>
@@ -180,12 +180,16 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="center"><p>Fugtscanning</p>
-                    <input style="width:90%" type="text" name="moistScanning<%=i%>" value="<%=request.getParameter("mostScanning" + i) == null ? "" : request.getParameter("moistScanning" + i)%>"></td>
+                    <input style="width:90%" type="text" name="moistScanning<%=i%>" value="<%=request.getParameter("moistScanning" + i) == null ? "" : request.getParameter("moistScanning" + i)%>"></td>
 
                 <td align="center"><p>Målepunkt</p>
                     <input style="width:90%" type="text" name="measurePoint<%=i%>" value="<%=request.getParameter("measurePoint" + i) == null ? "" : request.getParameter("measurePoint" + i)%>"></td>
             </tr>
         </table>
+
+        <p style="font-size:120%"><b>Anbefalet løsning på skade</b></p>
+
+        <input style="width:90%" type="text" name="Recomendation<%=i%>" value="<%=request.getParameter("Recommendation" + i) == null ? "" : request.getParameter("Recommendation" + i)%>">
 
         <%
           }

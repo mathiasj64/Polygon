@@ -4,6 +4,8 @@
     Author     : Mathias
 --%>
 
+<%@page import="Objects.Room"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Objects.CompleteReport"%>
 <%@page import="controller.Facade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -45,205 +47,206 @@
     </center>
 
     <!MENU END>
-    
+
     <%
       CompleteReport report = Facade.getInstance().rm.getReport(Integer.parseInt(request.getParameter("hiddenID")));
+      ArrayList<Room> rooms = Facade.getInstance().rom.getRoomsFromReport(Integer.parseInt(request.getParameter("hiddenID")));
     %>
-    
-        
-        <body>
-            <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
-            <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
-            <br>
-            <br>
-            <p align="left"> Rapport nr.:<%= report.getReportID() %></p> 
-            <br>
 
 
-        <center>
-            <h1 style="font-size:300%">Bygingsgennemgang</h1>
-        </center>
-
-        <table align="center" style="width:100%">
-            <tr>
-                <td align="left"><p style="font-size:150%"><b>Navn på bygning</b> <%= report.getBuildingName()%></p></td>
-                <td align="right"><p style="font-size:150%"><b>Dato</b> <%= report.getDate() %></p>
-            </tr>
-
-            <tr>
-                <td align="left"><p style="font-size:150%"><b>Adresse</b> <%= report.getAddress() %></p>
-                <td align="right"><p style="font-size:80%">Polygon</p>
-                    <p style="font-size:80%">Rypevang5</p>
-                    <p style="font-size:80%">3450 Allerød</p>
-                    <p style="font-size:80%">Tlf. 4814 0555</p>
-                    <p style="font-size:80%">sundebygninger@polygon.dk</p>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td><p align="left" style="font-size:150%"><b>Postnummer</b> <%= report.getZipcode() %></p>
-
-            </tr>
-        </table>
-
-        <p>Indæst billede af bygning udefra</p>
-
-        <p style="font-size:150%"><b>General information om bygningen</b></p>
-
-        <p>Byggeår: <%= report.getYearBuilt() %></p>
-
-        <p>Bygningsareal i m²: <%= report.getSizeOfBuilding() %></p>
-
-        <p>Hvad bruges bygningen til/ Hvad har bygningen været brugt til? <%= report.getPurposeOfBuilding() %></p>
-
-        <p style="font-size:150%"><b>Gennemgang af bygningen udvendig</b></p>
-
-        <p>Tag <%= report.getRoofDesc() %></p>
-
-        <p>Ydervægge <%= report.getOuterWallsDesc() %></p>
-        <p style="font-size:150%"><b>Lokale</b></p>
-        <input style="width:90%" type="text" name="room" value="">
-
-        <p style="font-size:150%"><b>Skade og reperation</b></p>
-
-        <p><b>Har der været skade i lokalet? Ja/Nej</b></p>
-
-        <table align="center" style="width:100%">
-            <tr>
-                <td align="left"><p>Hvornår</p>
-                    <input style="width:90%" type="text" name="dmgWhen" value=""></td>
-
-                <td align="right"><p>Hvor</p>
-                    <input style="width:90%" type="text" name="dmgWhere" value=""></td>
-            </tr>
-
-            <tr>
-                <td align="left"><p>Hvad er der sket</p>
-                    <input style="width:90%" type="text" name="dmgWhatHappened" value=""></td>
-
-
-                <td align="right"><p>Hvad er repareret</p>
-                    <input style="width:90%" type="text" name="dmgWhatRepaired" value=""></td>
-            </tr>
-
-        </table>
-
-        <p><b>Skade</b></p>
-
-        <p>Fugt/Råd og svamp/ Skimmel/ Brand/ Anden skade</p>
-
-        <p style="font-size:150%"><b>Gennemgang af:</b></p>
-
-        <p style="font-size:120%"><b>Vægge</b></p>
-
-        <p>Bemærkninger</p>
-
-        <input align="right" style="width:90%" type="text" name="commentsWalls" value="">
-
-        <p>Billede</p>
-
-        <p style="font-size:120%"><b>Loft</b></p>
-
-        <p>Bemærkninger</p>
-
-        <input style="width:90%" type="text" name="commentsCeiling" value="">
-
-        <p>Billede</p>
-
-        <p style="font-size:120%"><b>Gulv</b></p>
-
-        <p>Bemærkninger</p>
-
-        <input style="width:90%" type="text" name="commentsFloor" value="">
-
-        <p>Billede</p>
-
-        <p style="font-size:120%"><b>Vindue/døre</b></p>
-
-        <p>Bemærkninger</p>
-
-        <input style="width:90%" type="text" name="commentsWindowDoor" value="">
-
-        <p>Billede</p>
-
-        <p style="font-size:150%"><b>Fugtscanning</b></p>
-
-        <p>Foretaget fugtscanning? Ja/nej</p>
-
-        <table align="center" style="width:100%">
-            <tr>
-                <td align="center"><p>Fugtscanning</p>
-                    <input style="width:90%" type="text" name="moistScanning" value=""></td>
-
-                <td align="center"><p>Målepunkt</p>
-                    <input style="width:90%" type="text" name="measurePoint" value=""></td>
-            </tr>
-        </table>
-
-        <p style="font-size:150%"><b>Konklusion</b></p>
-
-        <table align="center" style="width:100%">
-            <tr>
-                <td align="center"><p>Lokale</p>
-                    <input style="width:90%" type="text" name="room" value=""></td>
-                <td align="center"><p>Anbefalinger</p>
-                    <input style="width:90%" type="text" name="recommendation" value=""></td>
-
-            </tr>
-        </table>
-
+    <body>
+        <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+        <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
         <br>
+        <br>
+        <p align="left"> Rapport nr.:<%= report.getReportID()%></p> 
         <br>
 
 
-        <p align="center">Bygningsgennemgang foretaget af <%= report.getTechnicianName() %> , Polygon</p>
-        <p align="center">i samarbejde med <%= report.getCustomerName() %> (bygningsansvarlig)</p>
+    <center>
+        <h1 style="font-size:300%">Bygingsgennemgang</h1>
+    </center>
 
-        <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
+    <table align="center" style="width:100%">
+        <tr>
+            <td align="left"><p style="font-size:150%"><b>Navn på bygning</b> <%= report.getBuildingName()%></p></td>
+            <td align="right"><p style="font-size:150%"><b>Dato</b> <%= report.getDate()%></p>
+        </tr>
 
-        <table border="2" cellpadding="5">
-            <tr>
-                <td><b>Tilstand</b></td>
-                <td><b>Beskrivelse af bygningen</b></td>
-                <td><b>Funktion af bygningen</b></td>
-            </tr>
+        <tr>
+            <td align="left"><p style="font-size:150%"><b>Adresse</b> <%= report.getAddress()%></p>
+            <td align="right"><p style="font-size:80%">Polygon</p>
+                <p style="font-size:80%">Rypevang5</p>
+                <p style="font-size:80%">3450 Allerød</p>
+                <p style="font-size:80%">Tlf. 4814 0555</p>
+                <p style="font-size:80%">sundebygninger@polygon.dk</p>
 
-            <tr>
-                <td><b>Tilstandsgrad 0</b></td>
-                <td>Bygningsdelen er ny og som bygget</td>
-                <td>Funktionen er som 
-                    beskrevet</td>
-            </tr>
+            </td>
+        </tr>
 
-            <tr>
-                <td><b>Tilstandsgrad 1</b></td>
-                <td>Bygningsdelen er intakt, men med <br> begyndende slid og synlige skader <br> (kun kosmetiske skader)</td>
-                <td>Funktionen er som 
-                    beskrevet</td>
-            </tr>
+        <tr>
+            <td><p align="left" style="font-size:150%"><b>Postnummer</b> <%= report.getZipcode()%></p>
 
-            <tr>
-                <td><b>Tilstandsgrad 2</b></td>
-                <td>Bygningsdelen er begyndt at forfalde, <br>
-                    med enkelte defekte komponenter</td>
-                <td>Funktionen er nedsat – <br>
-                    fare for følgeskader</td>
-            </tr>
+        </tr>
+    </table>
 
-            <tr>
-                <td><b>Tilstandsgrad 3</b></td>
-                <td>Bygningsdelen er nedbrudt og skal <br>
-                    udskiftes</td>
-                <td>Funktionen er ophørt – <br>
-                    fare for følgeskader</td>
-            </tr>
+    <p>Indæst billede af bygning udefra</p>
 
-        </table>
+    <p style="font-size:150%"><b>General information om bygningen</b></p>
 
-        <p>Bygningens tilstandsgrad</p> <%= report.getConditionLevel() %>
-        <br>
-        <br>
+    <p><b>Byggeår:</b></p>
+    <%= report.getYearBuilt()%>
+
+    <p><b>Bygningsareal i m²:</b></p>
+    <%= report.getSizeOfBuilding()%>
+
+    <p><b>Hvad bruges bygningen til/ Hvad har bygningen været brugt til?</b></p>
+    <%= report.getPurposeOfBuilding()%>
+
+    <p style="font-size:150%"><b>Gennemgang af bygningen udvendig</b></p>
+
+    <p><b>Bemærkninger til tag</b></p>
+    <%= report.getRoofDesc()%>
+
+    <p><b>Bemærkninger til ydervægge</b></p> 
+    <%= report.getOuterWallsDesc()%>
+
+    <!ROOM START>
+
+    <%
+
+      for (int i = 0; i < rooms.size(); i++)
+      {
+
+    %>
+
+    <p style="font-size:150%"><b>Lokale<%=i + 1%></b></p>
+
+    <p style="font-size:150%"><b>Skade og reperation</b></p>
+
+    <p><b>Hvornår er skaden sket?</b></p>
+            <%= rooms.get(i).getWhen()%>
+
+    <p><b>Hvor er skadet sket?</b></p>
+            <%= rooms.get(i).getWhere()%>
+
+    <p><b>Hvad er der sket?</b></p>
+            <%= rooms.get(i).getWhat()%>
+
+    <p><b>Hvad er repareret?</b></p>
+    <%= rooms.get(i).getRepairs()%>
+
+    <p style="font-size:150%"><b>Skade</b></p>
+
+    <p>Fugt/Råd og svamp/ Skimmel/ Brand/ Anden skade</p>
+
+    <p style="font-size:150%"><b>Gennemgang af:</b></p>
+
+    <p><b>Bemærkninger til vægge</b></p>
+
+    <%= rooms.get(i).getWalls()%>
+
+    <p><b>Bemærkninger til loft</b></p>
+
+    <%= rooms.get(i).getCeiling()%>
+
+    <p><b>Bemærkninger til gulv</b></p>
+
+    <%= rooms.get(i).getFloor()%>
+
+    <p><b>Bemærkninger til vindue og døre</b></p>
+
+    <%= rooms.get(i).getWindows()%>
+
+    <p style="font-size:150%"><b>Fugtscanning</b></p>
+
+    <p>Foretaget fugtscanning? </p>
+    <br>
+    <%= rooms.get(i).getScanningMade()%>
+
+    <p><b>Resultat af fugtscanning</b></p>
+    <%= rooms.get(i).getMoistureScanning()%>
+
+    <p><b>Målepunkt for fugtscanning</b></p>
+    <%= rooms.get(i).getMeasuringPoint()%>
+
+
+    <%
+
+      }
+
+    %>
+
+
+    <p style="font-size:150%"><b>Konklusion</b></p>
+
+    <table border="2" cellpadding="5" align="center" style="width:100%">
+        <%          for (int i = 0; i < rooms.size(); i++)
+          {
+        %>
+
+        <tr>
+            <td align="center"><p>Lokale <%=i + 1%> </p>
+            <td align="center"><p><%= rooms.get(i).getRecommendation()%> </p>
+
+        </tr>
+
+        <%
+          }
+        %>
+    </table>
+
+    <br>
+    <br>
+
+
+    <p align="center">Bygningsgennemgang foretaget af <%= report.getTechnicianName()%> , Polygon</p>
+    <p align="center">i samarbejde med <%= report.getCustomerName()%> (bygningsansvarlig)</p>
+
+    <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
+
+    <table border="2" cellpadding="5">
+        <tr>
+            <td><b>Tilstand</b></td>
+            <td><b>Beskrivelse af bygningen</b></td>
+            <td><b>Funktion af bygningen</b></td>
+        </tr>
+
+        <tr>
+            <td><b>Tilstandsgrad 0</b></td>
+            <td>Bygningsdelen er ny og som bygget</td>
+            <td>Funktionen er som 
+                beskrevet</td>
+        </tr>
+
+        <tr>
+            <td><b>Tilstandsgrad 1</b></td>
+            <td>Bygningsdelen er intakt, men med <br> begyndende slid og synlige skader <br> (kun kosmetiske skader)</td>
+            <td>Funktionen er som 
+                beskrevet</td>
+        </tr>
+
+        <tr>
+            <td><b>Tilstandsgrad 2</b></td>
+            <td>Bygningsdelen er begyndt at forfalde, <br>
+                med enkelte defekte komponenter</td>
+            <td>Funktionen er nedsat – <br>
+                fare for følgeskader</td>
+        </tr>
+
+        <tr>
+            <td><b>Tilstandsgrad 3</b></td>
+            <td>Bygningsdelen er nedbrudt og skal <br>
+                udskiftes</td>
+            <td>Funktionen er ophørt – <br>
+                fare for følgeskader</td>
+        </tr>
+
+    </table>
+
+    <p>Bygningens tilstandsgrad</p> <%= report.getConditionLevel()%>
+    <br>
+    <br>
 
     <p>Denne rapport og bygningsgennemgang er lavet for at klarlægge umiddelbare visuelle problemstillinger. Vores formål er at sikre, at
         bygningens anvendelse kan opretholdes. Vi udbedrer ikke skader som en del af bygningsgennemgangen/rapporten. Gennemgangen
