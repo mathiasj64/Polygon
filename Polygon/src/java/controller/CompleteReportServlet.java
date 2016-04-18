@@ -49,12 +49,44 @@ public class CompleteReportServlet extends HttpServlet
       String customerName = request.getParameter("BO");
       String roofDesc = request.getParameter("R");
       String outerWallsDesc = request.getParameter("OW");
-      
-      
+
       Facade.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+
+      int roomAmount = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
       
+      for (int i = 1; i <= roomAmount; i++)
+      {
+        int reportID;
+        int roomNo;
+        String whens = request.getParameter("dmgWhen" + i);
+        String wheres = request.getParameter("dmgWhere" + i);
+        String what = request.getParameter("dmgWhatHappened" + i);
+        String repairs = request.getParameter("dmgWhatReapaired" + i);
+        String walls = request.getParameter("commentsWalls" + i);
+        String ceiling = request.getParameter("commentsCeiling" + i);
+        String floor = request.getParameter("commentsFloor" + i);
+        String windows = request.getParameter("commentsWindowDoor" + i);
+        int scanningMade;
+        String MoistureScanning = request.getParameter("moistScanning" + i);
+        String MeasuringPoint = request.getParameter("measurePoint" + i);
+        int moist;
+        int rot;
+        int mold;
+        int fire;
+        int other;
+        String OtherDescription;
+        String Recommendation = request.getParameter("Recommendation" + i);
+        
+        Facade.getInstance().rom.addRooms(reportID, roomNo, whens, wheres, what, repairs, walls, ceiling, floor, windows, scanningMade, MoistureScanning, MeasuringPoint, moist, rot, mold, fire, other, OtherDescription, Recommendation);
+      }
+
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");
+      rd.forward(request, response);
+    } catch (Exception ex)
+    {
+      ServletContext sc = getServletContext();
+      RequestDispatcher rd = sc.getRequestDispatcher("/newReportAdd.jsp");
       rd.forward(request, response);
     }
   }
