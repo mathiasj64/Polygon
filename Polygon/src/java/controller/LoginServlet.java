@@ -48,10 +48,10 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("accessLevel", accessLevel);
             request.getSession().setAttribute("customerid", customerID);
             
-            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword)) {
-
+            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword)) 
+            {
                 sc = getServletContext();
-                rd = sc.getRequestDispatcher("/frontPage.jsp");
+                rd = sc.getRequestDispatcher("/frontpage.jsp");
                 rd.forward(request, response);
 
             } else {

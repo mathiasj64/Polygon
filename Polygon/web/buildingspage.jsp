@@ -80,11 +80,11 @@
         {
             case 1: 
             //Usercase, vil vise userens egne bygninger.
+            Facade.getInstance().um.userBuildings.clear();
             Facade.getInstance().getUserBuildings(customerid); 
-                
                 if (Facade.getInstance().um.userBuildings.size() != 0)
                 {
-                    for (int i = 0; i < Facade.getInstance().bm.building.size(); i++)
+                    for (int i = 0; i < Facade.getInstance().um.userBuildings.size(); i++)
                     {
 
                 %>

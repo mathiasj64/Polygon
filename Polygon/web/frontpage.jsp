@@ -30,10 +30,10 @@
                 </form>
             </td>
 
-                  <%
+                 <%  
                     if(accessLevel > 1)
                     {
-                    %>
+                     %>  
                 <td>
                     <form action="CustomerPage.jsp">
                         <input type="submit" value="Customers" name="customer" />

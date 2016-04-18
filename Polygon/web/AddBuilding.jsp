@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%
+         Integer accessLevel = (Integer) session.getAttribute("accessLevel");
+    %> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add building</title>
@@ -25,11 +28,18 @@
                     </form>
                 </td>
 
+                      <%  
+                    if(accessLevel > 1)
+                    {
+                     %>  
                 <td>
                     <form action="CustomerPage.jsp">
                         <input type="submit" value="Customers" name="customer" />
                     </form>        
                 </td>
+                <%
+                    }
+                    %>
 
                 <td>
                     <form action="reportspage.jsp">
