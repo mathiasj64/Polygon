@@ -86,10 +86,9 @@ public class ReportMapper
 
       Connector.getInstance().stmt.executeUpdate(query);
 
-    } catch (SQLException | NullPointerException ex)
+    } catch (SQLException ex)
     {
       ex.printStackTrace();
-      System.out.println(ex);
     }
   }
 
