@@ -11,236 +11,282 @@ package Objects;
  */
 public class Room
 {
-    int RoomID;
-    int ReportID;
-    int RoomNo;
-    String Whens;
-    String Wheres;
-    String What;
-    String Repairs;
-    String Moist;
-    String Rot;
-    String Mold;
-    String Fire;
-    String Other;
-    String Walls;
-    String Ceiling;
-    String Floor;
-    String Windows;
-    String ScanningMade;
-    String MoistureScanning;
-    String MeasuringPoint; 
 
-    public Room(int RoomID, int ReportID, int RoomNo, String When, String Where, String What, String Repairs, String Moist, String Rot, String Mold, String Fire, String Other, String Walls, String Ceiling, String Floor, String Windows, String ScanningMade, String MoistureScanning, String MeasuringPoint)
-    {
-        this.RoomID = RoomID;
-        this.ReportID = ReportID;
-        this.RoomNo = RoomNo;
-        this.Whens = When;
-        this.Wheres = Where;
-        this.What = What;
-        this.Repairs = Repairs;
-        this.Moist = Moist;
-        this.Rot = Rot;
-        this.Mold = Mold;
-        this.Fire = Fire;
-        this.Other = Other;
-        this.Walls = Walls;
-        this.Ceiling = Ceiling;
-        this.Floor = Floor;
-        this.Windows = Windows;
-        this.ScanningMade = ScanningMade;
-        this.MoistureScanning = MoistureScanning;
-        this.MeasuringPoint = MeasuringPoint;
-    }
+  int RoomID;
+  int ReportID;
+  int RoomNo;
+  String Whens;
+  String Wheres;
+  String What;
+  String Repairs;
+  String Walls;
+  String Ceiling;
+  String Floor;
+  String Windows;
+  int ScanningMade;
+  String MoistureScanning;
+  String MeasuringPoint;
+  int Moist;
+  int Rot;
+  int Mold;
+  int Fire;
+  int Other;
+  String OtherDescription;
+  String Recommendation;
 
-    public int getRoomID()
-    {
-        return RoomID;
-    }
+  public Room(int RoomID, int ReportID, int RoomNo, String When, String Where, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
+  {
+    this.RoomID = RoomID;
+    this.ReportID = ReportID;
+    this.RoomNo = RoomNo;
+    this.Whens = When;
+    this.Wheres = Where;
+    this.What = What;
+    this.Repairs = Repairs;
+    this.Walls = Walls;
+    this.Ceiling = Ceiling;
+    this.Floor = Floor;
+    this.Windows = Windows;
+    this.ScanningMade = ScanningMade;
+    this.MoistureScanning = MoistureScanning;
+    this.MeasuringPoint = MeasuringPoint;
+    this.Moist = Moist;
+    this.Rot = Rot;
+    this.Mold = Mold;
+    this.Fire = Fire;
+    this.Other = Other;
+    this.OtherDescription = OtherDescription;
+    this.Recommendation = Recommendation;
+  }
 
-    public void setRoomID(int RoomID)
-    {
-        this.RoomID = RoomID;
-    }
+  public String getRecommendation()
+  {
+    return Recommendation;
+  }
 
-    public int getReportID()
-    {
-        return ReportID;
-    }
+  public void setRecommendation(String Recommendation)
+  {
+    this.Recommendation = Recommendation;
+  }
 
-    public void setReportID(int ReportID)
-    {
-        this.ReportID = ReportID;
-    }
+  public int getRoomID()
+  {
+    return RoomID;
+  }
 
-    public int getRoomNo()
-    {
-        return RoomNo;
-    }
+  public void setRoomID(int RoomID)
+  {
+    this.RoomID = RoomID;
+  }
 
-    public void setRoomNo(int RoomNo)
-    {
-        this.RoomNo = RoomNo;
-    }
+  public int getReportID()
+  {
+    return ReportID;
+  }
 
-    public String getWhen()
-    {
-        return Whens;
-    }
+  public void setReportID(int ReportID)
+  {
+    this.ReportID = ReportID;
+  }
 
-    public void setWhen(String When)
-    {
-        this.Whens = When;
-    }
+  public int getRoomNo()
+  {
+    return RoomNo;
+  }
 
-    public String getWhere()
-    {
-        return Wheres;
-    }
+  public void setRoomNo(int RoomNo)
+  {
+    this.RoomNo = RoomNo;
+  }
 
-    public void setWhere(String Where)
-    {
-        this.Wheres = Where;
-    }
+  public String getWhen()
+  {
+    return Whens;
+  }
 
-    public String getWhat()
-    {
-        return What;
-    }
+  public void setWhen(String When)
+  {
+    this.Whens = When;
+  }
 
-    public void setWhat(String What)
-    {
-        this.What = What;
-    }
+  public String getWhere()
+  {
+    return Wheres;
+  }
 
-    public String getRepairs()
-    {
-        return Repairs;
-    }
+  public void setWhere(String Where)
+  {
+    this.Wheres = Where;
+  }
 
-    public void setRepairs(String Repairs)
-    {
-        this.Repairs = Repairs;
-    }
+  public String getWhat()
+  {
+    return What;
+  }
 
-    public String getMoist()
-    {
-        return Moist;
-    }
+  public void setWhat(String What)
+  {
+    this.What = What;
+  }
 
-    public void setMoist(String Moist)
-    {
-        this.Moist = Moist;
-    }
+  public String getRepairs()
+  {
+    return Repairs;
+  }
 
-    public String getRot()
-    {
-        return Rot;
-    }
+  public void setRepairs(String Repairs)
+  {
+    this.Repairs = Repairs;
+  }
 
-    public void setRot(String Rot)
-    {
-        this.Rot = Rot;
-    }
+  public String getWalls()
+  {
+    return Walls;
+  }
 
-    public String getMold()
-    {
-        return Mold;
-    }
+  public void setWalls(String Walls)
+  {
+    this.Walls = Walls;
+  }
 
-    public void setMold(String Mold)
-    {
-        this.Mold = Mold;
-    }
+  public String getCeiling()
+  {
+    return Ceiling;
+  }
 
-    public String getFire()
-    {
-        return Fire;
-    }
+  public void setCeiling(String Ceiling)
+  {
+    this.Ceiling = Ceiling;
+  }
 
-    public void setFire(String Fire)
-    {
-        this.Fire = Fire;
-    }
+  public String getFloor()
+  {
+    return Floor;
+  }
 
-    public String getOther()
-    {
-        return Other;
-    }
+  public void setFloor(String Floor)
+  {
+    this.Floor = Floor;
+  }
 
-    public void setOther(String Other)
-    {
-        this.Other = Other;
-    }
+  public String getWindows()
+  {
+    return Windows;
+  }
 
-    public String getWalls()
-    {
-        return Walls;
-    }
+  public void setWindows(String Windows)
+  {
+    this.Windows = Windows;
+  }
 
-    public void setWalls(String Walls)
-    {
-        this.Walls = Walls;
-    }
+  public String getMoistureScanning()
+  {
+    return MoistureScanning;
+  }
 
-    public String getCeiling()
-    {
-        return Ceiling;
-    }
+  public void setMoistureScanning(String MoistureScanning)
+  {
+    this.MoistureScanning = MoistureScanning;
+  }
 
-    public void setCeiling(String Ceiling)
-    {
-        this.Ceiling = Ceiling;
-    }
+  public String getMeasuringPoint()
+  {
+    return MeasuringPoint;
+  }
 
-    public String getFloor()
-    {
-        return Floor;
-    }
+  public void setMeasuringPoint(String MeasuringPoint)
+  {
+    this.MeasuringPoint = MeasuringPoint;
+  }
 
-    public void setFloor(String Floor)
-    {
-        this.Floor = Floor;
-    }
+  public String getWhens()
+  {
+    return Whens;
+  }
 
-    public String getWindows()
-    {
-        return Windows;
-    }
+  public void setWhens(String Whens)
+  {
+    this.Whens = Whens;
+  }
 
-    public void setWindows(String Windows)
-    {
-        this.Windows = Windows;
-    }
+  public String getWheres()
+  {
+    return Wheres;
+  }
 
-    public String getScanningMade()
-    {
-        return ScanningMade;
-    }
+  public void setWheres(String Wheres)
+  {
+    this.Wheres = Wheres;
+  }
 
-    public void setScanningMade(String ScanningMade)
-    {
-        this.ScanningMade = ScanningMade;
-    }
+  public int getScanningMade()
+  {
+    return ScanningMade;
+  }
 
-    public String getMoistureScanning()
-    {
-        return MoistureScanning;
-    }
+  public void setScanningMade(int ScanningMade)
+  {
+    this.ScanningMade = ScanningMade;
+  }
 
-    public void setMoistureScanning(String MoistureScanning)
-    {
-        this.MoistureScanning = MoistureScanning;
-    }
+  public int getMoist()
+  {
+    return Moist;
+  }
 
-    public String getMeasuringPoint()
-    {
-        return MeasuringPoint;
-    }
+  public void setMoist(int Moist)
+  {
+    this.Moist = Moist;
+  }
 
-    public void setMeasuringPoint(String MeasuringPoint)
-    {
-        this.MeasuringPoint = MeasuringPoint;
-    }
+  public int getRot()
+  {
+    return Rot;
+  }
+
+  public void setRot(int Rot)
+  {
+    this.Rot = Rot;
+  }
+
+  public int getMold()
+  {
+    return Mold;
+  }
+
+  public void setMold(int Mold)
+  {
+    this.Mold = Mold;
+  }
+
+  public int getFire()
+  {
+    return Fire;
+  }
+
+  public void setFire(int Fire)
+  {
+    this.Fire = Fire;
+  }
+
+  public int getOther()
+  {
+    return Other;
+  }
+
+  public void setOther(int Other)
+  {
+    this.Other = Other;
+  }
+
+  public String getOtherDescription()
+  {
+    return OtherDescription;
+  }
+
+  public void setOtherDescription(String OtherDescription)
+  {
+    this.OtherDescription = OtherDescription;
+  }
+
 }
