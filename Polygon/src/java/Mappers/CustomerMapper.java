@@ -81,7 +81,7 @@ public class CustomerMapper
             
             String query = "UPDATE polygondatabase.customer SET CustomerName='" + cName + "', Email='" + cEmail + "', PhoneNumber='" + pNum + "', username='" + username + "', password='" + password + "', accesslevel='1' WHERE CustomerID='" + CID + "';";
             
-            Connector.getInstance().stmt.executeQuery(query);
+            Connector.getInstance().stmt.executeUpdate(query);
         }
         catch(SQLException ex)
         {
