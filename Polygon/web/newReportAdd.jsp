@@ -104,16 +104,15 @@
 
         <!ROOM START>
 
+        
         <%
+          int pages = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
+          
           if (request.getParameter("do_this") != null && request.getParameter("do_this").equals("Upload_report"))
           {
             getServletContext().getRequestDispatcher("/CompleteReportServlet").forward(request, response);
           }
-        %>
-
-        <%
-          int pages = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
-
+        
           for (int i = 1; i <= pages; i++)
           {
         %>
@@ -145,14 +144,12 @@
 
         <p><b>Skade</b></p>
 
-        <p>Fugt/Råd og svamp/ Skimmel/ Brand/ Anden skade</p>
+        <input type="checkbox" name="dmgMoist<%=i%>" value="Fugt" <%= request.getParameter("dmgMoist"+i) == null ? "unchecked" : "checked" %>>Fugt <br>
+        <input type="checkbox" name="dmgRot<%=i%>" value="Råd og svamp" <%= request.getParameter("dmgRot"+i) == null ? "unchecked" : "checked" %>>Råd og svamp <br>
+        <input type="checkbox" name="dmgMold<%=i%>" value="Skimmel" <%= request.getParameter("dmgMold"+i) == null ? "unchecked" : "checked" %>>Skimmel <br>
+        <input type="checkbox" name="dmgFire<%=i%>" value="Brand" <%= request.getParameter("dmgFire"+i) == null ? "unchecked" : "checked" %>>Brand <br>
+        <input type="checkbox" name="dmgOther<%=i%>" value="Anden skade" <%= request.getParameter("dmgOther"+i) == null ? "unchecked" : "checked" %>>Anden skade <br>
 
-        <input type="checkbox" name="dmgType" value="Fugt">Fugt <br>
-        <input type="checkbox" name="dmgType" value="Råd og svamp" >Råd og svamp <br>
-        <input type="checkbox" name="dmgType" value="Skimmel" >Skimmel <br>
-        <input type="checkbox" name="dmgType" value="Brand" >Brand <br>
-        <input type="checkbox" name="dmgType" value="Anden skade" >Anden skade <br>
-        
         <input type="text" name="OtherDescription<%=i%>" value="<%=request.getParameter("OtherDescription" + i) == null ? "" : request.getParameter("OtherDescription" + i)%>">
 
         <p style="font-size:150%"><b>Gennemgang af:</b></p>
@@ -185,8 +182,11 @@
 
         <p>Foretaget fugtscanning i lokalet?</p>
 
-        <input type="radio" name="ScanningMade" value="1"> Ja<br>
-        <input type="radio" name="ScanningMade" value="0"> Nej
+        <input type="radio" name="ScanningMade<%= i %>" value="1" <%=request.getParameter("ScanningMade" + i)!=null && request.getParameter("ScanningMade" + i).equals("1") ? "checked" : ""%>> Ja<br>
+        <input type="radio" name="ScanningMade<%= i %>" value="0" <%=request.getParameter("ScanningMade" + i)==null || request.getParameter("ScanningMade" + i).equals("0") ? "checked" : ""%>> Nej
+        
+        
+       
 
         <table align="center" style="width:100%">
             <tr>
@@ -207,7 +207,7 @@
         %>
 
         <br>
-        <input name="addRoom" type="hidden" value="<%= pages + 1%>">
+        <input name="addRoom" type="hidden" value="<%= pages + 1 %>">
         <input name="addRoom2" type="submit" value="Tilføj ekstra lokale">
         <br>
         <p style="font-size:150%"><b>Konklusion</b></p>
