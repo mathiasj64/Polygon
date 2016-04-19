@@ -5,6 +5,7 @@
  */
 package controller;
 
+import Objects.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -18,7 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author madsr
  */
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet
+{
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,33 +35,36 @@ public class LoginServlet extends HttpServlet {
     ServletContext sc;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter())
+        {
 
             String givenUsername = request.getParameter("username");
             String givenPassword = request.getParameter("password");
-            String foundUsername = Facade.getInstance().getUser(givenUsername).getUsername();
-            String foundPassword = Facade.getInstance().getUser(foundUsername).getPassword();
 
-            int accessLevel = Facade.getInstance().getUser(foundUsername).getAccesLevel();
-            int customerID = Facade.getInstance().getUser(foundUsername).getCustomerID(); 
-            
-            request.getSession().setAttribute("accessLevel", accessLevel);
-            request.getSession().setAttribute("customerid", customerID);
-            
-            if (givenUsername.equalsIgnoreCase(foundUsername) && givenPassword.equalsIgnoreCase(foundPassword)) 
+            User user = Facade.getInstance().getUser(givenUsername);
+            if (user != null && user.getPassword().equalsIgnoreCase(givenPassword))
             {
+                int accessLevel = user.getAccesLevel();
+                int customerID = user.getCustomerID();
+                request.getSession().setAttribute("accessLevel", accessLevel);
+                request.getSession().setAttribute("customerid", customerID);
                 sc = getServletContext();
                 rd = sc.getRequestDispatcher("/frontpage.jsp");
                 rd.forward(request, response);
-
-            } else {
+            } else
+            {
                 sc = getServletContext();
                 rd = sc.getRequestDispatcher("/LoginScreen.jsp");
-                rd.forward(request, response);
+                out.println("<center><div class=\"w3-container w3-red\">\n"
+                        + "  <h3>Login fejlede</h3>\n"
+                        + "  <p>Enten er brugernavnet eller koden forkert.</p>\n"
+                        + "</div> </center>");
+                rd.include(request, response);
             }
-
+            
         }
     }
 
@@ -74,7 +79,8 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -88,7 +94,8 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -98,7 +105,8 @@ public class LoginServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 

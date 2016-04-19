@@ -72,7 +72,7 @@
 <table border="1" style="width: 100%">
 
     <tr >
-        <td colspan ="8" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
+        <td colspan ="9" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
 </tr>
 
 <tr>
@@ -84,6 +84,7 @@
     <td> <b>Technician Name</b></td>
     <td> <b>Condition Level</b> </td>
     <td> <b>View Report</b></td>
+    <td> <b>Delete Report</b></td>
 </tr>
 <%
     switch (accessLevel)
@@ -136,10 +137,14 @@
     <td> <%= Facade.getInstance().rm.reports.get(i).getTechnicianName()%> </td>
     <td> <%= Facade.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
     <td> <form action="newReportView.jsp" method="GET">
-            <input tpye="hidden" name="hiddenID" value="<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" >
+            <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" >
             <input type="submit" name="viewReport<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" value="View report <%= Facade.getInstance().rm.reports.get(i).getReportID()%>">
         </form></td>
-</tr>  
+    <td> <form action="dReportServlet" method="GET">
+            <input type="hidden" name="DeleteReport" value="<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" >
+            <input type="submit" name="DelReport<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" value="Delete report <%= Facade.getInstance().rm.reports.get(i).getReportID()%>">
+        </form></td>
+</tr> 
 <% }
             }
             break;

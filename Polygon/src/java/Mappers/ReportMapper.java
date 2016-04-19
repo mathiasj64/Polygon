@@ -185,4 +185,21 @@ public class ReportMapper
     }
     return highestID;
   }
+  
+  public void deleteReport(int reportID)
+  {
+      try
+    {
+      Connector.getInstance().connect();
+
+      String query = "DELETE from polygondatabase.roomdamage where ReportID = '" + reportID + "';";
+      String query2 = "DELETE FROM polygondatabase.report where ReportID = '" + reportID + "';";
+
+      Connector.getInstance().stmt.executeUpdate(query);
+      Connector.getInstance().stmt.executeUpdate(query2);
+    } catch (SQLException ex)
+    {
+      ex.printStackTrace();
+    }
+  }
 }

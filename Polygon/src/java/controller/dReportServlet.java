@@ -7,7 +7,6 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Thygesen
  */
-public class eCustomerServlet extends HttpServlet
+public class dReportServlet extends HttpServlet
 {
 
     /**
@@ -37,18 +36,11 @@ public class eCustomerServlet extends HttpServlet
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
         {
-
-            String Name = request.getParameter("cName");
-            String Email = request.getParameter("cEmail");
-            String PhoneNumber = request.getParameter("pNum");
-            String Username = request.getParameter("uName");
-            String Password = request.getParameter("pWord");
-            int CID = Integer.parseInt(request.getParameter("CID"));
-            Facade.getInstance().editCustomer(Name, Email, PhoneNumber, Username, Password, CID);
+            int dReport = Integer.parseInt(request.getParameter("DeleteReport"));
+            Facade.getInstance().rm.deleteReport(dReport);
             ServletContext sc = getServletContext();
-            RequestDispatcher rd = sc.getRequestDispatcher("/CustomerPage.jsp");
+            RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");
             rd.forward(request, response);
-
         }
     }
 

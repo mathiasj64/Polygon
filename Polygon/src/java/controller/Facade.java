@@ -14,6 +14,7 @@ import Objects.Building;
 import Objects.CompleteReport;
 import Objects.Customer;
 import Objects.User;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -68,6 +69,11 @@ public class Facade
   public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
   {
     cm.editCustomer(cName, cEmail, pNum, username, password, CID);
+  }
+  
+  public void deleteReport(int reportID)
+  {
+      rm.deleteReport(reportID);
   }
 
   public ArrayList<Building> getUserBuildings(int CID)
