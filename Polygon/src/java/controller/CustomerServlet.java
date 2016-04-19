@@ -36,7 +36,7 @@ public class CustomerServlet extends HttpServlet
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
         {
-            
+
             String Name = request.getParameter("Name");
             String Email = request.getParameter("Email");
             String PhoneNumber = request.getParameter("PN");
