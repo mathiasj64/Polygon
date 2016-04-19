@@ -16,10 +16,10 @@
     </head>
     <body>
 
-                <!MENU>
+        <!MENU>
     <center>
-        
-                <table>
+
+        <table>
 
             <tr>
 
@@ -43,54 +43,59 @@
 
             </tr>
         </table>
-    <br>
+        <br>
     </center>
-        <!MENU END>
-        
-        
-        <table border="1" style="width: 100%">
+    <!MENU END>
 
-            <tr >
-                <td colspan ="3" style="font-family: Arial"> <center> <b> Customers </b> </center> </td>
-        <td align="right" > <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" /> </td> 
-    </tr>
 
-    <tr>
-        <td> Customer ID</td>
-        <td> Name </td>
-        <td> Email </td>
-        <td> Phone Number </td>
-    </tr>
+    <table border="1" style="width: 100%">
 
-    <%
-       
-        Facade.getInstance().getCustomers();
-        if (Facade.getInstance().cm.customers.size() != 0)
+        <tr >
+            <td colspan ="4" style="font-family: Arial"> <center> <b> Customers </b> </center> </td>
+    <td align="right" > <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" /> </td> 
+</tr>
+
+<tr>
+    <td> Customer ID</td>
+    <td> Name </td>
+    <td> Email </td>
+    <td> Phone Number </td>
+    <td> Edit Customer </td>
+</tr>
+
+<%
+
+    Facade.getInstance().getCustomers();
+    if (Facade.getInstance().cm.customers.size() != 0)
+    {
+        for (int i = 0; i < Facade.getInstance().cm.customers.size(); i++)
         {
-            for (int i = 0; i < Facade.getInstance().cm.customers.size(); i++)
-            {
-    %>
+%>
 
-    <tr> 
-        <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerID()%> </td>
-        <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerName()%> </td>
-        <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerEmail()%> </td>
-        <td> <%= Facade.getInstance().cm.customers.get(i).getPhoneNumber()%> </td>
-    </tr>  
+<tr> 
+    <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerID()%> </td>
+    <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerName()%> </td>
+    <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerEmail()%> </td>
+    <td> <%= Facade.getInstance().cm.customers.get(i).getPhoneNumber()%> </td>
+    <td> <form action="EditCustomer.jsp" method="GET">
+            <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().cm.customers.get(i).getCustomerID()%>" >
+            <input type="submit" name="hiddenID<%= Facade.getInstance().cm.customers.get(i).getCustomerID()%>" value="Edit this customer!">
+        </form></td>
+</tr>  
 
-    
-    <%
-            }
+
+<%
         }
-     %> 
+    }
+%> 
 
 </table>
-     <form action="AddCustomerPage.jsp">
-     <input type="submit" name ="addcustomer" value="Add Customer" />
-     </form>
-     
-     <form action="EditCustomer.jsp">
-     <input type="submit" name ="addcustomer" value="Edit Customer" />
-     </form>
+<form action="AddCustomerPage.jsp">
+    <input type="submit" name ="addcustomer" value="Add Customer" />
+</form>
+
+<form action="EditCustomer.jsp">
+    <input type="submit" name ="addcustomer" value="Edit Customer" />
+</form>
 </body>
 </html>

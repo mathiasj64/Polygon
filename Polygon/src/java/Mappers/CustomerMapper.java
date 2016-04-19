@@ -87,4 +87,38 @@ public class CustomerMapper
             ex.printStackTrace();
         }
     }
+    
+    public Customer getCustomer(int CustomerID)
+  {
+    Customer customer = null;
+    String customerName;
+    String customerEmail; 
+    String phoneNumber; 
+    String username;
+    String password;
+
+    try
+    {
+      Connector.getInstance().connect();
+
+      String query = "SELECT * FROM polygondatabase.Customer WHERE CustomerID = '" + CustomerID + "';";
+
+      ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+
+      if (res.next())
+      {
+        customerName = res.getString(2);
+        customerEmail = res.getString(3);
+        phoneNumber = res.getString(4);
+        username = res.getString(5);
+        password = res.getString(6);
+        customer = new Customer(CustomerID, customerName, customerEmail, phoneNumber, username, password);
+      }
+    } catch (SQLException | NullPointerException ex)
+    {
+      ex.printStackTrace();
+      System.out.println(ex);
+    }
+    return customer;
+  }
 }
