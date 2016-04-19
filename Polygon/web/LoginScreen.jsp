@@ -18,7 +18,7 @@
 <br>
 <br>
  <form action="LoginServlet" method="post">
-<table style="width:50" align="center"  FRAME=BOX>
+<table align="center"  FRAME=BOX>
     <thead>
         <tr>
             <td colspan="2"> Login to Polygon </td>
@@ -33,7 +33,7 @@
 
         <tr>
             <td> Password: </td> 
-            <td> <input type="text" name="password" value="" /> </td> 
+            <td> <input type="password" name="password" value="" /> </td> 
         </tr>
     </tbody>
     <tfoot>

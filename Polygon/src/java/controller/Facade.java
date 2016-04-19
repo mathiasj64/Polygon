@@ -65,6 +65,11 @@ public class Facade
   {
     rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
   }
+  
+  public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
+  {
+    cm.editCustomer(cName, cEmail, pNum, username, password, CID);
+  }
 
   public ArrayList<Building> getUserBuildings(int CID)
   {
@@ -89,6 +94,11 @@ public class Facade
   public User getUser(String uname)
   {
     return um.ReturnUser(uname);
+  }
+  
+  public ArrayList<CompleteReport> getUserReports(int cID)
+  {
+      return um.getUserReports(cID); 
   }
 
   public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)

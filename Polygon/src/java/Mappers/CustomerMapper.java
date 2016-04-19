@@ -72,4 +72,20 @@ public class CustomerMapper
             ex.printStackTrace(); 
         }
     }
+    
+      public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
+    {
+        try
+        {
+            Connector.getInstance().connect();
+            
+            String query = "UPDATE polygondatabase.customer SET CustomerName='" + cName + "', Email='" + cEmail + "', PhoneNumber='" + pNum + "', username='" + username + "', password='" + password + "', accesslevel='1' WHERE CustomerID='" + CID + "';";
+            
+            Connector.getInstance().stmt.executeUpdate(query);
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
 }

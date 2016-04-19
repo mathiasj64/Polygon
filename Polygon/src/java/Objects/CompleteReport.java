@@ -44,7 +44,7 @@ public class CompleteReport
     this.roofDesc = roofDesc;
     this.outerWallsDesc = outerWallsDesc;
   }
-
+  
   public int getReportID()
   {
     return reportID;
