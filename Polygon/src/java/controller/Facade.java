@@ -91,9 +91,10 @@ public class Facade
     return um.ReturnUser(uname);
   }
 
-  public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, String ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
+  public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
   {
     rom.addRooms(ReportID, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation);
   }
+  
     
 }
