@@ -14,7 +14,6 @@ public class Room
 
   int RoomID;
   int ReportID;
-  int RoomNo;
   String Whens;
   String Wheres;
   String What;
@@ -34,11 +33,10 @@ public class Room
   String OtherDescription;
   String Recommendation;
 
-  public Room(int RoomID, int ReportID, int RoomNo, String When, String Where, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
+  public Room(int ReportID, int RoomNo, String When, String Where, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
   {
     this.RoomID = RoomID;
     this.ReportID = ReportID;
-    this.RoomNo = RoomNo;
     this.Whens = When;
     this.Wheres = Where;
     this.What = What;
@@ -87,16 +85,6 @@ public class Room
   public void setReportID(int ReportID)
   {
     this.ReportID = ReportID;
-  }
-
-  public int getRoomNo()
-  {
-    return RoomNo;
-  }
-
-  public void setRoomNo(int RoomNo)
-  {
-    this.RoomNo = RoomNo;
   }
 
   public String getWhen()

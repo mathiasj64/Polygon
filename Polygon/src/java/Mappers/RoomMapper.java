@@ -24,7 +24,6 @@ public class RoomMapper
   {
     int RoomID;
     int ReportID;
-    int RoomNo;
     String Whens;
     String Wheres;
     String What;
@@ -56,28 +55,27 @@ public class RoomMapper
       {
         RoomID = Integer.parseInt(res.getString(1));
         ReportID = Integer.parseInt(res.getString(2));
-        RoomNo = Integer.parseInt(res.getString(3));
-        Whens = res.getString(4);
-        Wheres = res.getString(5);
-        What = res.getString(6);
-        Repairs = res.getString(7);
-        Walls = res.getString(8);
-        Ceiling = res.getString(9);
-        Floor = res.getString(10);
-        Windows = res.getString(11);
-        ScanningMade = Integer.parseInt(res.getString(12));
-        MoistureScanning = res.getString(13);
-        MeasuringPoint = res.getString(14);
-        Moist = Integer.parseInt(res.getString(15));
-        Rot = Integer.parseInt(res.getString(16));
-        Mold = Integer.parseInt(res.getString(17));
-        Fire = Integer.parseInt(res.getString(18));
-        Other = Integer.parseInt(res.getString(19));
-        OtherDescription = res.getString(20);
-        Recommendation = res.getString(21);
+        Whens = res.getString(3);
+        Wheres = res.getString(4);
+        What = res.getString(5);
+        Repairs = res.getString(6);
+        Walls = res.getString(7);
+        Ceiling = res.getString(8);
+        Floor = res.getString(9);
+        Windows = res.getString(10);
+        ScanningMade = Integer.parseInt(res.getString(11));
+        MoistureScanning = res.getString(12);
+        MeasuringPoint = res.getString(13);
+        Moist = Integer.parseInt(res.getString(14));
+        Rot = Integer.parseInt(res.getString(15));
+        Mold = Integer.parseInt(res.getString(16));
+        Fire = Integer.parseInt(res.getString(17));
+        Other = Integer.parseInt(res.getString(18));
+        OtherDescription = res.getString(19);
+        Recommendation = res.getString(20);
         
         
-        rooms.add(new Room(RoomID, ReportID, RoomNo, Whens, Wheres, What, Repairs, Walls,
+        rooms.add(new Room(RoomID, ReportID, Whens, Wheres, What, Repairs, Walls,
                 Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint,
                 Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation));
       }
@@ -89,16 +87,16 @@ public class RoomMapper
     return rooms;
   }
 
-  public void addRooms(int ReportID, int RoomNo, String Whens, String Wheres, String What, String Repairs,
-          String Walls, String Ceiling, String Floor, String Windows, String ScanningMade, String MoistureScanning, 
+  public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs,
+          String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, 
           String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
   {
     try
     {
       Connector.getInstance().connect();
 
-      String query = "INSERT INTO polygondatabase.roomdamage(RoomID, ReportID, RoomNo, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, Scanningmade, MoistureScanning, MoisturingPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation) VALUES ('"
-              + ReportID + "', '" + RoomNo + "', '" + Whens + "', '" + Wheres + "', '" + What + "', '" + Repairs + "', '" + Walls + "', '" + Ceiling + "', '" + Floor + "', '"
+      String query = "INSERT INTO polygondatabase.roomdamage(ReportID, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, Scanningmade, MoistureScanning, MeasuringPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation) VALUES ('"
+              + ReportID + "', '" + Whens + "', '" + Wheres + "', '" + What + "', '" + Repairs + "', '" + Walls + "', '" + Ceiling + "', '" + Floor + "', '"
               + Windows + "', '" + ScanningMade + "', '" + MoistureScanning + "', '" + MeasuringPoint + "', '" + Moist + "', '"
               + Rot + "', '" + Mold + "', '" + Fire + "', '" + Other + "', '" + OtherDescription + "','" + Recommendation + "');";
 

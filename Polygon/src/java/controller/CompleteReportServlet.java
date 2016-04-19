@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -50,34 +51,35 @@ public class CompleteReportServlet extends HttpServlet
       String roofDesc = request.getParameter("R");
       String outerWallsDesc = request.getParameter("OW");
 
+      int highestReportID = Facade.getInstance().rm.getHighestReportID();
+
       Facade.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
 
       int roomAmount = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
-      
+
       for (int i = 1; i <= roomAmount; i++)
       {
-        int reportID;
-        int roomNo;
-        String whens = request.getParameter("dmgWhen" + i);
-        String wheres = request.getParameter("dmgWhere" + i);
-        String what = request.getParameter("dmgWhatHappened" + i);
-        String repairs = request.getParameter("dmgWhatReapaired" + i);
-        String walls = request.getParameter("commentsWalls" + i);
-        String ceiling = request.getParameter("commentsCeiling" + i);
-        String floor = request.getParameter("commentsFloor" + i);
-        String windows = request.getParameter("commentsWindowDoor" + i);
-        int scanningMade;
-        String MoistureScanning = request.getParameter("moistScanning" + i);
-        String MeasuringPoint = request.getParameter("measurePoint" + i);
-        int moist;
-        int rot;
-        int mold;
-        int fire;
-        int other;
-        String OtherDescription;
-        String Recommendation = request.getParameter("Recommendation" + i);
-        
-        Facade.getInstance().rom.addRooms(reportID, roomNo, whens, wheres, what, repairs, walls, ceiling, floor, windows, scanningMade, MoistureScanning, MeasuringPoint, moist, rot, mold, fire, other, OtherDescription, Recommendation);
+      int reportID = highestReportID + 1;
+      String whens = request.getParameter("dmgWhen" + i);
+      String wheres = request.getParameter("dmgWhere" + i);
+      String what = request.getParameter("dmgWhatHappened" + i);
+      String repairs = request.getParameter("dmgWhatRepaired" + i);
+      String walls = request.getParameter("commentsWalls" + i);
+      String ceiling = request.getParameter("commentsCeiling" + i);
+      String floor = request.getParameter("commentsFloor" + i);
+      String windows = request.getParameter("commentsWindowDoor" + i);
+      int scanningMade = 1;
+      String MoistureScanning = request.getParameter("moistScanning" + i);
+      String MeasuringPoint = request.getParameter("measurePoint" + i);
+      int moist = 1;
+      int rot = 1;
+      int mold = 1;
+      int fire = 1;
+      int other = 1;
+      String OtherDescription = request.getParameter("OtherDescription" + i);
+      String Recommendation = request.getParameter("Recommendation" + i);
+
+      Facade.getInstance().rom.addRooms(reportID, whens, wheres, what, repairs, walls, ceiling, floor, windows, scanningMade, MoistureScanning, MeasuringPoint, moist, rot, mold, fire, other, OtherDescription, Recommendation);
       }
 
       ServletContext sc = getServletContext();

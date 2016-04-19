@@ -25,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr>    
             <td> Login: </td> 
             <td> <input type="text" name="username" value="" /> </td> 
             <td>  </td> 
