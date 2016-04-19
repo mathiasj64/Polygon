@@ -55,7 +55,7 @@ public class CompleteReportServlet extends HttpServlet
 
       Facade.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
 
-      int roomAmount = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"));
+      int roomAmount = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"))-1;
 
       for (int i = 1; i <= roomAmount; i++)
       {
@@ -68,14 +68,14 @@ public class CompleteReportServlet extends HttpServlet
       String ceiling = request.getParameter("commentsCeiling" + i);
       String floor = request.getParameter("commentsFloor" + i);
       String windows = request.getParameter("commentsWindowDoor" + i);
-      int scanningMade = 1;
+      int scanningMade = Integer.parseInt(request.getParameter("ScanningMade" + i));
       String MoistureScanning = request.getParameter("moistScanning" + i);
       String MeasuringPoint = request.getParameter("measurePoint" + i);
-      int moist = 1;
-      int rot = 1;
-      int mold = 1;
-      int fire = 1;
-      int other = 1;
+      int moist = request.getParameter("dmgMoist" + i) == null ? 0 : 1;
+      int rot = request.getParameter("dmgRot" + i) == null ? 0 : 1;
+      int mold = request.getParameter("dmgMold" + i) == null ? 0 : 1;
+      int fire = request.getParameter("dmgFire" + i) == null ? 0 : 1;
+      int other = request.getParameter("dmgOther" + i) == null ? 0 : 1;
       String OtherDescription = request.getParameter("OtherDescription" + i);
       String Recommendation = request.getParameter("Recommendation" + i);
 
