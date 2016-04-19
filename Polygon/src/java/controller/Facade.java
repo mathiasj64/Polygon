@@ -15,6 +15,7 @@ import Objects.CompleteReport;
 import Objects.Customer;
 import Objects.Report;
 import Objects.User;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**

@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -36,6 +37,7 @@ public class eCustomerServlet extends HttpServlet
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter())
         {
+
             String Name = request.getParameter("cName");
             String Email = request.getParameter("cEmail");
             String PhoneNumber = request.getParameter("pNum");
@@ -46,6 +48,7 @@ public class eCustomerServlet extends HttpServlet
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher("/CustomerPage.jsp");
             rd.forward(request, response);
+
         }
     }
 
