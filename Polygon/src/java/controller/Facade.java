@@ -70,6 +70,11 @@ public class Facade
   {
     cm.editCustomer(cName, cEmail, pNum, username, password, CID);
   }
+  
+  public void deleteReport(int reportID)
+  {
+      rm.deleteReport(reportID);
+  }
 
   public ArrayList<Building> getUserBuildings(int CID)
   {

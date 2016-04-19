@@ -19,8 +19,8 @@ public class CustomerMapper
 {
 
     public ArrayList<Customer> customers = new ArrayList<>();
-    
-    public ArrayList<Customer> getCustomers() throws SQLException
+
+    public ArrayList<Customer> getCustomers()
     {
         int customerID;
         String customerName;
@@ -29,24 +29,30 @@ public class CustomerMapper
         String username;
         String password;
 
-        Connector.getInstance().connect();
-
-        String query = "SELECT * FROM customer";
-
-        ResultSet res = Connector.getInstance().stmt.executeQuery(query);
-        customers.clear();
-
-        while (res.next())
+        try
         {
-            customerID = Integer.parseInt(res.getString(1));
-            customerName = res.getString(2);
-            customerEmail = res.getString(3);
-            phoneNum = res.getString(4);
-            username = res.getString(5);
-            password = res.getString(6);
 
-            customers.add(new Customer(customerID, customerName, customerEmail, phoneNum, username, password));
+            Connector.getInstance().connect();
 
+            String query = "SELECT * FROM customer";
+
+            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+            customers.clear();
+
+            while (res.next())
+            {
+                customerID = Integer.parseInt(res.getString(1));
+                customerName = res.getString(2);
+                customerEmail = res.getString(3);
+                phoneNum = res.getString(4);
+                username = res.getString(5);
+                password = res.getString(6);
+
+                customers.add(new Customer(customerID, customerName, customerEmail, phoneNum, username, password));
+            }
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
         }
 
         return customers;
