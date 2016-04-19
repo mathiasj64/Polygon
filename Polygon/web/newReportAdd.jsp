@@ -147,6 +147,14 @@
 
         <p>Fugt/Råd og svamp/ Skimmel/ Brand/ Anden skade</p>
 
+        <input type="checkbox" name="dmgType" value="Fugt">Fugt <br>
+        <input type="checkbox" name="dmgType" value="Råd og svamp" >Råd og svamp <br>
+        <input type="checkbox" name="dmgType" value="Skimmel" >Skimmel <br>
+        <input type="checkbox" name="dmgType" value="Brand" >Brand <br>
+        <input type="checkbox" name="dmgType" value="Anden skade" >Anden skade <br>
+        
+        <input type="text" name="OtherDescription<%=i%>" value="<%=request.getParameter("OtherDescription" + i) == null ? "" : request.getParameter("OtherDescription" + i)%>">
+
         <p style="font-size:150%"><b>Gennemgang af:</b></p>
 
         <p style="font-size:120%"><b>Vægge</b></p>
@@ -175,7 +183,10 @@
 
         <p style="font-size:150%"><b>Fugtscanning</b></p>
 
-        <p>Foretaget fugtscanning i lokalet? Ja/nej</p>
+        <p>Foretaget fugtscanning i lokalet?</p>
+
+        <input type="radio" name="ScanningMade" value="1"> Ja<br>
+        <input type="radio" name="ScanningMade" value="0"> Nej
 
         <table align="center" style="width:100%">
             <tr>
@@ -189,7 +200,7 @@
 
         <p style="font-size:120%"><b>Anbefalet løsning på skade</b></p>
 
-        <input style="width:90%" type="text" name="Recomendation<%=i%>" value="<%=request.getParameter("Recommendation" + i) == null ? "" : request.getParameter("Recommendation" + i)%>">
+        <input style="width:90%" type="text" name="Recommendation<%=i%>" value="<%=request.getParameter("Recommendation" + i) == null ? "" : request.getParameter("Recommendation" + i)%>">
 
         <%
           }
@@ -198,18 +209,8 @@
         <br>
         <input name="addRoom" type="hidden" value="<%= pages + 1%>">
         <input name="addRoom2" type="submit" value="Tilføj ekstra lokale">
-
+        <br>
         <p style="font-size:150%"><b>Konklusion</b></p>
-
-        <table align="center" style="width:100%">
-            <tr>
-                <td align="center"><p>Lokale</p>
-                    <input style="width:90%" type="text" name="room" value=""></td>
-                <td align="center"><p>Anbefalinger</p>
-                    <input style="width:90%" type="text" name="recommendation" value=""></td>
-
-            </tr>
-        </table>
 
         <br>
         <br>
