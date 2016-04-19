@@ -7,7 +7,6 @@ package Mappers;
 
 import Model.Connector;
 import Objects.CompleteReport;
-import Objects.Report;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -80,9 +79,9 @@ public class ReportMapper
     {
       Connector.getInstance().connect();
 
-      String query = "INSERT INTO polygondatabase.report(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, DateWritten, technicianName, customerName, roofDesc, outerWallsDesc) VALUES ('" + conditionLevel +
-              "', '" + buildingID + "', '" + buildingName + "', '" + zipcode + "', '" + address + "', '" + yearBuilt + "', '" + sizeOfBuilding +
-              "', '" + purposeOfBuilding + "', '" + date + "', '" + technicianName + "', '" + customerName + "', '" + roofDesc + "', '" + outerWallsDesc + "');";
+      String query = "INSERT INTO polygondatabase.report(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, DateWritten, technicianName, customerName, roofDesc, outerWallsDesc) VALUES ('" + conditionLevel
+              + "', '" + buildingID + "', '" + buildingName + "', '" + zipcode + "', '" + address + "', '" + yearBuilt + "', '" + sizeOfBuilding
+              + "', '" + purposeOfBuilding + "', '" + date + "', '" + technicianName + "', '" + customerName + "', '" + roofDesc + "', '" + outerWallsDesc + "');";
 
       Connector.getInstance().stmt.executeUpdate(query);
 
@@ -150,7 +149,7 @@ public class ReportMapper
         roofDesc = res.getString(13);
         outerWallsDesc = res.getString(14);
         report = new CompleteReport(reportID, conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding,
-        purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+                purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
       }
     } catch (SQLException | NullPointerException ex)
     {
@@ -159,5 +158,31 @@ public class ReportMapper
     }
     return report;
   }
-  
+
+  public int getHighestReportID()
+  {
+    int highestID = 0;
+    try
+    {
+      Connector.getInstance().connect();
+
+      String query = "SELECT reportID FROM Report;";
+
+      ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+
+      while (res.next())
+      {
+        int current = Integer.parseInt(res.getString(1));
+        if(current > highestID)
+        {
+          highestID = current;
+        }
+      }
+    }
+    catch(SQLException ex)
+    {
+      ex.printStackTrace();
+    }
+    return highestID;
+  }
 }
