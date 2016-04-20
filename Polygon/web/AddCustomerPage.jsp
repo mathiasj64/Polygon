@@ -60,27 +60,27 @@
             <table border="2" cellpadding="5">
                 <tr>
                     <td> Name:</td> 
-                    <td> <input type="text" name="Name" value="" /> <%= request.getParameter("firstTime") != null ? "*" : ""%> </td>
+                    <td> <input type="text" name="Name" value="" required/> <%= request.getParameter("firstTime") != null ? "*" : ""%> </td>
                 </tr>
 
                 <tr>
                     <td> Email:</td>
-                    <td> <input type="text" name="Email" value="" /> </td> 
+                    <td> <input type="text" name="Email" value="" required/> </td> 
                 </tr>
 
                 <tr>
                     <td> Phonenumber:</td>
-                    <td> <input type="number" name="PN" value="" /> </td>
+                    <td> <input type="number" name="PN" value="" required/> </td>
                 </tr>
 
                 <tr>
                     <td> Username:</td>
-                    <td> <input type="text" name="UN" value="" /> </td>
+                    <td> <input type="text" name="UN" value="" required/> </td>
                 </tr>
 
                 <tr>
                     <td> Password:</td>
-                    <td> <input type="text" name="PW" value="" /> </td>
+                    <td> <input type="text" name="PW" value="" required/> </td>
                 </tr>
             </table>
 

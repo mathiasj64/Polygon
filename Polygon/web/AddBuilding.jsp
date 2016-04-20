@@ -60,23 +60,23 @@
 
             <table border="2" cellpadding="5">
                 <tr> 
-                    <td> Customer ID </td><td> <input type="number" name="CID" value="2"</td>
+                    <td> Customer ID </td><td> <input type="number" name="CID" value="2" required</td>
                 </tr>
 
                 <tr>
-                    <td> Address </td><td> <input type="text" name="Address" value="lol" /> </td>
+                    <td> Address </td><td> <input type="text" name="Address" value="lol" required /> </td>
                 </tr>
 
                 <tr> 
-                    <td> ParcelNo </td><td> <input type="number" name="PC" value="123"</td>
+                    <td> ParcelNo </td><td> <input type="number" name="PC" value="123" required</td>
                 </tr>
 
                 <tr>
-                    <td> Bygnings Size </td><td> <input type="number" name="SOB" value="41" /> </td>
+                    <td> Bygnings Size </td><td> <input type="number" name="SOB" value="41" required /> </td>
                 </tr>
 
                 <tr> 
-                    <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf"</td>
+                    <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf" required</td>
                 </tr>
             </table>
             <input type="submit" value="Add building" name="add building" />
