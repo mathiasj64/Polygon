@@ -208,6 +208,7 @@
         %>
 
         <br>
+        <br>
         <input name="addRoom" type="hidden" value="<%= pages + 1 %>" required>
         <input name="addRoom2" type="submit" value="Tilføj ekstra lokale" required>
         <br>
@@ -217,8 +218,8 @@
         <br>
 
 
-        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="TN" value="<%=request.getParameter("TN") == null ? "" : request.getParameter("TN")%>"> , Polygon</p>
-        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="BO" value="<%=request.getParameter("BO") == null ? "" : request.getParameter("BO")%>"> (bygningsansvarlig)</p>
+        <p align="center">Bygningsgennemgang foretaget af <input style="width:20%" tpye="text" name="TN" value="<%=request.getParameter("TN") == null ? "" : request.getParameter("TN")%>" required> , Polygon</p>
+        <p align="center">i samarbejde med <input style="width:25%" tpye="text" name="BO" value="<%=request.getParameter("BO") == null ? "" : request.getParameter("BO")%>" required> (bygningsansvarlig)</p>
 
         <p style="font-size:200%"><b>Bygningen er kategoriseret som</b></p>
 
