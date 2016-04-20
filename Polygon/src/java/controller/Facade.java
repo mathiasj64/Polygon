@@ -10,6 +10,7 @@ import Mappers.CustomerMapper;
 import Mappers.ReportMapper;
 import Mappers.RoomMapper;
 import Mappers.UserMapper;
+import Objects.Administrator;
 import Objects.Building;
 import Objects.CompleteReport;
 import Objects.Customer;
@@ -24,92 +25,96 @@ import java.util.ArrayList;
 public class Facade
 {
 
-  public BuildingMapper bm = new BuildingMapper();
-  public CustomerMapper cm = new CustomerMapper();
-  public ReportMapper rm = new ReportMapper();
-  public UserMapper um = new UserMapper();
-  public RoomMapper rom = new RoomMapper();
+    public BuildingMapper bm = new BuildingMapper();
+    public CustomerMapper cm = new CustomerMapper();
+    public ReportMapper rm = new ReportMapper();
+    public UserMapper um = new UserMapper();
+    public RoomMapper rom = new RoomMapper();
 
-  private static Facade instance = null;
+    private static Facade instance = null;
 
-  protected Facade()
-  {
-    // Exists only to defeat instantiation.
-  }
-
-  public static Facade getInstance()
-  {
-    if (instance == null)
+    protected Facade()
     {
-      instance = new Facade();
+        // Exists only to defeat instantiation.
     }
-    return instance;
-  }
 
-  public void addBuilding(int CID, String Address, int PC, int SOB, String AI)
-  {
-    bm.addBuilding(CID, Address, PC, SOB, AI);
-  }
+    public static Facade getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Facade();
+        }
+        return instance;
+    }
 
-  public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
-  {
-    cm.addCustomer(cName, cEmail, pNum, username, password);
-  }
+    public void addBuilding(int CID, String Address, int PC, int SOB, String AI)
+    {
+        bm.addBuilding(CID, Address, PC, SOB, AI);
+    }
 
-  public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding)
-  {
-    rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
-  }
+    public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
+    {
+        cm.addCustomer(cName, cEmail, pNum, username, password);
+    }
 
-  public void addCompleteReport(int conditionLevel, int buildingID, String buildingName, int zipcode, String address, int yearBuilt, int sizeOfBuilding, String purposeOfBuilding, String date, String technicianName, String customerName, String roofDesc, String outerWallsDesc)
-  {
-    rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
-  }
-  
-  public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
-  {
-    cm.editCustomer(cName, cEmail, pNum, username, password, CID);
-  }
-  
-  public void deleteReport(int reportID)
-  {
-      rm.deleteReport(reportID);
-  }
+    public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding)
+    {
+        rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
+    }
 
-  public ArrayList<Building> getUserBuildings(int CID)
-  {
-    return um.getUserBuildings(CID);
-  }
+    public void addCompleteReport(int conditionLevel, int buildingID, String buildingName, int zipcode, String address, int yearBuilt, int sizeOfBuilding, String purposeOfBuilding, String date, String technicianName, String customerName, String roofDesc, String outerWallsDesc)
+    {
+        rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+    }
 
-  public ArrayList<CompleteReport> getReports()
-  {
-    return rm.getReports();
-  }
+    public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
+    {
+        cm.editCustomer(cName, cEmail, pNum, username, password, CID);
+    }
 
-  public ArrayList<Customer> getCustomers()
-  {
-    return cm.getCustomers();
-  }
+    public void deleteReport(int reportID)
+    {
+        rm.deleteReport(reportID);
+    }
 
-  public ArrayList<Building> getBuildings()
-  {
-    return bm.getBuildings();
-  }
+    public ArrayList<Building> getUserBuildings(int CID)
+    {
+        return um.getUserBuildings(CID);
+    }
 
-  public User getUser(String uname)
-  {
-    return um.ReturnUser(uname);
-  }
-  
-  public ArrayList<CompleteReport> getUserReports(int cID)
-  {
-      return um.getUserReports(cID); 
-  }
+    public ArrayList<CompleteReport> getReports()
+    {
+        return rm.getReports();
+    }
 
-  public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
-  {
-    rom.addRooms(ReportID, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation);
-  }
-  
-    
+    public ArrayList<Customer> getCustomers()
+    {
+        return cm.getCustomers();
+    }
+
+    public ArrayList<Building> getBuildings()
+    {
+        return bm.getBuildings();
+    }
+
+    public User getUser(String uname)
+    {
+        return um.ReturnUser(uname);
+    }
+
+    public ArrayList<CompleteReport> getUserReports(int cID)
+    {
+        return um.getUserReports(cID);
+    }
+
+    public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
+    {
+        rom.addRooms(ReportID, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation);
+    }
+
+    public Administrator GetAdmin(String uName)
+    {
+        return um.GetAdmin(uName);
+    }
+
 }
