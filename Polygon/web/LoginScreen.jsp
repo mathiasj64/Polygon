@@ -13,7 +13,7 @@
         <title>Polygon - Login</title>
     </head>
     <body>
-
+        
         <img src="Pictures/Polygon.png" align="left" /> 
 
         <br>

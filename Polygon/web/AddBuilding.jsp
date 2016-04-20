@@ -60,10 +60,10 @@
 
             <table border="2" cellpadding="5">
                 <tr> 
-                    <td> CustomerID </td><td> <input type="number" name="cid" value="3" required</td>
+                    <td> CustomerID </td><td> <input type="number" name="cid" value="3" required /> </td>
                 </tr>
                 <tr> 
-                    <td> Zipcode </td><td> <input type="number" name="zipcode" value="4540" required</td>
+                    <td> Zipcode </td><td> <input type="number" name="zipcode" value="4540" required /></td>
                 </tr>
 
                 <tr>
@@ -71,7 +71,7 @@
                 </tr>
 
                 <tr> 
-                    <td> ParcelNo </td><td> <input type="number" name="PC" value="123" required</td>
+                    <td> ParcelNo </td><td> <input type="number" name="PC" value="123" required/> </td>
                 </tr>
 
                 <tr>
@@ -79,7 +79,7 @@
                 </tr>
 
                 <tr> 
-                    <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf" required</td>
+                    <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf" required /></td>
                 </tr>
             </table>
             <input type="submit" value="Add building" name="add building" />
