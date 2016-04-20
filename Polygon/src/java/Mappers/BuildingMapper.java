@@ -62,20 +62,20 @@ public class BuildingMapper
         return building;
     }
 
-    public void addBuilding(int CID, String Address, int PC, int SOB, String AI)
+    public void addBuilding(int CID, int Zipcode, String Address, int PC, int SOB, String AI)
     {
         try
         {
             Connector.getInstance().connect();
 
-            String query = "INSERT INTO polygondatabase.building(CustomerID, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + CID + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "');";
+            String query = "INSERT INTO polygondatabase.building(CustomerID, Zipcode, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + CID + "', '" + Zipcode + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "');";
 
             Connector.getInstance().stmt.executeUpdate(query);
 
         } catch (SQLException ex)
         {
             ex.printStackTrace();
-            System.out.println(ex);
+       
         }
     }
 

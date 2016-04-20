@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <%
-         Integer accessLevel = (Integer) session.getAttribute("accessLevel");
+        Integer accessLevel = (Integer) session.getAttribute("accessLevel");
     %> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,10 +28,10 @@
                     </form>
                 </td>
 
-                      <%  
-                    if(accessLevel > 1)
+                <%
+                    if (accessLevel > 1)
                     {
-                     %>  
+                %>  
                 <td>
                     <form action="CustomerPage.jsp">
                         <input type="submit" value="Customers" name="customer" />
@@ -39,7 +39,7 @@
                 </td>
                 <%
                     }
-                    %>
+                %>
 
                 <td>
                     <form action="reportspage.jsp">
@@ -60,7 +60,10 @@
 
             <table border="2" cellpadding="5">
                 <tr> 
-                    <td> Customer ID </td><td> <input type="number" name="CID" value="2" required</td>
+                    <td> CustomerID </td><td> <input type="number" name="cid" value="3" required /> </td>
+                </tr>
+                <tr> 
+                    <td> Zipcode </td><td> <input type="number" name="zipcode" value="4540" required /></td>
                 </tr>
 
                 <tr>
@@ -68,7 +71,7 @@
                 </tr>
 
                 <tr> 
-                    <td> ParcelNo </td><td> <input type="number" name="PC" value="123" required</td>
+                    <td> ParcelNo </td><td> <input type="number" name="PC" value="123" required/> </td>
                 </tr>
 
                 <tr>
@@ -76,7 +79,7 @@
                 </tr>
 
                 <tr> 
-                    <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf" required</td>
+                    <td> Ekstra Information </td><td> <input type="text" name="AI" value="sdf" required /></td>
                 </tr>
             </table>
             <input type="submit" value="Add building" name="add building" />

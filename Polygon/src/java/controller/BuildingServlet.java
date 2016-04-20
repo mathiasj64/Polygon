@@ -29,13 +29,14 @@ public class BuildingServlet extends HttpServlet
     try (PrintWriter out = response.getWriter())
     {
       
-      int CID = Integer.parseInt(request.getParameter("CID"));
+      int CID = Integer.parseInt(request.getParameter("cid")); 
+      int zipcode = Integer.parseInt(request.getParameter("zipcode"));
       String Address = request.getParameter("Address");
       int PC = Integer.parseInt(request.getParameter("PC"));
       int SOB = Integer.parseInt(request.getParameter("SOB"));
       String AI = request.getParameter("AI");
       
-      Facade.getInstance().addBuilding(CID, Address, PC, SOB, AI);
+      Facade.getInstance().addBuilding(CID, zipcode, Address, PC, SOB, AI);
       
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/buildingspage.jsp");
