@@ -47,9 +47,9 @@ public class Facade
         return instance;
     }
 
-    public void addBuilding(int CID, String Address, int PC, int SOB, String AI)
+    public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI)
     {
-        bm.addBuilding(CID, Address, PC, SOB, AI);
+        bm.addBuilding(CID, Zipcode, Address, PC, SOB, AI);
     }
 
     public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
