@@ -51,8 +51,7 @@
     <table border="1" style="width: 100%">
 
         <tr >
-            <td colspan ="4" style="font-family: Arial"> <center> <b> Customers </b> </center> </td>
-    <td align="right" > <input type="text" name="Search" value="Insert Name" /> <input type="submit" value="Search" /> </td> 
+            <td colspan ="5" style="font-family: Arial"> <center> <b> Customers </b> </center> </td>
 </tr>
 
 <tr>

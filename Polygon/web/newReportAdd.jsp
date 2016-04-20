@@ -48,7 +48,8 @@
     <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
     <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
 
-
+        
+    
     <center>
         <h1 style="font-size:300%">Bygingsgennemgang</h1>
     </center>

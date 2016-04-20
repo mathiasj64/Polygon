@@ -107,7 +107,7 @@
     <td> <%= Facade.getInstance().um.userReports.get(i).getTechnicianName()%> </td>
     <td> <%= Facade.getInstance().um.userReports.get(i).getConditionLevel()%> </td>
     <td> <form action="newReportView.jsp" method="GET">
-            <input tpye="hidden" name="hiddenID" value="<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" >
+            <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" >
             <input type="submit" name="viewReport<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" value="View report <%= Facade.getInstance().um.userReports.get(i).getReportID()%>">
         </form></td>
 </tr>
