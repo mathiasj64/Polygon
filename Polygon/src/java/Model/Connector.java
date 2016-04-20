@@ -28,7 +28,21 @@ public class Connector
   private final String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
   public Statement stmt;
   
-  public Connector()
+  private static Connector instance = null;
+    protected Connector()
+    {
+        // Exists only to defeat instantiation.
+    }
+    public static Connector getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Connector();
+        }
+        return instance;
+    }
+    
+  public void connect()
   {
     try
     {

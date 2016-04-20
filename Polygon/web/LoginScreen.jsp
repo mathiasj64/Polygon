@@ -26,7 +26,7 @@
                     <label class="w3-text-blue"><b>Username</b></label>
                     <input class="w3-input w3-border" type="text" name="username" value="" > </p>
                 <p>
-                    <label class="w3-text-blue"><b>Password</b></label>
+                    <label class="w3-text-blue"><b>Passwords</b></label>
                     <input class="w3-input w3-border" type="password" name="password" value=""> </p>
                 <p>
                     <input class="w3-btn w3-blue" type="submit" name="login" value="Login"> </p>
