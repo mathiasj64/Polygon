@@ -1,5 +1,5 @@
 <%-- 
-    Document   : newReportView
+    Document   : ReportView
     Created on : 07-04-2016, 09:15:48
     Author     : Mathias
 --%>

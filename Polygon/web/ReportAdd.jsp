@@ -54,7 +54,7 @@
         <h1 style="font-size:300%">Bygingsgennemgang</h1>
     </center>
 
-    <form method="POST" action="newReportAdd.jsp">
+    <form method="POST" action="ReportAdd.jsp">
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>

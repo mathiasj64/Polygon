@@ -88,7 +88,7 @@ public class CompleteReportServlet extends HttpServlet
     } catch (Exception ex)
     {
       ServletContext sc = getServletContext();
-      RequestDispatcher rd = sc.getRequestDispatcher("/newReportAdd.jsp");
+      RequestDispatcher rd = sc.getRequestDispatcher("/ReportAdd.jsp");
       rd.forward(request, response);
     }
   }

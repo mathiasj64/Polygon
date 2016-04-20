@@ -59,7 +59,7 @@
                     if (accessLevel > 1)
                     {
                 %>
-        <form action="newReportAdd.jsp">
+        <form action="ReportAdd.jsp">
             <input type="submit" value="Add a report"/>       
         </form>
         <%
@@ -124,7 +124,7 @@
     <td> <%= Facade.getInstance().um.userReports.get(i).getDate()%> </td>
     <td> <%= Facade.getInstance().um.userReports.get(i).getTechnicianName()%> </td>
     <td> <%= Facade.getInstance().um.userReports.get(i).getConditionLevel()%> </td>
-    <td> <form action="newReportView.jsp" method="GET">
+    <td> <form action="ReportView.jsp" method="GET">
             <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" >
             <input type="submit" name="viewReport<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" value="View report <%= Facade.getInstance().um.userReports.get(i).getReportID()%>">
         </form></td>
@@ -154,7 +154,7 @@
     <td> <%= Facade.getInstance().rm.reports.get(i).getDate()%> </td>
     <td> <%= Facade.getInstance().rm.reports.get(i).getTechnicianName()%> </td>
     <td> <%= Facade.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
-    <td> <form action="newReportView.jsp" method="GET">
+    <td> <form action="ReportView.jsp" method="GET">
             <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" >
             <input type="submit" name="viewReport<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" value="View report <%= Facade.getInstance().rm.reports.get(i).getReportID()%>">
         </form></td>
