@@ -13,6 +13,13 @@
     </head>
     <body>
 
+        <%                  
+          if (request.getParameter("Name") != null && request.getParameter("Email") != null && request.getParameter("PN") != null && request.getParameter("UN") != null && request.getParameter("PW") != null)
+          {
+            getServletContext().getRequestDispatcher("/CompleteReportServlet").forward(request, response);
+          }          
+        %>
+
         <!MENU>
     <center>
 
@@ -45,35 +52,43 @@
 
     <!MENU END>
 
-    <h1>Insert Customer Information:</h1>
-    <form action="CustomerServlet">
-        <table style="width: 50%">
-            <tr>
-                <td> <input type="text" name="Name" value="Insert Name" /> </td>
-            </tr>
 
-            <tr>
-                <td> <input type="text" name="Email" value="Insert Email" /> </td> 
-            </tr>
+    <center>
 
-            <tr>
-                <td> <input type="number" name="PN" value="Insert Phonenumber" /> </td>
-            </tr>
+        <h1>Insert Customer Information:</h1>
+        <form action="AddCustomerPage.jsp">
+            <table border="2" cellpadding="5">
+                <tr>
+                    <td> Name:</td> 
+                    <td> <input type="text" name="Name" value="" /> <%= request.getParameter("firstTime") != null ? "*" : ""%> </td>
+                </tr>
+
+                <tr>
+                    <td> Email:</td>
+                    <td> <input type="text" name="Email" value="" /> </td> 
+                </tr>
+
+                <tr>
+                    <td> Phonenumber:</td>
+                    <td> <input type="number" name="PN" value="" /> </td>
+                </tr>
+
+                <tr>
+                    <td> Username:</td>
+                    <td> <input type="text" name="UN" value="" /> </td>
+                </tr>
+
+                <tr>
+                    <td> Password:</td>
+                    <td> <input type="text" name="PW" value="" /> </td>
+                </tr>
+            </table>
+
+            <td> <input type="submit" name="addCustomer" value="Add Customer" /> </td>
+            <input type="hidden" name="firstTime" value="p">
             
-            <tr>
-                <td> <input type="text" name="UN" value="Insert Desired Username" /> </td>
-            </tr>
-            
-            <tr>
-                <td> <input type="text" name="PW" value="Insert Desired Password" /> </td>
-            </tr>
-        </table>
 
-        <td> <input type="submit" name="addCustomer" value="Add Customer" /> </td>
-    </form>
-
-    <form action="CustomerPage.jsp">
-        <td> <input type="submit" value="Go back to customer page" />
-    </form> 
+        </form> 
+    </center>
 </body>
 </html>
