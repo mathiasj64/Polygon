@@ -72,7 +72,17 @@
 <table border="1" style="width: 100%">
 
     <tr >
+        <% 
+                    if(accessLevel > 1)
+                    {
+                    %> 
         <td colspan ="9" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>
+<%                  } 
+                    else
+                    { %> 
+        <td colspan ="8" style="font-family: Arial"> <center> <b> Reports </b> </center> </td>                
+                  <%  }
+                        %> 
 </tr>
 
 <tr>
@@ -84,7 +94,15 @@
     <td> <b>Technician Name</b></td>
     <td> <b>Condition Level</b> </td>
     <td> <b>View Report</b></td>
+    <% 
+                    if (accessLevel > 1)
+                    {
+                    %> 
     <td> <b>Delete Report</b></td>
+    <% 
+                    }
+    %> 
+                        
 </tr>
 <%
     switch (accessLevel)
