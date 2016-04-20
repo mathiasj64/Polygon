@@ -12,95 +12,118 @@ package Objects;
 public class Building
 {
 
-    private int BuildingID;
-    private int CustomerID;
-    private int Zipcodes;
-    private String Address;
-    private int ParcelNo;
-    private int SizeOfBuilding;
-    private String AdditionalInformation;
-
+    private int buildingID;
+    private int customerID;
+    private int zipcodes;
+    private String address;
+    private int parcelNo;
+    private int sizeOfBuilding;
+    private String additionalInformation;
+    private String conditionLevel; 
     
 
     public Building(int BuildingID, int CustomerID, int Zipcodes, String Address, int ParcelNo, int SizeOfBuilding, String AdditionalInformation)
     {
-        this.BuildingID = BuildingID;
-        this.CustomerID = CustomerID;
-        this.Zipcodes = Zipcodes;
-        this.Address = Address;
-        this.ParcelNo = ParcelNo;
-        this.SizeOfBuilding = SizeOfBuilding;
-        this.AdditionalInformation = AdditionalInformation;
+        this.buildingID = BuildingID;
+        this.customerID = CustomerID;
+        this.zipcodes = Zipcodes;
+        this.address = Address;
+        this.parcelNo = ParcelNo;
+        this.sizeOfBuilding = SizeOfBuilding;
+        this.additionalInformation = AdditionalInformation;
+    }
+    
+    public Building(int BuildingID, int CustomerID, int Zipcodes, String Address, int ParcelNo, int SizeOfBuilding, String AdditionalInformation, String conditionLevel)
+    {
+        this.buildingID = BuildingID;
+        this.customerID = CustomerID;
+        this.zipcodes = Zipcodes;
+        this.address = Address;
+        this.parcelNo = ParcelNo;
+        this.sizeOfBuilding = SizeOfBuilding;
+        this.additionalInformation = AdditionalInformation;
+        this.conditionLevel = conditionLevel; 
     }
 
     public int getBuildingID()
     {
-        return BuildingID;
+        return buildingID;
     }
 
     public void setBuildingID(int BuildingID)
     {
-        this.BuildingID = BuildingID;
+        this.buildingID = BuildingID;
     }
 
     public int getCustomerID()
     {
-        return CustomerID;
+        return customerID;
     }
 
     public void setCustomerID(int CustomerID)
     {
-        this.CustomerID = CustomerID;
+        this.customerID = CustomerID;
     }
 
     public int getZipcodes()
     {
-        return Zipcodes;
+        return zipcodes;
     }
 
     public void setZipcodes(int Zipcodes)
     {
-        this.Zipcodes = Zipcodes;
+        this.zipcodes = Zipcodes;
     }
     
     public String getAddress()
     {
-        return Address;
+        return address;
     }
 
     public void setAddress(String Address)
     {
-        this.Address = Address;
+        this.address = Address;
     }
 
     public int getParcelNo()
     {
-        return ParcelNo;
+        return parcelNo;
     }
 
     public void setParcelNo(int ParcelNo)
     {
-        this.ParcelNo = ParcelNo;
+        this.parcelNo = ParcelNo;
     }
 
     public int getSizeOfBuilding()
     {
-        return SizeOfBuilding;
+        return sizeOfBuilding;
     }
 
     public void setSizeOfBuilding(int SizeOfBuilding)
     {
-        this.SizeOfBuilding = SizeOfBuilding;
+        this.sizeOfBuilding = SizeOfBuilding;
     }
 
     public String getAdditionalInformation()
     {
-        return AdditionalInformation;
+        return additionalInformation;
     }
 
     public void setAdditionalInformation(String AdditionalInformation)
     {
-        this.AdditionalInformation = AdditionalInformation;
+        this.additionalInformation = AdditionalInformation;
     }
+
+    public String getConditionLevel()
+    {
+        return conditionLevel;
+    }
+
+    public void setConditionLevel(String conditionLevel)
+    {
+        this.conditionLevel = conditionLevel;
+    }
+    
     
 }

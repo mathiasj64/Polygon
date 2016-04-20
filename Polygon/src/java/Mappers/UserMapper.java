@@ -6,6 +6,7 @@
 package Mappers;
 
 import Model.Connector;
+import Objects.Administrator;
 import Objects.Building;
 import Objects.CompleteReport;
 import Objects.User;
@@ -175,5 +176,34 @@ public class UserMapper
 
         }
         return userReports;
+    }
+    
+    public Administrator GetAdmin(String uName)
+    {
+        try
+        {
+
+            Connector.getInstance().connect();
+
+            String query = "SELECT * FROM Administrator WHERE username = '" + uName + "';";
+
+            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+
+            if (res.next())
+            {
+          
+                String loginU = res.getString(1);
+                String pWord = res.getString(2);
+                int aLevel = Integer.parseInt(res.getString(3));
+
+                return new Administrator(loginU, pWord, aLevel);
+            }
+
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 }
