@@ -20,16 +20,17 @@ public class BuildingMapper
 {
 
     public ArrayList<Building> building = new ArrayList<>();
+    int BuildingID;
+    int CustomerID;
+    int Zipcodes;
+    String Address;
+    int ParcelNo;
+    int SizeOfBuilding;
+    String AdditionalInformation;
+    String conditionLevel;
 
     public ArrayList<Building> getBuildings()
     {
-        int BuildingID;
-        int CustomerID;
-        int Zipcodes;
-        String Address;
-        int ParcelNo;
-        int SizeOfBuilding;
-        String AdditionalInformation;
 
         try
         {
@@ -76,5 +77,41 @@ public class BuildingMapper
             ex.printStackTrace();
             System.out.println(ex);
         }
+    }
+
+    public ArrayList<Building> sortAfterCondition()
+    {
+
+        try
+        {
+            Connector.getInstance().connect();
+            String query = "SELECT BuildingID, CustomerID, Zipcode, Address, ParcelNo, SizeOfBuilding, AdditionalInformation, \n"
+                    + "(SELECT ConditionLevel FROM REPORT\n"
+                    + "WHERE DateWritten = (select max(DateWritten) FROM REPORT WHERE buildingid = b.BuildingID) \n"
+                    + "AND BuildingID = b.BuildingID) AS ConditionLevel FROM Building b order by ConditionLevel DESC;";
+
+            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+            building.clear();
+            while (res.next())
+            {
+
+                BuildingID = Integer.parseInt(res.getString(1));
+                CustomerID = Integer.parseInt(res.getString(2));
+                Zipcodes = Integer.parseInt(res.getString(3));
+                Address = res.getString(4);
+                ParcelNo = Integer.parseInt(res.getString(5));
+                SizeOfBuilding = Integer.parseInt(res.getString(6));
+                AdditionalInformation = res.getString(7);
+                conditionLevel = res.getString(8);
+                
+                
+                
+                building.add(new Building(BuildingID, CustomerID, Zipcodes, Address, ParcelNo, SizeOfBuilding, AdditionalInformation, conditionLevel));
+            }
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return building;
     }
 }
