@@ -16,111 +16,111 @@ import Objects.Building;
 import Objects.CompleteReport;
 import Objects.Customer;
 import Objects.User;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
  *
- * @author madsr
+ * @author Mathias
  */
-public class Facade
+public class Controller
 {
 
-    public BuildingMapper bm = new BuildingMapper();
-    public CustomerMapper cm = new CustomerMapper();
-    public ReportMapper rm = new ReportMapper();
-    public UserMapper um = new UserMapper();
-    public RoomMapper rom = new RoomMapper();
-    public ZipcodesMapper zm = new ZipcodesMapper();
+  public BuildingMapper bm = new BuildingMapper();
+  public CustomerMapper cm = new CustomerMapper();
+  public ReportMapper rm = new ReportMapper();
+  public UserMapper um = new UserMapper();
+  public RoomMapper rom = new RoomMapper();
+  public ZipcodesMapper zm = new ZipcodesMapper();
 
-    private static Facade instance = null;
+  private static Facade instance = null;
 
-    protected Facade()
+  protected Controller()
+  {
+    // Exists only to defeat instantiation.
+  }
+
+  public static Facade getInstance()
+  {
+    if (instance == null)
     {
-        // Exists only to defeat instantiation.
+      instance = new Facade();
     }
-
-    public static Facade getInstance()
+    return instance;
+  }
+  
+  public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI)
     {
-        if (instance == null)
-        {
-            instance = new Facade();
-        }
-        return instance;
-    }
-
-    public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI)
-    {
-        bm.addBuilding(CID, Zipcode, Address, PC, SOB, AI);
+        Facade.getInstance().addBuilding(CID, Zipcode, Address, PC, SOB, AI);
     }
 
     public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
     {
-        cm.addCustomer(cName, cEmail, pNum, username, password);
+        Facade.getInstance().addCustomer(cName, cEmail, pNum, username, password);
     }
 
     public void addReport(int buildingID, int conditionlevel, String conditionofbuilding, String functionOfBuilding)
     {
-        rm.addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
+        Facade.getInstance().addReport(buildingID, conditionlevel, conditionofbuilding, functionOfBuilding);
     }
 
     public void addCompleteReport(int conditionLevel, int buildingID, String buildingName, int zipcode, String address, int yearBuilt, int sizeOfBuilding, String purposeOfBuilding, String date, String technicianName, String customerName, String roofDesc, String outerWallsDesc)
     {
-        rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+        Facade.getInstance().addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
     }
 
     public void editCustomer(String cName, String cEmail, String pNum, String username, String password, int CID)
     {
-        cm.editCustomer(cName, cEmail, pNum, username, password, CID);
+        Facade.getInstance().editCustomer(cName, cEmail, pNum, username, password, CID);
     }
 
     public void deleteReport(int reportID)
     {
-        rm.deleteReport(reportID);
+        Facade.getInstance().deleteReport(reportID);
     }
 
     public ArrayList<Building> getUserBuildings(int CID)
     {
-        return um.getUserBuildings(CID);
+        return Facade.getInstance().getUserBuildings(CID);
     }
 
     public ArrayList<CompleteReport> getReports()
     {
-        return rm.getReports();
+        return Facade.getInstance().getReports();
     }
 
     public ArrayList<Customer> getCustomers()
     {
-        return cm.getCustomers();
+        return Facade.getInstance().getCustomers();
     }
 
     public ArrayList<Building> getBuildings()
     {
-        return bm.getBuildings();
+        return Facade.getInstance().getBuildings();
     }
 
     public User returnUser(String uname)
     {
-        return um.returnUser(uname);
+        return Facade.getInstance().returnUser(uname);
     }
 
     public ArrayList<CompleteReport> getUserReports(int cID)
     {
-        return um.getUserReports(cID);
+        return Facade.getInstance().getUserReports(cID);
     }
 
     public void addRooms(int ReportID, String Whens, String Wheres, String What, String Repairs, String Walls, String Ceiling, String Floor, String Windows, int ScanningMade, String MoistureScanning, String MeasuringPoint, int Moist, int Rot, int Mold, int Fire, int Other, String OtherDescription, String Recommendation)
     {
-        rom.addRooms(ReportID, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation);
+        Facade.getInstance().addRooms(ReportID, Whens, Wheres, What, Repairs, Walls, Ceiling, Floor, Windows, ScanningMade, MoistureScanning, MeasuringPoint, Moist, Rot, Mold, Fire, Other, OtherDescription, Recommendation);
     }
 
     public Administrator GetAdmin(String uName)
     {
-        return um.GetAdmin(uName);
+        return Facade.getInstance().GetAdmin(uName);
     }
     
     public String getCityFromZipcode(int zipcode)
     {
-      return zm.getCityFromZipcode(zipcode);
+      return Facade.getInstance().getCityFromZipcode(zipcode);
     }
+
 }

@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet
             String givenUsername = request.getParameter("username");
             String givenPassword = request.getParameter("password");
             
-            User user = Facade.getInstance().getUser(givenUsername);
+            User user = Controller.getInstance().returnUser(givenUsername);
             if (user != null && user.getPassword().equalsIgnoreCase(givenPassword))
             {
                 int accessLevel = user.getAccesLevel();
@@ -112,14 +112,3 @@ public class LoginServlet extends HttpServlet
     }// </editor-fold>
 
 }
-//User user = Facade.getInstance().getUser(givenUsername);
-//            if (user != null && user.getPassword().equalsIgnoreCase(givenPassword))
-//            {
-//                int accessLevel = user.getAccesLevel();
-//                int customerID = user.getCustomerID();
-//                request.getSession().setAttribute("accessLevel", accessLevel);
-//                request.getSession().setAttribute("customerid", customerID);
-//                
-//                sc = getServletContext();
-//                rd = sc.getRequestDispatcher("/frontpage.jsp");
-//                rd.forward(request, response);

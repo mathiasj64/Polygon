@@ -37,7 +37,7 @@ public class dReportServlet extends HttpServlet
         try (PrintWriter out = response.getWriter())
         {
             int dReport = Integer.parseInt(request.getParameter("DeleteReport"));
-            Facade.getInstance().rm.deleteReport(dReport);
+            Controller.getInstance().rm.deleteReport(dReport);
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");
             rd.forward(request, response);

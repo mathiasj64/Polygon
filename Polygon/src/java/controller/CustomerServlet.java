@@ -42,7 +42,7 @@ public class CustomerServlet extends HttpServlet
             String PhoneNumber = request.getParameter("PN");
             String Username = request.getParameter("UN");
             String Password = request.getParameter("PW");
-            Facade.getInstance().addCustomer(Name, Email, PhoneNumber, Username, Password);
+            Controller.getInstance().addCustomer(Name, Email, PhoneNumber, Username, Password);
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher("/CustomerPage.jsp");
             rd.forward(request, response);

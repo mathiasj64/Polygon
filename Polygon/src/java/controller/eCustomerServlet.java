@@ -44,7 +44,7 @@ public class eCustomerServlet extends HttpServlet
             String Username = request.getParameter("uName");
             String Password = request.getParameter("pWord");
             int CID = Integer.parseInt(request.getParameter("CID"));
-            Facade.getInstance().editCustomer(Name, Email, PhoneNumber, Username, Password, CID);
+            Controller.getInstance().editCustomer(Name, Email, PhoneNumber, Username, Password, CID);
             ServletContext sc = getServletContext();
             RequestDispatcher rd = sc.getRequestDispatcher("/CustomerPage.jsp");
             rd.forward(request, response);

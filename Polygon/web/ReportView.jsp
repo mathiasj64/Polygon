@@ -4,6 +4,7 @@
     Author     : Mathias
 --%>
 
+<%@page import="controller.Controller"%>
 <%@page import="Objects.Room"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Objects.CompleteReport"%>
@@ -50,8 +51,8 @@
     <!MENU END>
 
     <%
-      CompleteReport report = Facade.getInstance().rm.getReport(Integer.parseInt(request.getParameter("hiddenID")));
-      ArrayList<Room> rooms = Facade.getInstance().rom.getRoomsFromReport(Integer.parseInt(request.getParameter("hiddenID")));
+      CompleteReport report = Controller.getInstance().rm.getReport(Integer.parseInt(request.getParameter("hiddenID")));
+      ArrayList<Room> rooms = Controller.getInstance().rom.getRoomsFromReport(Integer.parseInt(request.getParameter("hiddenID")));
     %>
 
 
@@ -92,7 +93,7 @@
     </tr>
 </table>
         
-        <p align="left" style="font-size:150%"><b>By: </b> <%= Facade.getInstance().zm.getCityFromZipcode(report.getZipcode())%> </p>
+        <p align="left" style="font-size:150%"><b>By: </b> <%= Controller.getInstance().zm.getCityFromZipcode(report.getZipcode())%> </p>
         <br>
         <br>
         

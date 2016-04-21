@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="controller.Controller"%>
 <%@page import="controller.Facade"%>
 <%@page import="Mappers.CustomerMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -64,21 +65,21 @@
 
 <%
 
-    Facade.getInstance().getCustomers();
-    if (Facade.getInstance().cm.customers.size() != 0)
+    Controller.getInstance().getCustomers();
+    if (Controller.getInstance().cm.customers.size() != 0)
     {
-        for (int i = 0; i < Facade.getInstance().cm.customers.size(); i++)
+        for (int i = 0; i < Controller.getInstance().cm.customers.size(); i++)
         {
 %>
 
 <tr> 
-    <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerID()%> </td>
-    <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerName()%> </td>
-    <td> <%= Facade.getInstance().cm.customers.get(i).getCustomerEmail()%> </td>
-    <td> <%= Facade.getInstance().cm.customers.get(i).getPhoneNumber()%> </td>
+    <td> <%= Controller.getInstance().cm.customers.get(i).getCustomerID()%> </td>
+    <td> <%= Controller.getInstance().cm.customers.get(i).getCustomerName()%> </td>
+    <td> <%= Controller.getInstance().cm.customers.get(i).getCustomerEmail()%> </td>
+    <td> <%= Controller.getInstance().cm.customers.get(i).getPhoneNumber()%> </td>
     <td> <form action="EditCustomer.jsp" method="GET">
-            <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().cm.customers.get(i).getCustomerID()%>" >
-            <input type="submit" name="hiddenID<%= Facade.getInstance().cm.customers.get(i).getCustomerID()%>" value="Edit this customer!">
+            <input type="hidden" name="hiddenID" value="<%= Controller.getInstance().cm.customers.get(i).getCustomerID()%>" >
+            <input type="submit" name="hiddenID<%= Controller.getInstance().cm.customers.get(i).getCustomerID()%>" value="Edit this customer!">
         </form></td>
 </tr>  
 

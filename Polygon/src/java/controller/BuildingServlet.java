@@ -36,7 +36,7 @@ public class BuildingServlet extends HttpServlet
       int SOB = Integer.parseInt(request.getParameter("SOB"));
       String AI = request.getParameter("AI");
       
-      Facade.getInstance().addBuilding(CID, zipcode, Address, PC, SOB, AI);
+      Controller.getInstance().addBuilding(CID, zipcode, Address, PC, SOB, AI);
       
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/buildingspage.jsp");

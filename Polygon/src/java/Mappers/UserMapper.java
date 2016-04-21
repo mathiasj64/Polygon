@@ -47,7 +47,7 @@ public class UserMapper
     String roofDesc;
     String outerWallsDesc;
 
-    public User ReturnUser(String uName)
+    public User returnUser(String uName)
     {
         try
         {

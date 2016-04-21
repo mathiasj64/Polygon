@@ -51,9 +51,9 @@ public class CompleteReportServlet extends HttpServlet
       String roofDesc = request.getParameter("R");
       String outerWallsDesc = request.getParameter("OW");
 
-      int highestReportID = Facade.getInstance().rm.getHighestReportID();
+      int highestReportID = Controller.getInstance().rm.getHighestReportID();
 
-      Facade.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
+      Controller.getInstance().rm.addCompleteReport(conditionLevel, buildingID, buildingName, zipcode, address, yearBuilt, sizeOfBuilding, purposeOfBuilding, date, technicianName, customerName, roofDesc, outerWallsDesc);
 
       int roomAmount = request.getParameter("addRoom") == null ? 1 : Integer.parseInt(request.getParameter("addRoom"))-1;
 
@@ -79,7 +79,7 @@ public class CompleteReportServlet extends HttpServlet
       String OtherDescription = request.getParameter("OtherDescription" + i);
       String Recommendation = request.getParameter("Recommendation" + i);
 
-      Facade.getInstance().rom.addRooms(reportID, whens, wheres, what, repairs, walls, ceiling, floor, windows, scanningMade, MoistureScanning, MeasuringPoint, moist, rot, mold, fire, other, OtherDescription, Recommendation);
+      Controller.getInstance().rom.addRooms(reportID, whens, wheres, what, repairs, walls, ceiling, floor, windows, scanningMade, MoistureScanning, MeasuringPoint, moist, rot, mold, fire, other, OtherDescription, Recommendation);
       }
 
       ServletContext sc = getServletContext();
