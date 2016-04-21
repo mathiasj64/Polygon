@@ -17,7 +17,10 @@
 
         <br>
         <br>
-
+        <form action="LoginScreen.jsp">
+        <input type="submit" name="backtouserlogin" value="User Login"/>
+        </form>
+        
         <form action="AdminLoginServlet" method="post">
             <table align="center"  FRAME=BOX>
                 <thead>
