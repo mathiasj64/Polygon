@@ -8,56 +8,61 @@
 <!DOCTYPE html>
 <html>
     <%
-        Integer accessLevel = (Integer) session.getAttribute("accessLevel");
-        %>
-        
+      Integer accessLevel = (Integer) session.getAttribute("accessLevel");
+        Integer customerid = (Integer) session.getAttribute("customerid");
+    %>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Front page</title>
     </head>
     <body>
 
-    <!MENU>
+        <!MENU>
     <center>
-        
-    <table>
 
-        <tr>
+        <table>
 
-            <td>
-                <form action="buildingspage.jsp">
-                    <input type="submit" value="Buildings" name="building" />
-                </form>
-            </td>
+            <tr>
 
-                 <%  
-                    if(accessLevel > 1)
-                    {
-                     %>  
+                <td>
+                    <form action="buildingspage.jsp">
+                        <input type="submit" value="Buildings" name="building" />
+                    </form>
+                </td>
+
+                <%
+                  if (accessLevel > 1)
+                  {
+                %>  
                 <td>
                     <form action="CustomerPage.jsp">
                         <input type="submit" value="Customers" name="customer" />
                     </form>        
                 </td>
                 <%
-                    }
-                    %> 
+                  }
+                %> 
 
-            <td>
-                <form action="reportspage.jsp">
-                    <input type="submit" value="Reports" name="report" />
-                </form>
-            </td>
+                <td>
+                    <form action="reportspage.jsp">
+                        <input type="submit" value="Reports" name="report" />
+                    </form>
+                </td>
 
-        </tr>
-    </table>
+            </tr>
+        </table>
 
-    <br>
+        <br>
     </center>
     <!MENU END>
 
     <center>
-    <h1>Welcome to the Polygon System</h1>
+        <h1>Welcome to the Polygon System</h1>
+
+        <br>
+
+        <h2><%= accessLevel == 2 ? "Logged in as Administrator" : "Logged in as customer with Customer ID: " + customerid%></h2>
     </center>
 
 </body> 
