@@ -48,4 +48,28 @@ public class ZipcodesMapper
         }
         return zipcodes;
     }
+    
+    public String getCityFromZipcode(int zipcode)
+    {
+        String city = "";
+
+        try
+        {
+            Connector.getInstance().connect();
+
+            String query = "SELECT city FROM zipcodes where zipcode =" + zipcode + ";";
+
+            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+
+            while (res.next())
+            {
+                city = res.getString(1);
+            }
+        } catch (SQLException | NullPointerException ex)
+        {
+            ex.printStackTrace();
+            System.out.println(ex);
+        }
+        return city;
+    }
 }

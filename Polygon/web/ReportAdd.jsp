@@ -58,9 +58,9 @@
         <table align="center" style="width:100%">
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Navn på bygning</b></p>
-                    <input style="width:90%" type="text" name="BN" value="<%=request.getParameter("BN") == null ? "" : request.getParameter("BN")%>" required </td>
+                    <input style="width:90%" type="text" name="BN" value="<%=request.getParameter("BN") == null ? "" : request.getParameter("BN")%>" required> </td>
                 <td align="right"><p style="font-size:150%"><b>Dato</b></p>
-                    <input style="width:90%" type="text" name="D" value="<%=request.getParameter("D") == null ? "" : request.getParameter("D")%>" required></td>
+                    <input style="width:90%" type="date" name="D" value="<%=request.getParameter("D") == null ? "" : request.getParameter("D")%>" required> </td>
             </tr>
             <tr>
                 <td align="left"><p style="font-size:150%"><b>Adresse</b></p>
