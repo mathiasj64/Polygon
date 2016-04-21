@@ -48,7 +48,7 @@ public class Controller
     return instance;
   }
   
-  public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI)
+  public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI) throws DataException
     {
         Facade.getInstance().addBuilding(CID, Zipcode, Address, PC, SOB, AI);
     }

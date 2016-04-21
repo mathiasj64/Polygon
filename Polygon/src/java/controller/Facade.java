@@ -49,9 +49,14 @@ public class Facade
         return instance;
     }
 
-    public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI)
+    public void addBuilding(int CID,int Zipcode, String Address, int PC, int SOB, String AI) throws DataException
     {
+      try{
         bm.addBuilding(CID, Zipcode, Address, PC, SOB, AI);
+      } catch (SQLException ex)
+      {
+        throw new DataException("Fejl i at tilføje bygning");
+      }
     }
 
     public void addCustomer(String cName, String cEmail, String pNum, String username, String password)
