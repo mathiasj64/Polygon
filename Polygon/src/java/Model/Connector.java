@@ -20,25 +20,42 @@ import java.sql.Statement;
  */
 public class Connector
 {
-  private final String HOST = "localhost";
-  private int PORT = 3306;
-  private final String DATABASE = "polygondatabase";
-  private final String USERNAME = "root";
-  private final String PASSWORD = "1234";
-  private final String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
-  public Statement stmt;
-  
-  public Connector()
-  {
-    try
+
+    private final String HOST = "localhost";
+    private int PORT = 3306;
+    private final String DATABASE = "polygondatabase";
+    private final String USERNAME = "root";
+    private final String PASSWORD = "nuva123wiuffsvej7b";
+    private final String url = "jdbc:mysql://" + HOST + ":" + PORT + "/" + DATABASE;
+    public Statement stmt;
+
+    private static Connector instance = null;
+
+    protected Connector()
     {
-      Class.forName("com.mysql.jdbc.Driver");
-      Connection con = DriverManager.getConnection(url, USERNAME, PASSWORD);
-      stmt = con.createStatement();
-      System.out.println("Logged in to connector");
-    } catch (SQLException | ClassNotFoundException ex)
-    {
-      System.out.println(ex);
+        // Exists only to defeat instantiation.
     }
-  }
+
+    public static Connector getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new Connector();
+        }
+        return instance;
+    }
+
+    public void connect()
+    {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, USERNAME, PASSWORD);
+            stmt = con.createStatement();
+            System.out.println("Logged in to connector");
+        } catch (SQLException | ClassNotFoundException ex)
+        {
+            System.out.println(ex);
+        }
+    }
 }
