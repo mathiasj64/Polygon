@@ -86,16 +86,17 @@ public class CustomerMapperTest
     public void testEditCustomer()
     {
         System.out.println("editCustomer");
-        String cName = "";
-        String cEmail = "";
-        String pNum = "";
-        String username = "";
-        String password = "";
-        int CID = 0;
+        String cName = "Johnny Smithy";
+        String cEmail = "JohnSmith@gmail.com";
+        String pNum = "12345678";
+        String username = "Mibsen";
+        String password = "12345";
+        int CID = 1;
         CustomerMapper instance = new CustomerMapper();
         instance.editCustomer(cName, cEmail, pNum, username, password, CID);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String PreviousName = "Johnny Smithy";
+        String ChangedName = instance.getCustomers().get(1).getCustomerName();
+        assertTrue(!PreviousName.equals(ChangedName));
     }
 
     /**
