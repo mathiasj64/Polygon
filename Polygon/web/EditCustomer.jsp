@@ -10,10 +10,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
+    
+    
     <title>EditCustomer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <body>
+        
+         <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+
 
         <div class="w3-container w3-section w3-blue">
             <h1>Polygon</h1>

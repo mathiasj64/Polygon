@@ -18,6 +18,10 @@
     </head>
     <body>
 
+         <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+
+        
         <!MENU>
     <center>
 

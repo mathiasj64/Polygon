@@ -14,13 +14,15 @@
     </head>
     <body>
 
-        <img src="Pictures/Polygon.png" align="left" /> 
+        <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+        <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+
 
         <br>
         <br>
-        
+
         <form action="AdminLoginPage.jsp">
-        <input type="submit" name="adminLogin" value="Admin Login">
+            <input type="submit" name="adminLogin" value="Admin Login">
         </form>
         <form action="LoginServlet" method="post">
             <table align="center"  FRAME=BOX>

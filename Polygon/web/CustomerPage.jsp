@@ -17,6 +17,10 @@
     </head>
     <body>
 
+         <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+
+        
         <!MENU>
     <center>
 
@@ -48,6 +52,11 @@
     </center>
     <!MENU END>
 
+    <center>
+        <form action="AddCustomerPage.jsp">
+            <input type="submit" name ="addcustomer" value="Add Customer" />
+        </form>
+    </center>
 
     <table border="1" style="width: 100%">
 
@@ -65,11 +74,11 @@
 
 <%
 
-    Controller.getInstance().getCustomers();
-    if (Controller.getInstance().cm.customers.size() != 0)
+  Controller.getInstance().getCustomers();
+  if (Controller.getInstance().cm.customers.size() != 0)
+  {
+    for (int i = 0; i < Controller.getInstance().cm.customers.size(); i++)
     {
-        for (int i = 0; i < Controller.getInstance().cm.customers.size(); i++)
-        {
 %>
 
 <tr> 
@@ -85,13 +94,11 @@
 
 
 <%
-        }
     }
+  }
 %> 
 
 </table>
-<form action="AddCustomerPage.jsp">
-    <input type="submit" name ="addcustomer" value="Add Customer" />
-</form>
+
 </body>
 </html>

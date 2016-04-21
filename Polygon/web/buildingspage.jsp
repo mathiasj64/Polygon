@@ -11,8 +11,8 @@
 <!DOCTYPE html>
 <html>
     <%
-        Integer accessLevel = (Integer) session.getAttribute("accessLevel");
-        Integer customerid = (Integer) session.getAttribute("customerid");
+      Integer accessLevel = (Integer) session.getAttribute("accessLevel");
+      Integer customerid = (Integer) session.getAttribute("customerid");
     %> 
 
     <head>
@@ -22,7 +22,14 @@
     <body>
 
         <!MENU>
+
+    <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
+    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+
+
     <center>
+
+
 
         <table>
 
@@ -35,8 +42,8 @@
                 </td>
 
                 <%
-                    if (accessLevel > 1)
-                    {
+                  if (accessLevel > 1)
+                  {
                 %>
                 <td>
                     <form action="CustomerPage.jsp">
@@ -44,7 +51,7 @@
                     </form>        
                 </td>
                 <%
-                    }
+                  }
                 %> 
 
                 <td>
@@ -59,18 +66,25 @@
     </center>
     <!MENU END>
 
+    <center>
+        <form action="AddBuilding.jsp">
+            <input type="submit" name ="addbuilding" value="Add a building" />
+        </form>
+    </center>
+
     <table border="1" style="width: 100%">
 
         <tr >
-           <% if(accessLevel > 1)
-            { %> 
+            <% if (accessLevel > 1)
+              { %> 
             <td colspan ="7" style="font-family: Arial"> <center> <b> Buildings </b> </center> </td>
-    <%
-    } else {  %>
-            <td colspan ="6" style="font-family: Arial"> <center> <b> Buildings </b> </center> </td>
-    <% 
-           }
-    %> 
+            <%
+            } else
+            {  %>
+    <td colspan ="6" style="font-family: Arial"> <center> <b> Buildings </b> </center> </td>
+        <%
+          }
+        %> 
 </tr>
 
 <tr>
@@ -80,26 +94,26 @@
     <td> Parcel No </td>
     <td> Size of Building </td>
     <td> Additional Information </td>
-    <% if(accessLevel > 1)
-            {
+    <% if (accessLevel > 1)
+      {
     %> 
     <td> Condition Level </td>
     <%
-            }
+      }
     %>
 </tr>
 
 <%
-    switch (accessLevel)
-    {
-        case 1:
-            //Usercase, vil vise userens egne bygninger.
+  switch (accessLevel)
+  {
+    case 1:
+      //Usercase, vil vise userens egne bygninger.
 
-            Controller.getInstance().getUserBuildings(customerid);
-            if (Controller.getInstance().um.userBuildings.size() != 0)
-            {
-                for (int i = 0; i < Controller.getInstance().um.userBuildings.size(); i++)
-                {
+      Controller.getInstance().getUserBuildings(customerid);
+      if (Controller.getInstance().um.userBuildings.size() != 0)
+      {
+        for (int i = 0; i < Controller.getInstance().um.userBuildings.size(); i++)
+        {
 
 %>
 
@@ -114,19 +128,19 @@
 
 
 <%
-            }
-        }
-        break;
+      }
+    }
+    break;
 
-    case 2:
-        //adminlogin
+  case 2:
+    //adminlogin
 
-        Controller.getInstance().bm.sortAfterCondition();
+    Controller.getInstance().bm.sortAfterCondition();
 
-        if (Controller.getInstance().bm.building.size() != 0)
-        {
-            for (int i = 0; i < Controller.getInstance().bm.building.size(); i++)
-            {
+    if (Controller.getInstance().bm.building.size() != 0)
+    {
+      for (int i = 0; i < Controller.getInstance().bm.building.size(); i++)
+      {
 %> 
 
 <tr> 
@@ -138,8 +152,8 @@
     <td> <%= Controller.getInstance().bm.building.get(i).getAdditionalInformation()%> </td>
 
     <% if (Controller.getInstance().bm.building.get(i).getConditionLevel() != null)
-        {%>
-        
+      {%>
+
     <td> <%= Controller.getInstance().bm.building.get(i).getConditionLevel()%> </td> 
 
     <% } else
@@ -148,28 +162,26 @@
     <td> No report yet <!td> 
 
 <% }
-    }
+  }
 %> 
 
 </tr>  
 
 <%
-            }
+      }
 
-            break;
-        case 3:
-            //til eventuelt tekniker login.
-            break;
-    }
+      break;
+    case 3:
+      //til eventuelt tekniker login.
+      break;
+  }
 
 
 %> 
 
 </table>
 <br>
-<form action="AddBuilding.jsp">
-    <input type="submit" name ="addbuilding" value="Add a building" />
-</form>
+
 
 
 </body>
