@@ -10,6 +10,7 @@ import Mappers.CustomerMapper;
 import Mappers.ReportMapper;
 import Mappers.RoomMapper;
 import Mappers.UserMapper;
+import Mappers.ZipcodesMapper;
 import Objects.Administrator;
 import Objects.Building;
 import Objects.CompleteReport;
@@ -30,6 +31,7 @@ public class Facade
     public ReportMapper rm = new ReportMapper();
     public UserMapper um = new UserMapper();
     public RoomMapper rom = new RoomMapper();
+    public ZipcodesMapper zm = new ZipcodesMapper();
 
     private static Facade instance = null;
 
@@ -116,5 +118,9 @@ public class Facade
     {
         return um.GetAdmin(uName);
     }
-
+    
+    public String getCityFromZipcode(int zipcode)
+    {
+      return zm.getCityFromZipcode(zipcode);
+    }
 }
