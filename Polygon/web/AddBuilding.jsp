@@ -15,11 +15,6 @@
         <title>Add building</title>
     </head>
     <body>
-        
-         <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
-    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
-
-        
         <!MENU>
     <center>
 
@@ -64,9 +59,16 @@
         <form method="POST" action="BuildingServlet">
 
             <table border="2" cellpadding="5">
+                <% if(accessLevel > 1)
+                {
+                    %> 
                 <tr> 
                     <td> CustomerID </td><td> <input type="number" name="cid" value="" required /> </td>
                 </tr>
+                <%
+                }
+                %>
+                
                 <tr> 
                     <td> Zipcode </td><td> <input type="number" name="zipcode" value="" required /></td>
                 </tr>
