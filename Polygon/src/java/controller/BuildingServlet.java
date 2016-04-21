@@ -36,11 +36,17 @@ public class BuildingServlet extends HttpServlet
       int SOB = Integer.parseInt(request.getParameter("SOB"));
       String AI = request.getParameter("AI");
       
-      Facade.getInstance().addBuilding(CID, zipcode, Address, PC, SOB, AI);
+      try
+      { 
+      Controller.getInstance().addBuilding(CID, zipcode, Address, PC, SOB, AI);
+      } catch (DataException ex)
+      {
+        out.println("Der opstod en fejl ved oprettelse af bygning. Bygningen er ikke blevet oprettet.");
+      }
       
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/buildingspage.jsp");
-      rd.forward(request, response);
+      rd.include(request, response);
     }
   }
 

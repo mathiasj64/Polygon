@@ -4,6 +4,7 @@
     Author     : Thygesen
 --%>
 
+<%@page import="controller.Controller"%>
 <%@page import="Objects.Customer"%>
 <%@page import="controller.Facade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,7 +23,7 @@
     </center>
         <form method="POST" action="eCustomerServlet">
             <%
-            Customer customer = Facade.getInstance().cm.getCustomer(Integer.parseInt(request.getParameter("hiddenID")));
+            Customer customer = Controller.getInstance().cm.getCustomer(Integer.parseInt(request.getParameter("hiddenID")));
             %>
             Selected CustomerID: <input type="value" name="CID" readonly="readonly" value="<%= customer.getCustomerID() %>">
                                         

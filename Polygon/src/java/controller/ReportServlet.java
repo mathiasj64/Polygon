@@ -42,7 +42,7 @@ public class ReportServlet extends HttpServlet
       String DOB = request.getParameter("DOB");
       String FOB = request.getParameter("FOB");
 
-      Facade.getInstance().addReport(BID, CL, DOB, FOB);
+      Controller.getInstance().addReport(BID, CL, DOB, FOB);
 
       ServletContext sc = getServletContext();
       RequestDispatcher rd = sc.getRequestDispatcher("/reportspage.jsp");

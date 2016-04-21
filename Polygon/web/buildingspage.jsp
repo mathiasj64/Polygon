@@ -4,6 +4,7 @@
     Author     : Thygesen
 --%>
 
+<%@page import="controller.Controller"%>
 <%@page import="controller.Facade"%>
 <%@page import="Mappers.BuildingMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -94,21 +95,21 @@
         case 1:
             //Usercase, vil vise userens egne bygninger.
 
-            Facade.getInstance().getUserBuildings(customerid);
-            if (Facade.getInstance().um.userBuildings.size() != 0)
+            Controller.getInstance().getUserBuildings(customerid);
+            if (Controller.getInstance().um.userBuildings.size() != 0)
             {
-                for (int i = 0; i < Facade.getInstance().um.userBuildings.size(); i++)
+                for (int i = 0; i < Controller.getInstance().um.userBuildings.size(); i++)
                 {
 
 %>
 
 <tr> 
-    <td> <%= Facade.getInstance().um.userBuildings.get(i).getBuildingID()%> </td>
-    <td> <%= Facade.getInstance().um.userBuildings.get(i).getCustomerID()%> </td>
-    <td> <%= Facade.getInstance().um.userBuildings.get(i).getAddress()%> </td>
-    <td> <%= Facade.getInstance().um.userBuildings.get(i).getParcelNo()%> </td>
-    <td> <%= Facade.getInstance().um.userBuildings.get(i).getSizeOfBuilding()%> </td>
-    <td> <%= Facade.getInstance().um.userBuildings.get(i).getAdditionalInformation()%> </td>
+    <td> <%= Controller.getInstance().um.userBuildings.get(i).getBuildingID()%> </td>
+    <td> <%= Controller.getInstance().um.userBuildings.get(i).getCustomerID()%> </td>
+    <td> <%= Controller.getInstance().um.userBuildings.get(i).getAddress()%> </td>
+    <td> <%= Controller.getInstance().um.userBuildings.get(i).getParcelNo()%> </td>
+    <td> <%= Controller.getInstance().um.userBuildings.get(i).getSizeOfBuilding()%> </td>
+    <td> <%= Controller.getInstance().um.userBuildings.get(i).getAdditionalInformation()%> </td>
 </tr>  
 
 
@@ -120,26 +121,26 @@
     case 2:
         //adminlogin
 
-        Facade.getInstance().bm.sortAfterCondition();
+        Controller.getInstance().bm.sortAfterCondition();
 
-        if (Facade.getInstance().bm.building.size() != 0)
+        if (Controller.getInstance().bm.building.size() != 0)
         {
-            for (int i = 0; i < Facade.getInstance().bm.building.size(); i++)
+            for (int i = 0; i < Controller.getInstance().bm.building.size(); i++)
             {
 %> 
 
 <tr> 
-    <td> <%= Facade.getInstance().bm.building.get(i).getBuildingID()%> </td>
-    <td> <%= Facade.getInstance().bm.building.get(i).getCustomerID()%> </td>
-    <td> <%= Facade.getInstance().bm.building.get(i).getAddress()%> </td>
-    <td> <%= Facade.getInstance().bm.building.get(i).getParcelNo()%> </td>
-    <td> <%= Facade.getInstance().bm.building.get(i).getSizeOfBuilding()%> </td>
-    <td> <%= Facade.getInstance().bm.building.get(i).getAdditionalInformation()%> </td>
+    <td> <%= Controller.getInstance().bm.building.get(i).getBuildingID()%> </td>
+    <td> <%= Controller.getInstance().bm.building.get(i).getCustomerID()%> </td>
+    <td> <%= Controller.getInstance().bm.building.get(i).getAddress()%> </td>
+    <td> <%= Controller.getInstance().bm.building.get(i).getParcelNo()%> </td>
+    <td> <%= Controller.getInstance().bm.building.get(i).getSizeOfBuilding()%> </td>
+    <td> <%= Controller.getInstance().bm.building.get(i).getAdditionalInformation()%> </td>
 
-    <% if (Facade.getInstance().bm.building.get(i).getConditionLevel() != null)
+    <% if (Controller.getInstance().bm.building.get(i).getConditionLevel() != null)
         {%>
         
-    <td> <%= Facade.getInstance().bm.building.get(i).getConditionLevel()%> </td> 
+    <td> <%= Controller.getInstance().bm.building.get(i).getConditionLevel()%> </td> 
 
     <% } else
     { %>

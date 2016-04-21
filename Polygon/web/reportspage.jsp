@@ -4,6 +4,7 @@
     Author     : Mathias
 --%>
 
+<%@page import="controller.Controller"%>
 <%@page import="Objects.CompleteReport"%>
 <%@page import="controller.Facade"%>
 <%@page import="Mappers.ReportMapper"%>
@@ -108,25 +109,25 @@
     switch (accessLevel)
     {
         case 1:
-            Facade.getInstance().getUserReports(customerID);
+            Controller.getInstance().getUserReports(customerID);
 
-            if (Facade.getInstance().um.userReports.size() != 0)
+            if (Controller.getInstance().um.userReports.size() != 0)
             {
-                for (int i = 0; i < Facade.getInstance().um.userReports.size(); i++)
+                for (int i = 0; i < Controller.getInstance().um.userReports.size(); i++)
                 {
 
 %> 
 <tr>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getReportID()%> </td>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getBuildingID()%> </td>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getBuildingName()%> </td>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getSizeOfBuilding()%> </td>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getDate()%> </td>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getTechnicianName()%> </td>
-    <td> <%= Facade.getInstance().um.userReports.get(i).getConditionLevel()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getReportID()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getBuildingID()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getBuildingName()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getSizeOfBuilding()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getDate()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getTechnicianName()%> </td>
+    <td> <%= Controller.getInstance().um.userReports.get(i).getConditionLevel()%> </td>
     <td> <form action="ReportView.jsp" method="GET">
-            <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" >
-            <input type="submit" name="viewReport<%= Facade.getInstance().um.userReports.get(i).getReportID()%>" value="View report <%= Facade.getInstance().um.userReports.get(i).getReportID()%>">
+            <input type="hidden" name="hiddenID" value="<%= Controller.getInstance().um.userReports.get(i).getReportID()%>" >
+            <input type="submit" name="viewReport<%= Controller.getInstance().um.userReports.get(i).getReportID()%>" value="View report <%= Controller.getInstance().um.userReports.get(i).getReportID()%>">
         </form></td>
 </tr>
 
@@ -138,29 +139,29 @@
 
     case 2:
         //adminlogin: 
-        Facade.getInstance().getReports();
+        Controller.getInstance().getReports();
 
-        if (Facade.getInstance().rm.reports.size() != 0)
+        if (Controller.getInstance().rm.reports.size() != 0)
         {
-            for (int i = 0; i < Facade.getInstance().rm.reports.size(); i++)
+            for (int i = 0; i < Controller.getInstance().rm.reports.size(); i++)
             {
 %> 
 
 <tr>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getReportID()%> </td>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingID()%> </td>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getBuildingName()%> </td>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getSizeOfBuilding()%> </td>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getDate()%> </td>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getTechnicianName()%> </td>
-    <td> <%= Facade.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getReportID()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getBuildingID()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getBuildingName()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getSizeOfBuilding()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getDate()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getTechnicianName()%> </td>
+    <td> <%= Controller.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
     <td> <form action="ReportView.jsp" method="GET">
-            <input type="hidden" name="hiddenID" value="<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" >
-            <input type="submit" name="viewReport<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" value="View report <%= Facade.getInstance().rm.reports.get(i).getReportID()%>">
+            <input type="hidden" name="hiddenID" value="<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" >
+            <input type="submit" name="viewReport<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" value="View report <%= Controller.getInstance().rm.reports.get(i).getReportID()%>">
         </form></td>
     <td> <form action="dReportServlet" method="GET">
-            <input type="hidden" name="DeleteReport" value="<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" >
-            <input type="submit" name="DelReport<%= Facade.getInstance().rm.reports.get(i).getReportID()%>" value="Delete report <%= Facade.getInstance().rm.reports.get(i).getReportID()%>">
+            <input type="hidden" name="DeleteReport" value="<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" >
+            <input type="submit" name="DelReport<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" value="Delete report <%= Controller.getInstance().rm.reports.get(i).getReportID()%>">
         </form></td>
 </tr> 
 <% }

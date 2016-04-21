@@ -41,7 +41,7 @@ public class AdminLoginServlet extends HttpServlet
             String givenUsername = request.getParameter("username");
             String givenPassword = request.getParameter("password");
             
-            Administrator admin = Facade.getInstance().GetAdmin(givenUsername);
+            Administrator admin = Controller.getInstance().GetAdmin(givenUsername);
             
             if (admin != null && admin.getPassword().equalsIgnoreCase(givenPassword))
             {

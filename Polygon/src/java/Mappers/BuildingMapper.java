@@ -19,99 +19,90 @@ import java.util.ArrayList;
 public class BuildingMapper
 {
 
-    public ArrayList<Building> building = new ArrayList<>();
-    int BuildingID;
-    int CustomerID;
-    int Zipcodes;
-    String Address;
-    int ParcelNo;
-    int SizeOfBuilding;
-    String AdditionalInformation;
-    String conditionLevel;
+  public ArrayList<Building> building = new ArrayList<>();
+  int BuildingID;
+  int CustomerID;
+  int Zipcodes;
+  String Address;
+  int ParcelNo;
+  int SizeOfBuilding;
+  String AdditionalInformation;
+  String conditionLevel;
 
-    public ArrayList<Building> getBuildings()
+  public ArrayList<Building> getBuildings()
+  {
+
+    try
     {
+      Connector.getInstance().connect();
 
-        try
-        {
-            Connector.getInstance().connect();
+      String query = "SELECT * FROM Building";
+      building.clear();
+      ResultSet res = Connector.getInstance().stmt.executeQuery(query);
 
-            String query = "SELECT * FROM Building";
-            building.clear();
-            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+      while (res.next())
+      {
 
-            while (res.next())
-            {
+        BuildingID = Integer.parseInt(res.getString(1));
+        CustomerID = Integer.parseInt(res.getString(2));
+        Zipcodes = Integer.parseInt(res.getString(3));
+        Address = res.getString(4);
+        ParcelNo = Integer.parseInt(res.getString(5));
+        SizeOfBuilding = Integer.parseInt(res.getString(6));
+        AdditionalInformation = res.getString(7);
 
-                BuildingID = Integer.parseInt(res.getString(1));
-                CustomerID = Integer.parseInt(res.getString(2));
-                Zipcodes = Integer.parseInt(res.getString(3));
-                Address = res.getString(4);
-                ParcelNo = Integer.parseInt(res.getString(5));
-                SizeOfBuilding = Integer.parseInt(res.getString(6));
-                AdditionalInformation = res.getString(7);
+        building.add(new Building(BuildingID, CustomerID, Zipcodes, Address, ParcelNo, SizeOfBuilding, AdditionalInformation));
+      }
 
-                building.add(new Building(BuildingID, CustomerID, Zipcodes, Address, ParcelNo, SizeOfBuilding, AdditionalInformation));
-            }
-
-        } catch (SQLException ex)
-        {
-            ex.printStackTrace();
-        }
-
-        return building;
+    } catch (SQLException ex)
+    {
+      ex.printStackTrace();
     }
 
-    public void addBuilding(int CID, int Zipcode, String Address, int PC, int SOB, String AI)
+    return building;
+  }
+
+  public void addBuilding(int CID, int Zipcode, String Address, int PC, int SOB, String AI) throws SQLException
+  {
+
+    Connector.getInstance().connect();
+
+    String query = "INSERT INTO polygondatabase.building(CustomerID, Zipcode, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + CID + "', '" + Zipcode + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "');";
+
+    Connector.getInstance().stmt.executeUpdate(query);
+  }
+
+  public ArrayList<Building> sortAfterCondition()
+  {
+
+    try
     {
-        try
-        {
-            Connector.getInstance().connect();
+      Connector.getInstance().connect();
+      String query = "SELECT BuildingID, CustomerID, Zipcode, Address, ParcelNo, SizeOfBuilding, AdditionalInformation, \n"
+              + "(SELECT ConditionLevel FROM REPORT\n"
+              + "WHERE DateWritten = (select max(DateWritten) FROM REPORT WHERE buildingid = b.BuildingID) \n"
+              + "AND BuildingID = b.BuildingID) AS ConditionLevel FROM Building b order by ConditionLevel DESC;";
 
-            String query = "INSERT INTO polygondatabase.building(CustomerID, Zipcode, Address, ParcelNo, SizeOfBuilding, AdditionalInformation) VALUES ('" + CID + "', '" + Zipcode + "', '" + Address + "', '" + PC + "', '" + SOB + "', '" + AI + "');";
+      ResultSet res = Connector.getInstance().stmt.executeQuery(query);
+      building.clear();
+      while (res.next())
+      {
 
-            Connector.getInstance().stmt.executeUpdate(query);
+        BuildingID = Integer.parseInt(res.getString(1));
+        CustomerID = Integer.parseInt(res.getString(2));
+        Zipcodes = Integer.parseInt(res.getString(3));
+        Address = res.getString(4);
+        ParcelNo = Integer.parseInt(res.getString(5));
+        SizeOfBuilding = Integer.parseInt(res.getString(6));
+        AdditionalInformation = res.getString(7);
+        conditionLevel = res.getString(8);
 
-        } catch (SQLException ex)
-        {
-            ex.printStackTrace();
-       
-        }
-    }
-
-    public ArrayList<Building> sortAfterCondition()
+        building.add(new Building(BuildingID, CustomerID, Zipcodes, Address, ParcelNo, SizeOfBuilding, AdditionalInformation, conditionLevel));
+      }
+    } catch (SQLException ex)
     {
-
-        try
-        {
-            Connector.getInstance().connect();
-            String query = "SELECT BuildingID, CustomerID, Zipcode, Address, ParcelNo, SizeOfBuilding, AdditionalInformation, \n"
-                    + "(SELECT ConditionLevel FROM REPORT\n"
-                    + "WHERE DateWritten = (select max(DateWritten) FROM REPORT WHERE buildingid = b.BuildingID) \n"
-                    + "AND BuildingID = b.BuildingID) AS ConditionLevel FROM Building b order by ConditionLevel DESC;";
-
-            ResultSet res = Connector.getInstance().stmt.executeQuery(query);
-            building.clear();
-            while (res.next())
-            {
-
-                BuildingID = Integer.parseInt(res.getString(1));
-                CustomerID = Integer.parseInt(res.getString(2));
-                Zipcodes = Integer.parseInt(res.getString(3));
-                Address = res.getString(4);
-                ParcelNo = Integer.parseInt(res.getString(5));
-                SizeOfBuilding = Integer.parseInt(res.getString(6));
-                AdditionalInformation = res.getString(7);
-                conditionLevel = res.getString(8);
-                
-                
-                
-                building.add(new Building(BuildingID, CustomerID, Zipcodes, Address, ParcelNo, SizeOfBuilding, AdditionalInformation, conditionLevel));
-            }
-        } catch (SQLException ex)
-        {
-            ex.printStackTrace();
-        }
-        return building;
+      ex.printStackTrace();
     }
+    return building;
+  }
 }
