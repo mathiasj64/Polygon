@@ -60,6 +60,8 @@
             </tr>
         </table>
         <br>
+        <br>
+        
          <%
                     if (accessLevel > 1)
                     {
