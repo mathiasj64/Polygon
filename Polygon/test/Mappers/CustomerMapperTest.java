@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import controller.Controller;
 
 /**
  *
@@ -27,7 +28,7 @@ public class CustomerMapperTest
     
     @BeforeClass
     public static void setUpClass()
-    {
+    {           
     }
     
     @AfterClass
@@ -52,12 +53,9 @@ public class CustomerMapperTest
     public void testGetCustomers()
     {
         System.out.println("getCustomers");
-        CustomerMapper instance = new CustomerMapper();
-        ArrayList<Customer> expResult = null;
-        ArrayList<Customer> result = instance.getCustomers();
+        String expResult = "John Smith";
+        String result = Controller.getInstance().getCustomers().get(0).getCustomerName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -69,13 +67,14 @@ public class CustomerMapperTest
         System.out.println("addCustomer");
         String cName = "Frank";
         String cEmail = "Franksemail@gmail.com";
-        String pNum = "42042000";
+        String pNum = "13371337";
         String username = "Frank123";
         String password = "123";
-        CustomerMapper instance = new CustomerMapper();
-        instance.addCustomer(cName, cEmail, pNum, username, password);
+        
+        Controller.getInstance().addCustomer(cName, cEmail, pNum, username, password);
+        String Result = Controller.getInstance().getCustomers().get(4).getCustomerName();
         String expResult = "Frank";
-        String Result = instance.getCustomers().get(4).getCustomerName();
+        
         assertEquals(expResult, Result);
     }
 
@@ -86,17 +85,22 @@ public class CustomerMapperTest
     public void testEditCustomer()
     {
         System.out.println("editCustomer");
-        String cName = "Johnny Smithy";
-        String cEmail = "JohnSmith@gmail.com";
-        String pNum = "12345678";
-        String username = "Mibsen";
-        String password = "12345";
-        int CID = 1;
-        CustomerMapper instance = new CustomerMapper();
-        instance.editCustomer(cName, cEmail, pNum, username, password, CID);
-        String PreviousName = "Johnny Smithy";
-        String ChangedName = instance.getCustomers().get(1).getCustomerName();
-        assertTrue(!PreviousName.equals(ChangedName));
+        String cName = "Harry Potter";
+        String cEmail = "Pottersmail@yahoo.com";
+        String pNum = "123458765";
+        String username = "Philip";
+        String password = "11111";
+        int CID = 3;
+        
+        String PreviousName = Controller.getInstance().cm.getCustomers().get(2).getCustomerName();
+        String PreviousEmail = Controller.getInstance().cm.getCustomers().get(2).getCustomerName();
+        
+        Controller.getInstance().editCustomer(cName, cEmail, pNum, username, password, CID);
+        
+        String ChangedName = Controller.getInstance().getCustomers().get(2).getCustomerName();
+        String ChangedEmail = Controller.getInstance().getCustomers().get(2).getCustomerEmail();
+        
+        assertTrue(!PreviousName.equals(ChangedName) && (!PreviousEmail.equals(ChangedEmail)));
     }
 
     /**
@@ -106,13 +110,10 @@ public class CustomerMapperTest
     public void testGetCustomer()
     {
         System.out.println("getCustomer");
-        int CustomerID = 0;
-        CustomerMapper instance = new CustomerMapper();
-        Customer expResult = null;
-        Customer result = instance.getCustomer(CustomerID);
+        int CustomerID = 1;
+        String expResult = Controller.getInstance().getCustomers().get(0).getCustomerName();
+        String result = Controller.getInstance().cm.getCustomer(CustomerID).getCustomerName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
