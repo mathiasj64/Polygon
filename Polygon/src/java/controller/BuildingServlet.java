@@ -50,7 +50,8 @@ public class BuildingServlet extends HttpServlet
                 Controller.getInstance().addBuilding(CID, zipcode, Address, PC, SOB, AI);
             } catch (DataException ex)
             {
-                out.println("Der opstod en fejl ved oprettelse af bygning. Bygningen er ikke blevet oprettet.");
+//                out.println("Der opstod en fejl ved oprettelse af bygning. Bygningen er ikke blevet oprettet.");
+                out.println(ex.toString());
             }
 
             ServletContext sc = getServletContext();
