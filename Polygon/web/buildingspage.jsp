@@ -65,7 +65,9 @@
         <br>
     </center>
     <!MENU END>
-
+    
+    <br>
+    
     <center>
         <form action="AddBuilding.jsp">
             <input type="submit" name ="addbuilding" value="Add a building" />
