@@ -9,14 +9,13 @@ import Model.Connector;
 import Objects.Building;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
  *
  * @author Mathias
  */
-public class BuildingMapper
+public class BuildingMapper implements BuildingMapperInterface
 {
 
   public ArrayList<Building> building = new ArrayList<>();
