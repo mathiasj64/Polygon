@@ -18,7 +18,9 @@
     </head>
 
     <body>
-
+        <%
+            Integer accessLevel = (Integer) session.getAttribute("accessLevel"); 
+        %>
         <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
         <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
 
@@ -36,11 +38,18 @@
                     </form>
                 </td>
 
+                <%
+                    if (accessLevel > 1)
+                    {
+                %>  
                 <td>
                     <form action="CustomerPage.jsp">
                         <input type="submit" value="Customers" name="customer" />
                     </form>        
                 </td>
+                <%
+                    }
+                %> 
 
                 <td>
                     <form action="reportspage.jsp">
@@ -50,19 +59,18 @@
 
             </tr>
         </table>
+
         <br>
     </center>
-
     <!MENU END>
 
     <%
-      CompleteReport report = Controller.getInstance().rm.getReport(Integer.parseInt(request.getParameter("hiddenID")));
-      ArrayList<Room> rooms = Controller.getInstance().rom.getRoomsFromReport(Integer.parseInt(request.getParameter("hiddenID")));
+        CompleteReport report = Controller.getInstance().rm.getReport(Integer.parseInt(request.getParameter("hiddenID")));
+        ArrayList<Room> rooms = Controller.getInstance().rom.getRoomsFromReport(Integer.parseInt(request.getParameter("hiddenID")));
     %>
 
 
-    <img src="Pictures\Polygon.png" alt="Polygon" style="width:157px;height:33px;" align="left">
-    <img src="Pictures\Sundebygninger.png" alt="Sunde Bygninger" style="width:156px;height:66px;" align="right">
+  
     <br>
     <br>
     <p align="left"> Rapport nr.:<%= report.getReportID()%></p> 
@@ -125,8 +133,8 @@
 
     <%
 
-      for (int i = 0; i < rooms.size(); i++)
-      {
+        for (int i = 0; i < rooms.size(); i++)
+        {
 
     %>
 
@@ -210,7 +218,7 @@
 
     <%
 
-      }
+        }
 
     %>
 
@@ -219,7 +227,7 @@
 
     <table border="2" cellpadding="5" align="center" style="width:100%">
         <%          for (int i = 0; i < rooms.size(); i++)
-          {
+            {
         %>
 
         <tr>
@@ -229,7 +237,7 @@
         </tr>
 
         <%
-          }
+            }
         %>
     </table>
 
