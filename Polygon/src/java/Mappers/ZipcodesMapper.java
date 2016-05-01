@@ -44,7 +44,6 @@ public class ZipcodesMapper
         } catch (SQLException | NullPointerException ex)
         {
             ex.printStackTrace();
-            System.out.println(ex);
         }
         return zipcodes;
     }
@@ -68,7 +67,6 @@ public class ZipcodesMapper
         } catch (SQLException | NullPointerException ex)
         {
             ex.printStackTrace();
-            System.out.println(ex);
         }
         return city;
     }

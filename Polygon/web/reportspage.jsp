@@ -163,11 +163,11 @@
     <td> <%= Controller.getInstance().rm.reports.get(i).getConditionLevel()%> </td>
     <td> <form action="ReportView.jsp" method="GET">
             <input type="hidden" name="hiddenID" value="<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" >
-            <input type="submit" name="viewReport<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" value="View report <%= Controller.getInstance().rm.reports.get(i).getReportID()%>">
+            <input type="submit" name="viewReport<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" value="View report">
         </form></td>
     <td> <form action="dReportServlet" method="GET">
             <input type="hidden" name="DeleteReport" value="<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" >
-            <input type="submit" name="DelReport<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" value="Delete report <%= Controller.getInstance().rm.reports.get(i).getReportID()%>">
+            <input type="submit" name="DelReport<%= Controller.getInstance().rm.reports.get(i).getReportID()%>" value="Delete report">
         </form></td>
 </tr> 
 <% }

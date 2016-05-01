@@ -68,7 +68,6 @@ public class ReportMapper
     } catch (SQLException | NullPointerException ex)
     {
       ex.printStackTrace();
-      System.out.println(ex);
     }
     return reports;
   }
@@ -104,7 +103,6 @@ public class ReportMapper
     } catch (SQLException | NullPointerException ex)
     {
       ex.printStackTrace();
-      System.out.println(ex);
     }
   }
 
@@ -154,7 +152,6 @@ public class ReportMapper
     } catch (SQLException | NullPointerException ex)
     {
       ex.printStackTrace();
-      System.out.println(ex);
     }
     return report;
   }

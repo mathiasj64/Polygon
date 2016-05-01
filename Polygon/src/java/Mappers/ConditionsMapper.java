@@ -46,7 +46,6 @@ public class ConditionsMapper
         } catch (SQLException | NullPointerException ex)
         {
             ex.printStackTrace();
-            System.out.println(ex);
         }
         return conditions;
     }

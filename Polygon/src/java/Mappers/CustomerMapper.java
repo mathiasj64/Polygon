@@ -116,7 +116,6 @@ public class CustomerMapper
         } catch (SQLException | NullPointerException ex)
         {
             ex.printStackTrace();
-            System.out.println(ex);
         }
         return customer;
     }
